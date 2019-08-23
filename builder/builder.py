@@ -24,3 +24,23 @@ class HtmlElement:
 
     def __str__(self):
         return self.__str(0)
+
+
+class HtmlBuilder:
+    def __init__(self, root_name):
+        self.root_name = root_name
+        self.__root = HtmlElement(root_name)
+
+    def add_child(self, child_name, child_text):
+        self.__root.elements.append(
+            HtmlElement(child_name, child_text)
+        )
+        return self
+
+    def __str__(self):
+        return str(self.__root)
+
+
+builder = HtmlBuilder('ul')
+builder.add_child('li', 'hello').add_child('li', 'world')
+print(builder)

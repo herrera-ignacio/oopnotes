@@ -80,7 +80,7 @@ Based on this idea, Robert C. Martin’s definition of the Dependency Inversion 
 2. Abstractions should not depend on details. Details should depend on abstractions.
 
 The design principle does not just change the direction of the dependency, as you might have expected when you read its name for the first time. It splits the dependency between the high-level and low-level modules by introducing an abstraction between them. So in the end, you get two dependencies:
-# Gamma Categorization
+# Design Patterns: Gamma Categorization
 Design patterns are typically split into three categories. This is called _Gamma Categorization_ after Erich Gamma,
 one of GoF authors. 
 
@@ -99,3 +99,23 @@ one of GoF authors.
  #### Behavioral patterns
 
 * They're all different, no central theme
+# Design Patterns: Creational
+* Builder
+
+ # Builder
+
+The builder pattern allows for the step-by-step creation of complex objects using the correct sequence of actions. The construction is controlled by a director object that only needs to know the type of object it is to create.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Builder.aspx)
+
+ #### Motivation
+
+Having an object with 10 initializer arguments is not productive. Instead, opt for piecewise construction.
+Builder provides an API for constructing an object step-by-step.
+
+ #### Summary
+
+* A builder is a separate component for building an object
+* Can either give builder an initializer or return it via a static function
+* To make builder fluent, return `self`
+* Different facets of an object can be built with different builders working in tandem via a base class

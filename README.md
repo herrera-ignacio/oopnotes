@@ -103,6 +103,7 @@ one of GoF authors.
 * Builder
 * Factory
 * Prototype
+* Singleton
 
 ---
 
@@ -181,3 +182,95 @@ Constructor calls may be expensive
 * We provide everyone with the same instance
 
 Want to prevent anyone creating additional coppies
+# Design Patterns: Structural
+* Adapter
+* Bridge
+* Composite
+* Decorator
+* Facade
+
+---
+
+ # Adapter
+
+The adapter pattern is used to provide a link between two otherwise incompatible types by wrapping the "adaptee" with a class that supports the interface required by the client.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Adapter.aspx)
+
+
+ # Bridge
+
+The bridge pattern is used to separate the abstract elements of a class from the implementation details, providing the means to replace the implementation details without modifying the abstraction.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Bridge.aspx)
+
+ # Composite
+
+ The composite pattern is used to create hierarchical, recursive tree structures of related objects where any element of the structure may be accessed and utilised in a standard manner.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Composite.aspx)
+
+ # Decorator
+
+The decorator pattern is used to extend or alter the functionality of objects at run-time by wrapping them in an object of a decorator class. This provides a flexible alternative to using inheritance to modify behaviour.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Decorator.aspx)
+
+ #### Motivation
+
+* Want to augment an object with additional functionality
+* Do not want to rewrite or alter existing code
+* Want to keep new functionality separate
+* Need to be able to interact with existing structures
+* Two options
+  * Inherit from required object (if possible)
+  * Build a Decorator, which simply references the decorated object(s)
+
+ # Facade
+
+The facade pattern is used to define a simplified interface to a more complex subsystem.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Facade.aspx)
+
+ #### Motivation
+
+* Balancing complexity and presentation/usability
+* Typical home, same as software!
+  * Many subsystems (electrical, sanitation)
+  * Complex internal structure (e.g., floor layers)
+  * End user is not exposed to internals
+
+ # Flyweight
+
+The flyweight pattern is used to reduce the memory and resource usage for complex models containing many hundreds, thousands or hundreds of thousands of similar objects.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Flyweight.aspx)
+
+ #### Motivation
+
+* Avoid redundancy when storing data
+* E.g., MMORPG
+  * Plenty of users with identical first/last names
+  * No sense in storing same names over and over again
+  * Store a list of names and references to them
+* E.g., bold or italic text formatting
+  * Don't want each character to have a formatting character
+  * Operate on ranges (e.g., line number, start/end positions)
+
+ # Proxy
+
+The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object. The proxy provides the same public interface as the underlying subject class, adding a level of indirection by accepting requests from a client object and passing these to the real subject object as necessary.
+Basically, it's a class that functions as an interface to a particular resource that may be remote, expensive to construct or may require logging or some other added functionality.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Proxy.aspx)
+
+ #### Motivation
+
+* You are calling `foo.Bar()`
+* This assumes that `foo` is in the same process as `Bar()`
+* What if, later on, you want to put all `Foo`-related operations into a separate process
+  * Can you avoid changing your code?
+* Proxy to the rescue!
+  * Same interface, entirely different behavior
+* This is called __communication proxy__
+  * Other types: _logging, virtual, guarding, ..._

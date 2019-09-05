@@ -100,8 +100,12 @@ one of GoF authors.
 
 * They're all different, no central theme
 # Design Patterns: Creational
+>  Creational patterns provide ways to instantiate single objects or groups of related objects
+
 * Builder
 * Factory
+    * Abstract
+    * Method
 * Prototype
 * Singleton
 
@@ -183,6 +187,8 @@ Constructor calls may be expensive
 
 Want to prevent anyone creating additional coppies
 # Design Patterns: Structural
+> Structural patterns provide a manner to define relationships between classes or objects.
+
 * Adapter
 * Bridge
 * Composite
@@ -274,3 +280,19 @@ Basically, it's a class that functions as an interface to a particular resource 
   * Same interface, entirely different behavior
 * This is called __communication proxy__
   * Other types: _logging, virtual, guarding, ..._
+# Design Patterns: Behavioural
+> Behavioural patterns define manners of communication between classes and objects.
+
+* Chain of Responsability
+
+---
+
+ # Chain of Responsability
+
+The chain of responsibility pattern is used to process varied requests, each of which may be dealt with by a different handler.
+
+[--> Reference <--](http://www.blackwasp.co.uk/ChainOfResponsability.aspx)
+
+ #### Motivation
+
+A chain of components who all get the chance to process a command or a query, optionally having a default processing implementation and an ability to terminate the process chain.

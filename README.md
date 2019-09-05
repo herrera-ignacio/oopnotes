@@ -284,6 +284,8 @@ Basically, it's a class that functions as an interface to a particular resource 
 > Behavioural patterns define manners of communication between classes and objects.
 
 * Chain of Responsability
+* Command
+* Interpreter
 
 ---
 
@@ -292,7 +294,41 @@ Basically, it's a class that functions as an interface to a particular resource 
 The chain of responsibility pattern is used to process varied requests, each of which may be dealt with by a different handler.
 
 [--> Reference <--](http://www.blackwasp.co.uk/ChainOfResponsability.aspx)
-
+ 
  #### Motivation
 
 A chain of components who all get the chance to process a command or a query, optionally having a default processing implementation and an ability to terminate the process chain.
+
+---
+
+ # Command
+
+The command pattern is used to express a request, including the call to be made and all of its required parameters, in a command object. The command may then be executed immediately or held for later use.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Command.aspx)
+
+ #### Motivation
+
+* Ordinary statements are perishable
+    * Cannot undo member assignment
+    * Cannot directly serialize a sequence of actions (calls)
+* Want an object that represents an operation
+    * `person` should change its `age` to value x
+    * `car` should do `explode()`
+* Uses GUI commands, multi-level undo/redo, macro recording, more...
+
+---
+
+ # Interpreter
+
+The interpreter pattern is used to define the grammar for instructions that form part of a language or notation, whilst allowing the grammar to be easily extended.
+
+Does so by turning into separate lexical tokens (_lexing_) and then interpreting sequences of said tokens (_parsing_).
+
+[--> Reference <--](http://www.blackwasp.co.uk/Interpreter.aspx)
+ 
+ #### Motivation
+
+* Textual input needs to be processed
+* Programming languages compilers, interpretes, IDES, HTML and XML, Regexp...
+* Turning strings into OOP based structures in a complicated process

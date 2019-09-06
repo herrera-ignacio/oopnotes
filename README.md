@@ -396,3 +396,21 @@ The memento pattern is used to capture the current state of an object and store 
 * There are different ways of navigating those changes
 * One way is to record every change (__Command__) and teach a command to undo intself
 * Another is to simple save snapshots of the system (__Memento__).
+
+---
+
+ # Observer
+
+The observer pattern is used to allow an object to publish changes to its state. Other objects subscribe to be immediately notified of any changes.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Observer.aspx)
+ 
+ #### Motivation
+
+* We need to be informed when certain things happen
+    * Object's property changes
+    * Object does something
+    * Some external event occurs
+* We want to listen to events and be notified when they occur
+    * Notifications should include useful data
+* Want to unsubscribe from events

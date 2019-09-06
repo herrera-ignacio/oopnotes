@@ -447,3 +447,39 @@ The strategy pattern is used to create an interchangeable family of algorithms f
     * Tea-specific things
 * High-level algorithm can then be reused for making coffe or hot chocolate
     * Supported by beverage-specific strategies
+
+---
+
+ # Template Method
+
+The template method pattern is used to define the basic steps of an algorithm and allow the implementation of the individual steps to be changed.
+
+[--> Reference <--](http://www.blackwasp.co.uk/TemplateMethod.aspx)
+ 
+ #### Motivation
+
+* Algorithms can be decomposed into common parts + specifics
+* __Strategy__ pattern does this through _composition_
+    * High-level algorithm uses an interface
+    * Concrete implementations implement the interface
+* __Template Method__ does the same thing through _inheritance_
+    * Overall algorithm makes use of empty ('abstract') members
+    * Inheritors override those members
+    * Parent template method invoked
+
+---
+
+ # Visitor
+
+The visitor pattern is used to separate a relatively complex set of structured data classes from the functionality that may be performed upon the data that they hold.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Visitor.aspx)
+ 
+ #### Motivation
+
+* Need to define a new operation on an entire class hierarchy
+    * E.g., make a document model printable to HTML/Markdown
+* Do not want to keep modifying every class in the hierarchy
+* Need access to the non-common aspects of classes in the hierarchy
+* Create an external component to handle rendering
+    * But avoid explicit type checks

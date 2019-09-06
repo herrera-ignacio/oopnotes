@@ -287,6 +287,13 @@ Basically, it's a class that functions as an interface to a particular resource 
 * Command
 * Interpreter
 * Iterator
+* Mediator
+* Memento
+* Observer
+* State
+* Strategy
+* Template Method
+* Visitor
 
 ---
 
@@ -356,3 +363,20 @@ The iterator pattern is used to provide a standard interface for traversing a co
         * `value` being iterated
         * `done` flag indicating whether iteration is finished
     * An iterator object itself can also be made iterable
+
+---
+
+ # Mediator
+
+The mediator pattern is used to reduce coupling between classes that communicate with each other. Instead of classes communicating directly, and thus requiring knowledge of their implementation, the classes send messages via a mediator object.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Mediator.aspx)
+ 
+ #### Motivation
+
+* Components may go in and out of a system at any time
+    * Chat room participants
+    * Players in an MMORPG
+* It makes no sense for them to have direct references to one another
+    * Those references may go dead
+* Solution: have them all refer to some central component that facilitates communication

@@ -380,3 +380,19 @@ The mediator pattern is used to reduce coupling between classes that communicate
 * It makes no sense for them to have direct references to one another
     * Those references may go dead
 * Solution: have them all refer to some central component that facilitates communication
+
+---
+
+ # Memento
+
+The memento pattern is used to capture the current state of an object and store it in such a manner that it can be restored at a later time without breaking the rules of encapsulation.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Memento.aspx)
+ 
+ #### Motivation
+
+* An object or system goes through changes
+    * e.g., a bank account gets deposits and withdrawals
+* There are different ways of navigating those changes
+* One way is to record every change (__Command__) and teach a command to undo intself
+* Another is to simple save snapshots of the system (__Memento__).

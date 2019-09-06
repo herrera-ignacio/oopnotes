@@ -430,3 +430,20 @@ Consider an ordinary telephone, what you do with it depends on the state of the 
     * Phone must be off the hook to talk/make a called
     * If you try calling someone, and it's busy, you put the handset down
 Changes in state can be explicit or in response to event (__Observer__).
+
+---
+
+ # Strategy
+
+The strategy pattern is used to create an interchangeable family of algorithms from which the required process is chosen at run-time.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Strategy.aspx)
+ 
+ #### Motivation
+
+* Many algorithms can be decomposed into higher and lower level parts
+* Making tea can be decomposed into
+    * Process of making a hot beverage
+    * Tea-specific things
+* High-level algorithm can then be reused for making coffe or hot chocolate
+    * Supported by beverage-specific strategies

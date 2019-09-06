@@ -286,6 +286,7 @@ Basically, it's a class that functions as an interface to a particular resource 
 * Chain of Responsability
 * Command
 * Interpreter
+* Iterator
 
 ---
 
@@ -332,3 +333,26 @@ Does so by turning into separate lexical tokens (_lexing_) and then interpreting
 * Textual input needs to be processed
 * Programming languages compilers, interpretes, IDES, HTML and XML, Regexp...
 * Turning strings into OOP based structures in a complicated process
+
+---
+
+ # Iterator
+
+The iterator pattern is used to provide a standard interface for traversing a collection of items in an aggregate object without the need to understand its underlying structure.
+
+[--> Reference <--](http://www.blackwasp.co.uk/Iterator.aspx)
+ 
+ #### Motivation
+
+* Traversal is a core functionality of various data structures
+* An _iterator_ is a class that facilitates the traversal
+    * Keeps a reference to the current element
+    * Knows how to move to a different element
+    * Knows when it's done and there are no elements to move to
+* JavaScript supports this through:
+    * `Symbol.iterator` that returns
+    * an interator object with a function called `next` that
+    * returns an object containing:
+        * `value` being iterated
+        * `done` flag indicating whether iteration is finished
+    * An iterator object itself can also be made iterable

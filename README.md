@@ -414,3 +414,19 @@ The observer pattern is used to allow an object to publish changes to its state.
 * We want to listen to events and be notified when they occur
     * Notifications should include useful data
 * Want to unsubscribe from events
+
+---
+
+ # State
+
+The state pattern is used to alter the behaviour of an object as its internal state changes. The pattern allows the class for an object to apparently change at run-time.
+
+[--> Reference <--](http://www.blackwasp.co.uk/State.aspx)
+ 
+ #### Motivation
+
+Consider an ordinary telephone, what you do with it depends on the state of the phone
+    * If it's ringing or you want to make a call, you can pick it up
+    * Phone must be off the hook to talk/make a called
+    * If you try calling someone, and it's busy, you put the handset down
+Changes in state can be explicit or in response to event (__Observer__).

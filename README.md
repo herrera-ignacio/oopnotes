@@ -13,9 +13,7 @@ If you are indeed, a newcomer with zero or begginner level experience of object-
 please try following this notebook sequentially, step by step in the order I propose, as topics will be built on previous ones.
 In any other case, you might want to skip some of the topics or come back to a particular one to refresh something, for that you may use the following
 Index of Contents.
-# Design Principles
- ## SOLID
-
+# Design Principles: SOLID
 5 design principles introduced by Robert C. Martin frequently referenced.
 
 > 'Agile Software Development: Priciples, Patterns, and Practices' by Robert C. Martin
@@ -80,6 +78,20 @@ Based on this idea, Robert C. Martin’s definition of the Dependency Inversion 
 2. Abstractions should not depend on details. Details should depend on abstractions.
 
 The design principle does not just change the direction of the dependency, as you might have expected when you read its name for the first time. It splits the dependency between the high-level and low-level modules by introducing an abstraction between them. So in the end, you get two dependencies:
+# Design Patterns
+Design Patterns are reusable programming solutions that have been used in various real-world contexts, and have proved to produce expected results. They are shared among programmers and continue being improved over time.
+
+This topic is popular thanks to the book title _Deisng Patterns: Elements of Reusable Object-Oriented Software_ by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides. (Gang of four or GOF)
+
+Quote from the Gang of Four book:
+
+> A design pattern systematically names, motivates, and explains a general design that addresses a recurring design problem in object-oriented systems. It describes the problem, the solution, when to apply the solution, and its consequences. It also gives implementation hints and examples. The solution is a general arrangement of objects and classes that solve the problem. The solution is customized and implemented to solve the problem in a particular context.
+
+---
+
+ #### Disclaimer
+
+Though examples of these design patterns may be provided for you, within this collection, in different programming languages, the main focus here will come from a Python language perspective.
 # Design Patterns: Gamma Categorization
 Design patterns are typically split into three categories. This is called _Gamma Categorization_ after Erich Gamma,
 one of GoF authors. 
@@ -109,6 +121,8 @@ one of GoF authors.
 * Prototype
 * Singleton
 
+Their goal es to provide better alternatives for situations where direct object creation, wich in Python happens within the `__init__()` function, is not convenient.
+
 ---
 
  # Builder
@@ -128,6 +142,14 @@ Builder provides an API for constructing an object step-by-step.
 * Can either give builder an initializer or return it via a static function
 * To make builder fluent, return `self`
 * Different facets of an object can be built with different builders working in tandem via a base class
+
+
+ #### Use cases
+
+When we known that an object must be created in multiple steps, and different representations of the same construction are required. These requirements exist in many applications such as page generator, document convertes, and user interface form creators.
+
+This may be a solution to the _telescopic constructor problem_ that occurs when we are forced to create a new constructor for supporting different ways of creating an object. We end up with many constructors and long parameter lists, which are hard to manage. Fortunaly, this problen doesn't exist in Python as we can used named parametrs, or argument list unpacking.
+
 
 ---
 
@@ -150,6 +172,16 @@ A good example of the use of the factory pattern is when creating a connection t
   * That may exist in a separate class (_Factory_)
   * Can create hierarchy of factories (_Abstract Factory_)
 
+ #### Use cases
+
+If you realize that you cannot track the objects created by your application because the code that creates them is in many diferent places instead of in a single method, you should consider using the factory method. The factory method centralized object creation and tracking your objects become much easier.
+
+The factory method is also useful when you want to decouple object creation from object usage. We are not coupled/bound to a specific class when creating an object, we just provide partial information about what we want by calling a function. This means that introducing changes to the function is easy and does not require changes to the code that uses it.
+
+A factory method can improe the performance and memory usage by creating new objects only if it is absolutely necessary.
+
+If we find out that our application requires many factory methods, whichi t makes sense to combine to create a family of objects, we end up with an abstract factory. Abstract factory is usually not very visible from a user's point of view, when the factory method  is being used, that it gives us the ability to modify the behaviour of our application dynamically (at runtime) by changing the active factory method. A classic example is the ability to change themes of an application for the user while the application is in use, without the need to terminate it and start it again.
+
 ---
 
  # Prototype
@@ -166,6 +198,14 @@ In general, when an object is cloned, the new object is either a shallow or deep
 * Existing (partially or fully constructed) design is a Prototype
 * We make a copy of the prototype and customize it (deep copy)
 * We make the cloning convenient (e.g., via a _Factory_)
+
+ #### Use cases
+
+Prototype pattern is usefull when one needs to create objects based on an existing object by using a __cloning__ technique. The idea is to use a copy of that object's complete structure to produce the new object. We will see that this is almost natural in Python because we have a __copy feature__ that helps greatly in using this technique.
+
+Useful when we have an existing object that needs to stay untouched, and we want to create an exact copy of it, allowing changes in some parts of the copy.
+
+There is also the frequent need for duplicating an object that is populated from a database and has references to other database-based objects. It is costly to clone such a complex object (multiple queries to a database), so a prototype is a convenient way to solve the problem.
 
 ---
 
@@ -186,6 +226,15 @@ Constructor calls may be expensive
 * We provide everyone with the same instance
 
 Want to prevent anyone creating additional coppies
+
+ #### Use cases
+
+Useful when we need to create one and only one object, for example to store and mantain a global state for our program.
+
+Other possible cases are:
+
+* Controlling concurrent access to a shared resource. For example, the class managing the connection to a database.
+* A service or resource that is transveral in the sense that it can be accessed from different parts of the application or by different users and do its work. For example, the class at the core of the logging system or utility.
 # Design Patterns: Structural
 > Structural patterns provide a manner to define relationships between classes or objects.
 

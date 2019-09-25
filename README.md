@@ -244,6 +244,8 @@ Other possible cases are:
 * Decorator
 * Facade
 
+A structural design pattern proposes a way of __composing objects for creating new functionality__.
+
 ---
 
  # Adapter
@@ -252,12 +254,27 @@ The adapter pattern is used to provide a link between two otherwise incompatible
 
 [--> Reference <--](http://www.blackwasp.co.uk/Adapter.aspx)
 
+ #### Use cases
+
+Usually, one of the two incompatible interfaces is either foreign or old/legacy. If the interface is foreign, it means that we have no access to the source code. If it is old, it is usually impractical to refactor it.
+
+Using an adapter for making things work after they have been implemented is a good approach because it does not require access to the source code of the foreign interface. It is also often a pragmatic solution if we have to reuse some legacy code.
+
 
  # Bridge
 
-The bridge pattern is used to separate the abstract elements of a class from the implementation details, providing the means to replace the implementation details without modifying the abstraction.
+The bridge pattern is used to separate the abstract elements of a class from the implementation details, providing the means to replace the implementation details without modifying the abstraction (decouple an implementation from its abstraction).
 
 [--> Reference <--](http://www.blackwasp.co.uk/Bridge.aspx)
+
+ #### Use cases
+
+In the software realm, _device drivers_ are often cited as an example of the bridge pattern, when the developers of an OS defines the interface for device vendors to implement it.
+
+The bridge pattern is a good idea when you want to share an implementation among multiple objects. Basically, instea of implementing several specialized classes, defining all that is required within each class, you can define the following special components:
+
+* An abstraction that applies to all the classes
+* A separate interface for the different objects involved
 
  # Composite
 
@@ -280,6 +297,24 @@ The decorator pattern is used to extend or alter the functionality of objects at
 * Two options
   * Inherit from required object (if possible)
   * Build a Decorator, which simply references the decorated object(s)
+
+ #### Use cases 
+
+A Python decorator is a __callabe__ that gets a function object as input, and returns another function object. It is a commonly used technique for extending the behavior of a function, method, or class.
+
+The decorator pattern shines when used for implementing __cross-cutting concerns__:
+
+* Data validation
+* Caching
+* Logging
+* Monitoring
+* Debugging
+* Business rules
+* Encryption
+
+In general, all parts of an application that are generic and can be applied to many other parts of it are considered to be cross-utting concerns.
+
+Another popular example of using the decorator pattern is __graphical user interface__ (GUI) toolkits, as we want to add features such as borders, shadows, colors, and scrolling, to individual components/widgets.
 
  # Facade
 

@@ -318,7 +318,7 @@ Another popular example of using the decorator pattern is __graphical user inter
 
  # Facade
 
-The facade pattern is used to define a simplified interface to a more complex subsystem.
+The facade pattern is used to define a simplified interface to a more complex subsystem. It helps us to hide the internal complexity of our systems and expose only what is necessary to the client through a simplified interface. In essence, is an abstraction layer implemented over an exissting complex system.
 
 [--> Reference <--](http://www.blackwasp.co.uk/Facade.aspx)
 
@@ -329,6 +329,11 @@ The facade pattern is used to define a simplified interface to a more complex su
   * Many subsystems (electrical, sanitation)
   * Complex internal structure (e.g., floor layers)
   * End user is not exposed to internals
+
+ #### Use Cases
+* Simple entrypoint to a complex syste
+* Kernels
+* Bank systems
 
  # Flyweight
 

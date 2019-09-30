@@ -243,6 +243,7 @@ Other possible cases are:
 * Composite
 * Decorator
 * Facade
+* Proxy
 
 A structural design pattern proposes a way of __composing objects for creating new functionality__.
 
@@ -371,6 +372,13 @@ Basically, it's a class that functions as an interface to a particular resource 
 
 [--> Reference <--](http://www.blackwasp.co.uk/Proxy.aspx)
 
+ ### Four well-known types
+
+1. __Remote proxy__, which acts as the local representation of an object that really exists in a different address space
+2. __Virtual proxy__, which uses a lazy intialization to defer the creation of a computationally expensive object until the moment it is actually needed.
+3. __Protection/protective proxy__, which controls access to a sensitive object.
+4. __Smart (reference) proxy__, which performs extra actions when an object is accessed. 
+
  #### Motivation
 
 * You are calling `foo.Bar()`
@@ -381,6 +389,14 @@ Basically, it's a class that functions as an interface to a particular resource 
   * Same interface, entirely different behavior
 * This is called __communication proxy__
   * Other types: _logging, virtual, guarding, ..._
+
+ #### Use Cases
+
+* Used when creating a distributed system using either a private network or the cloud. In a distributed system, some objects exist in the local memory, and some objects exist in the memoy of remote computers. If we don't want the client code to be aware of such differences, we can create a remote proxy that hides/encapsulates them, making the distributed nature of the application transparent.
+* Used when our application is suffering from performance issues due to the early creation of expensive objects. Introducing lazy intialization using a virtual proxy to create objects only a t the moment they are actually required.
+* Used to check if a user has sufficient privileges to access a piece of information. A protection/protective proxy can handle all security related actions.
+* Used when our application uses multiple threads and we want to move the burden of thread safety from the client code to the application. in this case, we can create a smart proxt to hide the thread-safety complexities from the client.
+* An __object-relational mapping__ (ORM) API is also an example of how to use a remote proy. Provide OOP-like access to a relational database. An ORM acts as a proxy to a relational database that can be actually located anywhere, either at a local or remote server.
 # Design Patterns: Behavioural
 > Behavioural patterns define manners of communication between classes and objects.
 

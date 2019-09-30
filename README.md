@@ -337,7 +337,7 @@ The facade pattern is used to define a simplified interface to a more complex su
 
  # Flyweight
 
-The flyweight pattern is used to reduce the memory and resource usage for complex models containing many hundreds, thousands or hundreds of thousands of similar objects.
+The flyweight pattern is used to reduce the memory and resource usage for complex models containing many hundreds, thousands or hundreds of thousands of similar objects. Flyweight is all about improving performance and memory usage.
 
 [--> Reference <--](http://www.blackwasp.co.uk/Flyweight.aspx)
 
@@ -351,6 +351,18 @@ The flyweight pattern is used to reduce the memory and resource usage for comple
 * E.g., bold or italic text formatting
   * Don't want each character to have a formatting character
   * Operate on ranges (e.g., line number, start/end positions)
+
+ #### Use cases
+
+* Al embedded systems (phones, tablets, games consoles, microcontrollers, etc)
+* Performance-critical applications (games, 3-D graphics processing, real-time systems, etc)
+
+The GoF book lists the following requirements that need to be satisfied to effectively use the flyweight pattern:
+
+* The application needs to use a large number of objects
+* There are so many objects that it's too expensive to store/render them
+* Once the mutable state is removed (because if it is required, it should be passed explicitly to flyweight by the client code), many groups of distinct objects can be replaced by relatively few shared objects
+* Object identity is not important for the application
 
  # Proxy
 

@@ -420,9 +420,23 @@ The chain of responsibility pattern is used to process varied requests, each of 
 
 [--> Reference <--](http://www.blackwasp.co.uk/ChainOfResponsability.aspx)
  
+Useful when we want to give a chance to multiple objects to satisf a single request, or when we don't know in advance which object should process a specific request.
+
+1. We start by sending a request to the first object in the chain
+2. The object decides wether it should satisfy the request or not
+3. The object forwards the request to the next object
+4. This procedure is repeated until we reach the end of the chain
+
+
  #### Motivation
 
 A chain of components who all get the chance to process a command or a query, optionally having a default processing implementation and an ability to terminate the process chain.
+
+ #### Use Cases
+
+* When we don't know which objet should satisfy a request in advance
+* We know that more than one object might need to process a single request
+* Event-based programming, a single event such as a click, can be caught by more than one listener.
 
 ---
 

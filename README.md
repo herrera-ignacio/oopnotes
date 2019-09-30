@@ -584,3 +584,66 @@ The visitor pattern is used to separate a relatively complex set of structured d
 * Need access to the non-common aspects of classes in the hierarchy
 * Create an external component to handle rendering
     * But avoid explicit type checks
+# Model-View-Controller Pattern
+One of the design principles related to software engineering is the __separation of concerns (SoC)__ principle. The idea behind the SoC principle is to split an application into distinct sections, where each section addresses a separate concern. Examples of susch concerns are the layers used in a layered design (data access layer, business logic layer, presentation layer, and so forth). Using the SoC principle simplifies the development and maintenance of software applications.
+
+The __MVC ppattern is the SoC principle applied to OOP__. The name of the pattern comes from the three main components used to split a software application, the model, the view and the controller.
+
+MVC is consired an __architectural pattern__ rather than a design pattern.
+
+ #### Model
+
+The core component. It represents knowledge. It contains and manages the __business logic, data, state, and rules of an application__.
+
+A Model is considered __smart__ because it does the following:
+* Contains all the validation/business rules/logic
+* Handles the state of the application
+* Has access to application data (database, cloud, etc)
+* Does not depende on the UI
+
+ #### View
+
+Visual representation of the model. Examples of views are a computer GUI, text output of a computer terminal, charts, and so forth.
+
+The view only displays the data, it doesn't handle it.
+
+A View is considered __dumb__ because it does the following:
+* Displays the database
+* Allows the user to interact with it
+* Does only minimal processing, usually provided by a template language
+* Does not store any data
+* Does not access the application data directly
+* Does not contain validation/business rules/logic
+
+ #### Controller
+
+The link/glue between the model and view. All communication between the model and the vie happens through a controller.
+
+A big benefit that MVC provides the ability to use more than one view (even at the same time) without modifying the model. To achieve __decoupling between model and its representation__, every view typically needs its own controller. If the model communicated directly with a specific view, we wouldn't be able to use multiple iews.
+
+A Controller is considered __thin__ because it does the following:
+* Updates the model when the user interacts with the view
+* Updates the view when the model changes
+* Processes the data before delivering it to the model/view if necesarry
+* Does not display the data
+* Does not access the application data directly
+* Does not contain validation/business rules/logic
+
+ ### Tipical usage flow
+
+1. User triggers a view by an action (click, type, touch, and so on)
+2. View informs the controller of the user's action
+3. Controller processes user input and interacts with the model
+4. Model performs all the necessary validation and state changes, and it informs the controller about what should be done
+5. Controller instructs the view to update and display appropiate output, following the instructions that are given by the model.
+
+ ### Use cases
+
+There are variations of MVC, like:
+* Model-View-Adapter (__MVA__)
+* Model-View-Presenter (__MVP__)
+
+Benefits it provides:
+* Separation between view and model allows graphic designers to focus on the UI part and programmers on development, without interfering with each other.
+* Because of the loose couplin between view and model, each part can be modified/extended witohut afecting the other
+* Maintaining each part is easier because the responsibilities are clear

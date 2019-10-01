@@ -4,7 +4,6 @@ verbose = True
 
 class RenameFile:
 
-
 	def __init__(self, src, dest):
 		self.src = src
 		self.dest = dest
@@ -20,7 +19,6 @@ class RenameFile:
 
 
 class CreateFile:
-
 
 	def __init__(self, pat, txt='hello world\n'):
 		self.path = path
@@ -39,7 +37,6 @@ class CreateFile:
 
 
 class ReadFile:
-
 
 	def __init__(self, path):
 		self.path = path

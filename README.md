@@ -551,6 +551,13 @@ The observer pattern is used to allow an object to publish changes to its state.
     * Notifications should include useful data
 * Want to unsubscribe from events
 
+ #### Use Cases
+
+* Inform/update one or more objects (_observers/subscribers_) about a cange that happened on a given object (_subject/publisher/observable_).
+* News feeds and notifications
+* Social networking
+* __Event-driven systems__
+
 ---
 
  # State

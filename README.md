@@ -565,6 +565,8 @@ The observer pattern is used to allow an object to publish changes to its state.
 The state pattern is used to alter the behaviour of an object as its internal state changes. The pattern allows the class for an object to apparently change at run-time.
 
 [--> Reference <--](http://www.blackwasp.co.uk/State.aspx)
+
+> The state design pattern allows for full encapsulation of an unlimited number of states on a context for easy maintenance and flexibility.
  
  #### Motivation
 
@@ -573,6 +575,14 @@ Consider an ordinary telephone, what you do with it depends on the state of the 
     * Phone must be off the hook to talk/make a called
     * If you try calling someone, and it's busy, you put the handset down
 Changes in state can be explicit or in response to event (__Observer__).
+
+ #### Use cases
+
+* All problems that can be solved using state machines
+* Process model for an operating/embedded systems
+* Programming language compiler implementaton
+* Lexical and syntatic analysis can use states to build abstract syntax trees
+* Event-driven systems (transitions from one state to another triggers an event/message)
 
 ---
 

@@ -446,15 +446,20 @@ The command pattern is used to express a request, including the call to be made 
 
 [--> Reference <--](http://www.blackwasp.co.uk/Command.aspx)
 
+Helps us encapsulate an operation (undo, redo, copy, paste, and so forth) as an object. This means we create a class that contains all the logic and methods required to implement the operation.
+
  #### Motivation
 
-* Ordinary statements are perishable
-    * Cannot undo member assignment
-    * Cannot directly serialize a sequence of actions (calls)
-* Want an object that represents an operation
-    * `person` should change its `age` to value x
-    * `car` should do `explode()`
-* Uses GUI commands, multi-level undo/redo, macro recording, more...
+* We don't have to execute a command directly. It can be executed at will.
+* The object that invokes the command is decoupled from the object that knows how to perform it. The invoker does not need to know any implementation details about the command.
+* If it makes sense, multiple commands can be grouped to allow the invoker to execute them in order.
+
+ #### Use cases
+
+* GUI buttons and menu items (PyQt as example)
+* Any operation
+* Transactional behavior and logging
+* Macros (sequence of actions that can be recorded and executed on demand)
 
 ---
 

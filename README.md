@@ -92,6 +92,10 @@ Quote from the Gang of Four book:
  #### Disclaimer
 
 Though examples of these design patterns may be provided for you, within this collection, in different programming languages, the main focus here will come from a Python language perspective.
+
+ #### Good resources
+
+* [Refactoring Guru: Design patterns diagrams and code examples!](https://refactoring.guru/design-patterns/iterator)
 # Design Patterns: Gamma Categorization
 Design patterns are typically split into three categories. This is called _Gamma Categorization_ after Erich Gamma,
 one of GoF authors. 

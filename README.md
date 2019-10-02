@@ -524,6 +524,12 @@ Efficient way to handle a container of objects and traverse to these members one
         * `done` flag indicating whether iteration is finished
     * An iterator object itself can also be made iterable
 
+ #### Use cases
+
+* Make it easy to navigate through a collection
+* Get the next object in the collection at any point
+* Stop when you are done traversing through the collection
+
 ---
 
  # Mediator
@@ -661,6 +667,12 @@ Focus on eliminating code redundancy. The idea is that we should be able to rede
     * Overall algorithm makes use of empty ('abstract') members
     * Inheritors override those members
     * Parent template method invoked
+
+ #### Use Cases
+
+* Keep invariant parts of the algorithms in a template and move the variant parts in action/hook methods
+* Pagination is a good example
+* Frameworks
 
 ---
 

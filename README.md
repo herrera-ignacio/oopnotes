@@ -753,3 +753,30 @@ Benefits it provides:
 * Separation between view and model allows graphic designers to focus on the UI part and programmers on development, without interfering with each other.
 * Because of the loose couplin between view and model, each part can be modified/extended witohut afecting the other
 * Maintaining each part is easier because the responsibilities are clear
+# Observer Pattern in Reactive Programming
+In simple terms, the concept of reactive programming is to __react to many events, streams of events__, while keeping our code clean.
+
+We will fous on a framework called [ReactiveX](http://reactivex.io/) which is defined as an API for _asynchronous programming with observable streams_. The core entity in ReactiveX is called an __Observale__.
+
+You can think of an Observable as a stream that can push or emit data to the Observer, and it can also emit events.
+
+Here are two quotes from the documentation available:
+
+> An Observable is the core type in ReactiveX. It serially pushes items, known as emissions, through a series of operators until it finally arrives at an Observer, where they are consumed.
+
+> Push-based (rather than pull-based) iteration opens up powerful new possibilities to express code and concurrency much more quickly. Because an Observable treats events as data and data as events, composing the two together becomes trivial
+
+ #### Use Cases
+
+* __Cllection Pipeline__
+
+> Collection pipelines are a programming pattern where you organize some computation as a sequence of operations which compose by taking a collection as output of one operation and feeding it into the next.
+
+We can use an Observable to do operations such as __map and reduce__ or __groupby__ on sequences of objects when processing data.
+
+Observables ca be created for diverse functions such as button events, requests, and RSS or Twitter Feeds.
+
+ #### Implementation
+
+We will approach a possible implementation, using `RxPY` in a Python environment.
+Please check the `reactiveObserver` folder.

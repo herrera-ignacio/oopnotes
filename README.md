@@ -623,6 +623,15 @@ The strategy pattern is used to create an interchangeable family of algorithms f
 * High-level algorithm can then be reused for making coffe or hot chocolate
     * Supported by beverage-specific strategies
 
+ #### Use Cases
+
+* Whenever we want to be able to apply different algorithms dynamically and transparently
+* Different resource filters
+    * Authentication
+    * Logging
+    * Data compression
+    * Encryption
+
 ---
 
  # Template Method

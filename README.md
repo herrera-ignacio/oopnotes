@@ -470,12 +470,30 @@ The interpreter pattern is used to define the grammar for instructions that form
 Does so by turning into separate lexical tokens (_lexing_) and then interpreting sequences of said tokens (_parsing_).
 
 [--> Reference <--](http://www.blackwasp.co.uk/Interpreter.aspx)
+
+Give the ability to nonbeginner users and domain experts to use a simple language, to get more productive in doing what they need to do with the application.
+
+We usually want to create a __domain-specific language (DSL)__. 
+
+Internal DSLs are built on top of a host programming language. Its advantages are that we don't have to worry about creating, compiling, and parsing grammar because these are already taken care of by the host language. The disadvantage is that we are constrained by the features of the host language.
  
+External DSLs do not depend on host languages. The creator of the DSL can decide all its aspects (grammar, syntax, and so forth), but they are also responsbile for creating a parser and compiler for it.
+
+The interpreter pattern is related only to internal DSLs.
+
+Interpretr does not address parsing at all. It assumes that we already have the parsed data in some convenient form. This can be an __abstract syntax tree (AST)__ or any other handy data structure.
+
  #### Motivation
 
 * Textual input needs to be processed
 * Programming languages compilers, interpretes, IDES, HTML and XML, Regexp...
 * Turning strings into OOP based structures in a complicated process
+
+ #### Use Cases
+
+* Offer a simple langauge to domain experts and advanced users
+* Offer right programming abstractions to make them productive
+* Offer a language that hides the peculiarities of the host language and offers a more human-redeable syntax
 
 ---
 
@@ -484,6 +502,8 @@ Does so by turning into separate lexical tokens (_lexing_) and then interpreting
 The iterator pattern is used to provide a standard interface for traversing a collection of items in an aggregate object without the need to understand its underlying structure.
 
 [--> Reference <--](http://www.blackwasp.co.uk/Iterator.aspx)
+
+Efficient way to handle a container of objects and traverse to these members one at a time.
  
  #### Motivation
 
@@ -524,6 +544,8 @@ The mediator pattern is used to reduce coupling between classes that communicate
 The memento pattern is used to capture the current state of an object and store it in such a manner that it can be restored at a later time without breaking the rules of encapsulation.
 
 [--> Reference <--](http://www.blackwasp.co.uk/Memento.aspx)
+
+Helps add support for Undo and/or History in an application.
  
  #### Motivation
 
@@ -608,6 +630,8 @@ The strategy pattern is used to create an interchangeable family of algorithms f
 The template method pattern is used to define the basic steps of an algorithm and allow the implementation of the individual steps to be changed.
 
 [--> Reference <--](http://www.blackwasp.co.uk/TemplateMethod.aspx)
+
+Focus on eliminating code redundancy. The idea is that we should be able to redefine certain parts of an algorithm without changing its structure.
  
  #### Motivation
 

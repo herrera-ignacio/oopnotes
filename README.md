@@ -555,6 +555,11 @@ Helps add support for Undo and/or History in an application.
 * One way is to record every change (__Command__) and teach a command to undo intself
 * Another is to simple save snapshots of the system (__Memento__).
 
+ #### Use Cases
+
+* Provide some sort of _undo_ and _redo_ capability for your users
+* UI dialog with OK/Cancel buttons, where we should store the state of the object on load, and if the users chooses to cancel, restore the initial state of the object.
+
 ---
 
  # Observer

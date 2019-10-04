@@ -780,3 +780,130 @@ Observables ca be created for diverse functions such as button events, requests,
 
 We will approach a possible implementation, using `RxPY` in a Python environment.
 Please check the `reactiveObserver` folder.
+# Microservices and Patterns for Cloud
+The idea behind __Microservice Architecture pattern__ is that we can build an application as a set of loosely coupled, collaborating services. In this architectural style, an application  consists of services that can be developed and deployed independently of one another.
+
+Cloud patterns focused on Microservices:
+* Retry
+* Circuit Breaker
+* Cache-Aside
+* Throttling
+
+Read more about: [Microsoft's Cloud Design Patterns](https://docs.microsoft.com/en-us/azure/architecture/patterns/)!
+
+ #### Use cases
+
+* Requirement to support different clients, including desktop and mobile
+* Communicate with other applications using messaging
+* Serve requests by accessing a database, communicating with other systems, and returning the right type of response (JSON, XML, HYML, or even PDF).
+* There are logical components corresponding to different functional areas of the application
+
+ #### Implementation
+
+Switching from deploying a single application to deployments of many small services means that the number of things that need to be handled increases exponentially. While you might have been fine with a single application server and few runtime dependencies, when moving to microservices, the number of dependencies will increase ddrastically. Using the microservices approach also means you need to use __Containers__.
+
+The idea is that your application server, dependencies and runtime libraries, compiled code, configurations, and so on, are inside those containers. And then, all you have to do is run services packed as containers and make sure that they can communicate with each other.
+
+---
+
+ ### Monolithic Architecture
+
+Before Microservices, we had the __Monolithic Architecture__. A sigle code base for implementing all functionalities. 
+
+Disadvantages:
+* Development team has to work on maintaining the whole code base simultaneously
+* More difficult to organize testing and reproduce and fix bugs
+* Tests and deployments become difficult to manage as the application and its user base grows and its constraints increase
+
+ ### Serverless
+
+There is no provision of server resources for running and operating things. Basically, you split your application at an even more granular level (using __functions__), and you use serverless hosting vendors to deploy the services.
+
+---
+
+ ### Retry Pattern
+
+_Retrying_ is an approach that is more and more needed in the context of microservices and clous-based infrastructure where components collaborate with each other, but are not developed, deployed, and operated by the same teams and parties.
+
+In its daily operation, parts of a cloud-native application may experience what is called __transient faults or failures__, meaning some mini-issues that can look like bugs, but are not due to your application itself but to some constraints outside of you control such as the networking or the service performance. As a result, your application may dysfunction (at least, that could be the perception of your users) or even hang at some places. The answer to the risk of such failures is to put in place some retry logic, so that we pass through the issue, by calling the service again, maybe immediately of after some wait time.
+
+ #### Examples
+
+* Python __Retrying__ library
+* Go __Pester__ library
+* Java __Spring Retry__
+
+ #### Use cases
+
+* Alleviate the impact of identified __transient failures__ while communicating with an external component or service
+* Not recomended for handling failures such as internal exceptions caused by errors in the application logic itself
+
+---
+
+ ### Circuit Breaker Pattern
+
+When a failure due to the communication with an external service is likel to be long-lasting, using a retry mechanism can affect the responsiveness of the application.
+
+With circuit breaker, you wrap a fragile function call (or an integration point with an external service) in a special object, which monitors for failures. Once the failures reach a certain threshold, the circuit breaker __trips__, and all further calls to the circuit breaker return with an error, without the protected call being made at all.
+
+ #### Examples
+
+* Python __pybreaker__ library
+* Java __Jrugged__ library
+* __Hystrix__ from Netflix, tool for dealing with latency and fault tolerance for distributed systems
+
+ #### Use cases
+
+* Need a component from your system to be fault-tolerant to long-lasting failures when communicating with an external service.
+
+---
+
+ ### Cache-Aside Pattern
+
+In situations where data is more frequently read than updated, applications use a cache to ptimize repeated access to information stored in a database or data store.
+
+Microsoft's documentation about Cloud-Native patterns:
+> Load data on demand into a cache from a data stoe, as an attempt to improve performance, while maintaining consistency between data held in the cache and the data in the underyling data stored
+
+ #### Examples
+
+* __Memcached__ is commonly used as a cache server. Popular in-memory key-value store for small chunks of data from results of database calls, API calls , or HTML page content
+* __Redis__
+* Amazon's __ElastiCache__
+
+ #### Use cases
+
+* Data that doesn't change often
+* Data storage that doesn't depend on the consistency of a set of entries in the storage
+* Might not be suitable in cases where the cached data set is static
+
+ #### Implementation 
+
+* __Case 1__: When we want to fetch a data item, return the item from cache if found in it. Else, read the data from the database, put the read item in the cache and return it.
+* __Case 2__: When we want to update a data item: write the item in the database and remove the correspondent entry from the cache.
+
+---
+
+ ### Throttling
+
+Based on limiting the number of requests a user can send to a given web service in a given amount of time, in order to protect the resources of the service from being overused by some users.
+
+For example, once the limit of 1000 request per day for an API is reached, next request is handled by sending an error message with __429__ HTTP status ode to the user with a message such as too many requests.
+
+ #### Examples
+
+* Built-in support in Django-Rest-Framework
+* Django-throttle-requests is a framework for implementing application-specific rate-limiting middleware for Django projects
+* flask-limiter provides rate limiting features to Flask routes
+
+ #### Use cases
+
+* Ensure your system continuously delivers the service as expected
+* Optimie the cost of usage of the service
+* Handle bursts in activity
+
+ #### Recomended practices
+
+* Limit the number of total requests to an API as N/day
+* Limit number of requests to an API as N/day for a given IP address, country or region
+* Limit number of reads or writes for authenticated users

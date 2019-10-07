@@ -66,6 +66,12 @@ __Runtime__ structure of an object-oriented program usually has little resemblen
 To a large extent both structures are _independent_.
 
 The runtime structure of a system must be imposed more by the designer than by language. Relationships between objects and their types must be designed very carefully, because they will determine the quality of the runtime structure. This makes that in general, the runtime structures are not clear in the code until the patterns are understood.
+# Fundamentals: Aggregation vs Association
+__Aggregation__ implies that an object owns another or is responsible for it. It implies that the aggregate object and the owner have the same life. 
+
+__Association__ implies that one object simply knows anoter. They may ask for operations among themselves, but they are not responsible for each other. It is a weaker relationship than aggregation and represents much les coupling between objects.
+
+Ultimately, association and aggregation are determined more by their intentions than by their explicit language mechanisms.
 # Fundamentals: Inheritance
 * Class inheritance
 * Interface inheritance

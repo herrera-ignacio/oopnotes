@@ -13,6 +13,209 @@ If you are indeed, a newcomer with zero or begginner level experience of object-
 please try following this notebook sequentially, step by step in the order I propose, as topics will be built on previous ones.
 In any other case, you might want to skip some of the topics or come back to a particular one to refresh something, for that you may use the following
 Index of Contents.
+# Fundamentals: Classes
+Classes in object-oriented programming, are blueprints for creating objects (a particular data structure), providing initial values for state (attributes) and implementations or behavior (methods).
+
+ #### Abstract Classes
+
+An __abstract class_' main purpose is to define a common interface for its subclasses. it will delegate part or all of its implementation in the operations defined in its subclasses, hence an instance of an abstract class cannot be created.
+
+The operations that an abstract class defines but does not implement are called _abstract operations_. Classes thatare not abstract are called __concrete classes__.
+
+__Subclasses__ can redefine the behavior of their parent classes. More specifically, an operation defined by its parent class. The redefinition allow subclasses to handle a petition instead of their parent.
+
+ #### Signature
+
+Each operation declared by an object specifies:
+* name of the operation
+* objects that it takes as parameters
+* return value of the operation
+
+ #### Interface
+
+Interface is the set of all the signatures defined by the operations of an object. Charaterizes the complete set of requests that can be sent to the object. 
+
+Objects are only known through its interface, there is no other way to know something about an object or ask it to do something.
+
+ #### Class vs Type
+
+The __Class__ of an object defines how an object is implemented, the internal state of an object and the implementation of its operations. 
+
+The __Type__ of an object only referes to its interface, the set of requests to which it can respond. Part of the interface of an object can be characterized by one type, and others parts by others. Two objects of the same type only need to share parts of their interfaces.
+
+One type is said to be a __subtype__ of another if its interface contains the interface of its supertype.
+
+An object can have many types, and objects of different classes can have the same type.
+
+There is a close relationship between classes and type, since a class defines the operatiosn that an object can perform, it also defines the type of the object.
+
+When we say that an object is an instance of a class, we mean that the object supports the interface defined by the class.
+# Fundamentals: Objects
+An object __encapsulates__ both data and procedures (methods) that operate on that data. An object performs an operation when it receives a request / message from a customer and they are the only way to get an object to execute an operation. In turn, operatiosn are the only way to change the internal data of an object, due to these restriction it is said that the internal state of an object is encapsulated, since it cannot be accessed directly and its representation is not visible from the outside of the object.
+
+ #### Dynamic links
+
+Different objects that support identical requests may have different implementations of the operations that satisfy those requests. __The association at runtime between a request to an object and one of its operations__ is what is known as a dynamic link.
+
+The dynamic link means that sending a request does not bind us to a particular implementation until runtime.
+# Fundamentals: Inheritance
+* Class inheritance
+* Interface inheritance
+ 
+ ### Class inheritance
+
+Inheritance of __classes__ defines the implementation of an object in terms of the implementation of another object. In short, it is a mechanism to share code and its representation.
+
+ ### Interface inheritance
+
+__Interface__ inheritance or __subtype__ only defines when an object can be used.
+
+ ### Inheritance
+
+Statically defined at compiled time and is simple to use as it is allowed directly by the programming language. It makes it easier to modify the implementation.
+
+When a subclass redefines any of the operations, it can also affect the operations from which it inherits.
+
+ #### Disadvantages
+
+* You cannot change legacy implementations of parent classes at runtime
+* Parent classes usually define at least part of the physical representation of their subclasses
+* As the inheritance exposes the details of his father's implementation to the subclass, '_it breaks the encapsulation_'
+* The implementation of the subclass is linked in such a way to that of its parent class that any change in that of the parent will force the subclass to be changed, which can cause problems when trying to reuse a subclass
+* When any aspect of the legacy implementation is not appropiate for new problem domains, the parent class must be rewritten or completely replaced. This dependence limits flexibility and reusability.
+
+# Fundamentals: Parameterized types - Generics
+This techniques allows you to define a type without specifying all the other types you use. Unspecified types are provided as parameters. The implementation language will create a particularized version of the class template for each type of element.
+
+Parameterized types give us a third way (in addition to inheritance of classes and composition of ojects) to combine behavior in object-oriented systems.
+
+In addition, they can be used to customized the implementation of some pattern. Parameterized types are not necessary in languages which don't have type checking at compile time like Smalltalk.
+
+ #### Example
+
+As an example, to parameterize a sorting routine according to the type of operation you use to buy items, we could make the comparison be:
+
+* A opertion implemented by subclasses (Template method)
+* Responsibility of an object passed to the managment routine (Strategy)
+* An argument from a C++ template that specifies the name of the function to call to buy the items
+
+# Fundamentals: Composition
+Dynamically defined at runtime through objects that have references to other objects. The composition requires that the subjects take into account the interface of others, which in turn requires carefully designed interfaces.
+
+ #### Advantages
+
+* Does not break encapsulation, because objects are accessed only through their interfaces
+* Any object can be replaced at runtime by another as long as they are of the same type
+* Implementation units are remarkably smaller
+* Helps keep each class encapsulated and focused on a single task, favoring classes and hiearchies small and less favorable to becoming unmangeable monsters
+* It will have more objects and fewer classes, thus the behavior of the system will depend on its relationships instead of being defined in a class
+# Fundamentals: Polymorphism
+Concept that objects of different types can be accessed through the same interface. Is the provision of a single interface to entities of different types.
+
+Dynamic link allows us to __replace objects at run time with others that have the same interface__. It allows a client to make few assumptions about objects apart from allowing a specific interface.
+
+When a subclass inherits from a parent class, it inclues the definitions of all data and operations defined by the parent class. The objects that are instances of the subclasses will contain all the data defined by the subclass and by its parent class.
+
+ ### Ad hoc Polymorphism
+
+Polymorphic functions that can be applied to arguments of different types, but have differently depending on the type of the argument to which they are applied.
+
+Also known as __function overloading__ or __operator overloading__.
+
+```pascal
+program Adhoc;
+
+function Add(x, y : Integer) : Integer;
+begin
+    Add := x + y
+end;
+
+function Add(s, t : String) : String;
+begin
+    Add := Concat(s, t)
+end;
+
+begin
+    Writeln(Add(1, 2));                   (* Prints "3"             *)
+    Writeln(Add('Hello, ', 'Mammals!'));    (* Prints "Hello, Mammals!" *)
+end.
+```
+
+ ### Parametric Polymorphism
+
+Allows a function or a data type to be written generically, so that it can handle values uniformly without depending on their type. Is a way to make a language more expressive while still maintaining full static __type-safety__. 
+
+Haskell example:
+```haskell
+data List a = Nil | Cons a (List a)
+
+length :: List a -> Integer
+length Nil         = 0
+length (Cons x xs) = 1 + length xs
+
+map :: (a -> b) -> List a -> List b
+map f Nil         = Nil
+map f (Cons x xs) = Cons (f x) (map f xs)
+```
+
+C++ example:
+```
+class List<T> {
+    class Node<T> {
+        T elem;
+        Node<T> next;
+    }
+    Node<T> head;
+    int length() { ... }
+}
+
+List<B> map(Func<A, B> f, List<A> xs) {
+    ...
+}
+```
+
+ ### Subtyping
+
+Restrict the range of types that can be used in a particular case of polymporhism. Subtyping allows a function to be written to take an object of a certain type T, but also work correctly if passed an object that belongs to a type S that is a subtype of T.
+
+```java
+abstract class Animal {
+    abstract String talk();
+}
+
+class Cat extends Animal {
+    String talk() {
+        return "Meow!";
+    }
+}
+
+class Dog extends Animal {
+    String talk() {
+        return "Woof!";
+    }
+}
+
+static void letsHear(final Animal a) {
+    println(a.talk());
+}
+
+static void main(String[] args) {
+    letsHear(new Cat());
+    letsHear(new Dog());
+}
+```
+
+ ### Static vs Dynamic implementation
+
+Polymorphism can be distinguished by when the implementation is selected: statically (at compile time) or dynamically (at run time, typically via a virtual function). This is known respectively as static dispatch and dynamic dispatch, and the corresponding forms of polymorphism are accordingly called static polymorphism and dynamic polymorphism.
+
+Static polymorphism executes faster, because there is no dynamic dispatch overhead, but requires additional compiler support. Further, static polymorphism allows greater static analysis by compilers (notably for optimization), source code analysis tools, and human readers (programmers). Dynamic polymorphism is more flexible but slower—for example, dynamic polymorphism allows duck typing, and a dynamically linked library may operate on objects without knowing their full type.
+
+Static polymorphism typically occurs in ad hoc polymorphism and parametric polymorphism, whereas dynamic polymorphism is usual for subtype polymorphism.
+# Design Principles for OOP
+> Promote the composition o objects against class inheritance
+
+> Program to interfaces, not implementations
 # Design Principles: SOLID
 5 design principles introduced by Robert C. Martin frequently referenced.
 
@@ -78,6 +281,31 @@ Based on this idea, Robert C. Martin’s definition of the Dependency Inversion 
 2. Abstractions should not depend on details. Details should depend on abstractions.
 
 The design principle does not just change the direction of the dependency, as you might have expected when you read its name for the first time. It splits the dependency between the high-level and low-level modules by introducing an abstraction between them. So in the end, you get two dependencies:
+# Design principles: Interfaces
+
+> Program to interfaces, not implementations
+
+Interfaces are just contracts or signatures and they don't know anything about implementations.
+
+__Class inheritance__ is nothing more than a mechanism to extend the functionality of an application by reusing the functionality of parent classes. It allows you to quickly define a new type of objects based on another and get your new implementations almost effortlessly.
+
+Reusing implementation is only part of the story. Also important is the ability of inheritance to define families of objects with identical interfaces (usually inheriting from an abstract class), being precisely what __polymorphism__ is based on.
+
+ ### Inheritance done correctly
+
+All classes that derive from an __abstract class__ will share their interface. This implies that a subclass simply adds or redefines operations and does not hide operations of the parent class.
+
+All subclasses can then respond to requests in the interface of their abstract class, thus becoming all __subtypes__ of the abstract class.
+
+ #### What this means
+
+The client code is not worried about implementation and the interface signature determines what operations can be done. This can be used to change the behavior of a program at runtime.
+
+ #### Manipulate objects in terms of the abstract class interface
+
+* Users do not have to know specific types of objects they use, it is enough that they adhere to the interface that users expect
+* Users do not know the classes that implement these objects, they only know the abstract classes that define the interface
+* Reduce implementation dependencies between subsystems
 # Design Patterns
 Design Patterns are reusable programming solutions that have been used in various real-world contexts, and have proved to produce expected results. They are shared among programmers and continue being improved over time.
 
@@ -86,6 +314,12 @@ This topic is popular thanks to the book title _Deisng Patterns: Elements of Reu
 Quote from the Gang of Four book:
 
 > A design pattern systematically names, motivates, and explains a general design that addresses a recurring design problem in object-oriented systems. It describes the problem, the solution, when to apply the solution, and its consequences. It also gives implementation hints and examples. The solution is a general arrangement of objects and classes that solve the problem. The solution is customized and implemented to solve the problem in a particular context.
+
+Many objects of a design come from the analysis model. But object-oriented designs often end up having classes that don't have their equivalent in the real world.
+
+Strict real-world modeling leads to a system that reflects present but not necessarily future realities. The abstractions that arise during design are essential to achieve a flexible design.
+
+Design patterns help identify less obvious abstractions and the objects that express them.
 
 ---
 

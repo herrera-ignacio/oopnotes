@@ -13,6 +13,30 @@ If you are indeed, a newcomer with zero or begginner level experience of object-
 please try following this notebook sequentially, step by step in the order I propose, as topics will be built on previous ones.
 In any other case, you might want to skip some of the topics or come back to a particular one to refresh something, for that you may use the following
 Index of Contents.
+# Index
+
+* [Index](#index)
+* [Fundamentals: Classes](#fundamentals--classes)
+* [Fundamentals: Objects](#fundamentals--objects)
+* [Fundamentals: Run-time and Compile-time](#fundamentals--run-time-and-compile-time)
+* [Fundamentals: Aggregation vs Association](#fundamentals--aggregation-vs-association)
+* [Fundamentals: Inheritance](#fundamentals--inheritance)
+* [Fundamentals: Parameterized types - Generics](#fundamentals--parameterized-types---generics)
+* [Fundamentals: Composition](#fundamentals--composition)
+* [Fundamentals: Polymorphism](#fundamentals--polymorphism)
+* [Fundamentals: Delegation](#fundamentals--delegation)
+* [Fundamentals: Causes of Redesign](#fundamentals--causes-of-redesign)
+* [Design Principles for OOP](#design-principles-for-oop)
+* [Design Principles: SOLID](#design-principles--solid)
+* [Design principles: Interfaces](#design-principles--interfaces)
+* [Design Patterns](#design-patterns)
+* [Design Patterns: Gamma Categorization](#design-patterns--gamma-categorization)
+* [Design Patterns: Creational](#design-patterns--creational)
+* [Design Patterns: Structural](#design-patterns--structural)
+* [Design Patterns: Behavioural](#design-patterns--behavioural)
+* [Model-View-Controller Pattern](#model-view-controller-pattern)
+* [Observer Pattern in Reactive Programming](#observer-pattern-in-reactive-programming)
+* [Microservices and Patterns for Cloud](#microservices-and-patterns-for-cloud)
 # Fundamentals: Classes
 Classes in object-oriented programming, are blueprints for creating objects (a particular data structure), providing initial values for state (attributes) and implementations or behavior (methods).
 

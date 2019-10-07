@@ -58,6 +58,14 @@ An object __encapsulates__ both data and procedures (methods) that operate on th
 Different objects that support identical requests may have different implementations of the operations that satisfy those requests. __The association at runtime between a request to an object and one of its operations__ is what is known as a dynamic link.
 
 The dynamic link means that sending a request does not bind us to a particular implementation until runtime.
+# Fundamentals: Run-time and Compile-time
+The code structure is set at __compile time__, and consists of classes with static inheritance relationships.
+
+__Runtime__ structure of an object-oriented program usually has little resemblence to the structore of its code. Runtime structure consists of changing networks of objects that communicate with each other.
+
+To a large extent both structures are _independent_.
+
+The runtime structure of a system must be imposed more by the designer than by language. Relationships between objects and their types must be designed very carefully, because they will determine the quality of the runtime structure. This makes that in general, the runtime structures are not clear in the code until the patterns are understood.
 # Fundamentals: Inheritance
 * Class inheritance
 * Interface inheritance

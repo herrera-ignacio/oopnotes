@@ -335,7 +335,25 @@ Sometimes you have to modify a class that cannot be conveniently modified becaus
 # Design Principles for OOP
 > Promote the composition o objects against class inheritance
 
-> Program to interfaces, not implementations
+> Program to interface not implementation
+
+> Design for change
+
+ #### Promote the composition o objects against class inheritance
+
+We would only create new components to achieve reuse. We should be able to achieve all the functionality we need simply be assembling existing components through the compositon of objects.
+
+ #### Program to interface, not implementation
+
+The client code is not worried about implementation and the interface signature determines what operations can be done. This can be used to change the behavior of a program at runtime.
+
+Do not define explicit class instances, instead use objects that adjust to the interface defined by an abstract class.
+
+ #### Design for change
+
+Anticipate new requirements and changes in existing requirements, and in designing systems so that they can evolve accordingly.
+
+To design a system that is robust to these changes, one must take into account how the system may need to be changed throughout its life. A design that does not take change into account suffers the risk of having to be completely redesigned in the future.
 # Design Principles: SOLID
 5 design principles introduced by Robert C. Martin frequently referenced.
 
@@ -440,6 +458,9 @@ Many objects of a design come from the analysis model. But object-oriented desig
 Strict real-world modeling leads to a system that reflects present but not necessarily future realities. The abstractions that arise during design are essential to achieve a flexible design.
 
 Design patterns help identify less obvious abstractions and the objects that express them.
+
+Design patterns ensures that a system can change a concrete ways, allowing some specific aspects of the system structure to vary indenepdently of the others, thus making the system more robust against a particular change. Design patterns make use of techniques such as abstract coupling and layered structuring to promote decoupled systems.
+
 
 ---
 

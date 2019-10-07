@@ -254,6 +254,84 @@ Our Window example can be circulated at runtime by simply changing its Rectangle
 Dynamic and highly parameterized software is more difficult to undestand than static software. There are also inneficiencies in runtime, although human inefficiencies are the most importants in the long term.
 
 Delegation s a good design choice only when it simplifies more than it complicates. It works best when used in a very stylized way, that is, in standard patterns.
+# Fundamentals: Causes of Redesign
+Some of the common causes of redesign are presented alongside the design patterns that solve them.
+
+ #### Create an object specifiying its class explicitly
+
+Specifying  a class name when creating an object links us to a specific implementation instead of an interface. To avoid this, we must create the objects indirectly.
+
+* Abstract Factory
+* Factory Method
+* Prototype
+
+ #### Unit of specific operations
+
+When we specify a certain operation, we are linking to a way to atisfy a request. By avoiding linking the requests to the code, we make it easier to change the way to satisfy a request, both at compile and execution time. 
+
+* Chain of Responsability
+* Command
+
+ #### Dependency of hardware/software
+
+The external interfaces of the operating systems and APIs vary for different hardware and software platforms. Software that dependes on a specific platform will be more difficult to port to other platforms. It can even be difficult to keep it updated on your native platform. Therefore it is important to design our systems so that their platform dependencies are limited.
+
+* Abstract Factory
+* Brige
+
+ #### Dependency of representations or implementations
+
+Customers of an object that know how it is represented, stored, located or implemented, may need to be modified when the object changes. Hiding that information from cutomers prevents cascading changes.
+
+* Abstract Factory
+* Bridge
+* Memento
+* Proxy
+
+ #### Algorithmic Dependencies
+
+Many time the algorithms are extended, optimized or replaced by others during development and subsequent reuse. Objects that depend on an algorithm will have to change when it changes. Those algorithms that probably change should be isolated.
+
+* Builder
+* Iterator
+* Strategy
+* Template Method
+* Visitor
+
+ #### Strong coupling
+
+Strongly couplee classes are difficult to reuse separately. The strong coupling leads to monolithic systems, in which one class cannot be changed or removed without understanding and changing many others. The system thus becomes something vey dense that is difficult to learn, carry and maintain.
+
+Low coupling increases the probability that a class can be reused and that a system can be learned, behaved, modified and extended more easily.
+
+* Abstract Factory
+* Bridge
+* Chain of Responsability
+* Command
+* Facade
+* Mediator
+* Observer
+
+ #### Add functionality through inheritance
+
+Particularizing an object derived from another class is not usually easy. Each new class has an implementation cost (initialization, completion, etc). Defining a sublclass also requires a depp knowledge of the parent class, redefining one operation may require redefining another... In turn, inheritance can lead to an explosion of classes, where a simple etension can force you to introduce a lot of new classes.
+
+The composition of objects in general and the delegation in particular provides flexible alternatives to inheritance to combine behavior.
+
+* Bridge
+* Chain of Responsability
+* Composite
+* Decorator
+* Observer
+* Strategy
+
+ #### Inability to modify classes conveniently
+
+Sometimes you have to modify a class that cannot be conveniently modified because the source code is needed and we don't have it, or maybe any chang would require modifying many of the existing subclasses.
+
+* Adapter
+* Decorator
+* Visitor
 # Design Principles for OOP
 > Promote the composition o objects against class inheritance
 

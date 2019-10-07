@@ -212,6 +212,34 @@ Polymorphism can be distinguished by when the implementation is selected: static
 Static polymorphism executes faster, because there is no dynamic dispatch overhead, but requires additional compiler support. Further, static polymorphism allows greater static analysis by compilers (notably for optimization), source code analysis tools, and human readers (programmers). Dynamic polymorphism is more flexible but slower—for example, dynamic polymorphism allows duck typing, and a dynamically linked library may operate on objects without knowing their full type.
 
 Static polymorphism typically occurs in ad hoc polymorphism and parametric polymorphism, whereas dynamic polymorphism is usual for subtype polymorphism.
+# Fundamentals: Delegation
+Delegation is a way to __make the composition as powerful for reuse as inheritance is__.
+
+There are two objects in charge of handling a requests, __a receiving object delegates operations to its delegate__.
+
+With inheritance, an inherited operation can always refer to the object itself through member variables such as `this` in C++ or Smalltalk `self`. To achieve the same effect with Delegation, the receiver passes himself to the delegate, so that the delegated operation can refer to him.
+
+ #### Example
+
+Instead of making the Window class a subclass of Rectangle, the Window class can reuse the behavior of Reactangle by saving an instance of it in a variable and delegating it the specific behavior of the rectangles (the window will contain a rectangle). Now Window must forward the requests to its rectangular instance explicitly, while it would have inherited those operations before.
+
+Some standard design patterns use it:
+
+* __State__: An object delegates requests to a State object that represents its current state
+* __Strategy__: An object delegates a request to an object that represents a strategy to carry out
+* __Visitor__: Operation that is performed on each element of an object structure is always delegated to the Visitor object
+
+ #### Adantage
+
+It makes it easy to combine runtime behaiors, and change the way they combine.
+
+Our Window example can be circulated at runtime by simply changing its Rectangle instance to a Circle instance (assuming they have the same type).
+
+ #### Disadvantage
+
+Dynamic and highly parameterized software is more difficult to undestand than static software. There are also inneficiencies in runtime, although human inefficiencies are the most importants in the long term.
+
+Delegation s a good design choice only when it simplifies more than it complicates. It works best when used in a very stylized way, that is, in standard patterns.
 # Design Principles for OOP
 > Promote the composition o objects against class inheritance
 

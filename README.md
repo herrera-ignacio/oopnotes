@@ -37,7 +37,7 @@ Index of Contents.
 * [Model-View-Controller Pattern](#model-view-controller-pattern)
 * [Observer Pattern in Reactive Programming](#observer-pattern-in-reactive-programming)
 * [Microservices and Patterns for Cloud](#microservices-and-patterns-for-cloud)
-# Fundamentals: Classes
+# Fundamentals - Classes
 Classes in object-oriented programming, are blueprints for creating objects (a particular data structure), providing initial values for state (attributes) and implementations or behavior (methods).
 
  #### Abstract Classes
@@ -74,7 +74,7 @@ An object can have many types, and objects of different classes can have the sam
 There is a close relationship between classes and type, since a class defines the operatiosn that an object can perform, it also defines the type of the object.
 
 When we say that an object is an instance of a class, we mean that the object supports the interface defined by the class.
-# Fundamentals: Objects
+# Fundamentals - Objects
 An object __encapsulates__ both data and procedures (methods) that operate on that data. An object performs an operation when it receives a request / message from a customer and they are the only way to get an object to execute an operation. In turn, operatiosn are the only way to change the internal data of an object, due to these restriction it is said that the internal state of an object is encapsulated, since it cannot be accessed directly and its representation is not visible from the outside of the object.
 
  #### Dynamic links
@@ -82,7 +82,7 @@ An object __encapsulates__ both data and procedures (methods) that operate on th
 Different objects that support identical requests may have different implementations of the operations that satisfy those requests. __The association at runtime between a request to an object and one of its operations__ is what is known as a dynamic link.
 
 The dynamic link means that sending a request does not bind us to a particular implementation until runtime.
-# Fundamentals: Run-time and Compile-time
+# Fundamentals - Run-time and Compile-time
 The code structure is set at __compile time__, and consists of classes with static inheritance relationships.
 
 __Runtime__ structure of an object-oriented program usually has little resemblence to the structore of its code. Runtime structure consists of changing networks of objects that communicate with each other.
@@ -90,13 +90,13 @@ __Runtime__ structure of an object-oriented program usually has little resemblen
 To a large extent both structures are _independent_.
 
 The runtime structure of a system must be imposed more by the designer than by language. Relationships between objects and their types must be designed very carefully, because they will determine the quality of the runtime structure. This makes that in general, the runtime structures are not clear in the code until the patterns are understood.
-# Fundamentals: Aggregation vs Association
+# Fundamentals - Aggregation vs Association
 __Aggregation__ implies that an object owns another or is responsible for it. It implies that the aggregate object and the owner have the same life. 
 
 __Association__ implies that one object simply knows anoter. They may ask for operations among themselves, but they are not responsible for each other. It is a weaker relationship than aggregation and represents much les coupling between objects.
 
 Ultimately, association and aggregation are determined more by their intentions than by their explicit language mechanisms.
-# Fundamentals: Inheritance
+# Fundamentals - Inheritance
 * Class inheritance
 * Interface inheritance
  
@@ -122,7 +122,7 @@ When a subclass redefines any of the operations, it can also affect the operatio
 * The implementation of the subclass is linked in such a way to that of its parent class that any change in that of the parent will force the subclass to be changed, which can cause problems when trying to reuse a subclass
 * When any aspect of the legacy implementation is not appropiate for new problem domains, the parent class must be rewritten or completely replaced. This dependence limits flexibility and reusability.
 
-# Fundamentals: Parameterized types - Generics
+# Fundamentals - Parameterized types - Generics
 This techniques allows you to define a type without specifying all the other types you use. Unspecified types are provided as parameters. The implementation language will create a particularized version of the class template for each type of element.
 
 Parameterized types give us a third way (in addition to inheritance of classes and composition of ojects) to combine behavior in object-oriented systems.
@@ -137,7 +137,7 @@ As an example, to parameterize a sorting routine according to the type of operat
 * Responsibility of an object passed to the managment routine (Strategy)
 * An argument from a C++ template that specifies the name of the function to call to buy the items
 
-# Fundamentals: Composition
+# Fundamentals - Composition
 Dynamically defined at runtime through objects that have references to other objects. The composition requires that the subjects take into account the interface of others, which in turn requires carefully designed interfaces.
 
  #### Advantages
@@ -147,7 +147,7 @@ Dynamically defined at runtime through objects that have references to other obj
 * Implementation units are remarkably smaller
 * Helps keep each class encapsulated and focused on a single task, favoring classes and hiearchies small and less favorable to becoming unmangeable monsters
 * It will have more objects and fewer classes, thus the behavior of the system will depend on its relationships instead of being defined in a class
-# Fundamentals: Polymorphism
+# Fundamentals -  Polymorphism
 Concept that objects of different types can be accessed through the same interface. Is the provision of a single interface to entities of different types.
 
 Dynamic link allows us to __replace objects at run time with others that have the same interface__. It allows a client to make few assumptions about objects apart from allowing a specific interface.
@@ -250,7 +250,7 @@ Polymorphism can be distinguished by when the implementation is selected: static
 Static polymorphism executes faster, because there is no dynamic dispatch overhead, but requires additional compiler support. Further, static polymorphism allows greater static analysis by compilers (notably for optimization), source code analysis tools, and human readers (programmers). Dynamic polymorphism is more flexible but slower—for example, dynamic polymorphism allows duck typing, and a dynamically linked library may operate on objects without knowing their full type.
 
 Static polymorphism typically occurs in ad hoc polymorphism and parametric polymorphism, whereas dynamic polymorphism is usual for subtype polymorphism.
-# Fundamentals: Delegation
+# Fundamentals - Delegation
 Delegation is a way to __make the composition as powerful for reuse as inheritance is__.
 
 There are two objects in charge of handling a requests, __a receiving object delegates operations to its delegate__.
@@ -278,7 +278,7 @@ Our Window example can be circulated at runtime by simply changing its Rectangle
 Dynamic and highly parameterized software is more difficult to undestand than static software. There are also inneficiencies in runtime, although human inefficiencies are the most importants in the long term.
 
 Delegation s a good design choice only when it simplifies more than it complicates. It works best when used in a very stylized way, that is, in standard patterns.
-# Fundamentals: Causes of Redesign
+# Fundamentals - Causes of Redesign
 Some of the common causes of redesign are presented alongside the design patterns that solve them.
 
  #### Create an object specifiying its class explicitly
@@ -378,7 +378,7 @@ Do not define explicit class instances, instead use objects that adjust to the i
 Anticipate new requirements and changes in existing requirements, and in designing systems so that they can evolve accordingly.
 
 To design a system that is robust to these changes, one must take into account how the system may need to be changed throughout its life. A design that does not take change into account suffers the risk of having to be completely redesigned in the future.
-# Design Principles: SOLID
+# Design Principles - SOLID
 5 design principles introduced by Robert C. Martin frequently referenced.
 
 > 'Agile Software Development: Priciples, Patterns, and Practices' by Robert C. Martin
@@ -443,7 +443,7 @@ Based on this idea, Robert C. Martin’s definition of the Dependency Inversion 
 2. Abstractions should not depend on details. Details should depend on abstractions.
 
 The design principle does not just change the direction of the dependency, as you might have expected when you read its name for the first time. It splits the dependency between the high-level and low-level modules by introducing an abstraction between them. So in the end, you get two dependencies:
-# Design principles: Interfaces
+# Design principles - Interfaces
 
 > Program to interfaces, not implementations
 
@@ -495,7 +495,7 @@ Though examples of these design patterns may be provided for you, within this co
  #### Good resources
 
 * [Refactoring Guru: Design patterns diagrams and code examples!](https://refactoring.guru/design-patterns/iterator)
-# Design Patterns: Gamma Categorization
+# Design Patterns - Gamma Categorization
 Design patterns are typically split into three categories. This is called _Gamma Categorization_ after Erich Gamma,
 one of GoF authors. 
 
@@ -514,7 +514,7 @@ one of GoF authors.
  #### Behavioral patterns
 
 * They're all different, no central theme
-# Design Patterns: Creational
+# Design Patterns - Creational
 >  Creational patterns provide ways to instantiate single objects or groups of related objects
 
 * Builder
@@ -638,7 +638,7 @@ Other possible cases are:
 
 * Controlling concurrent access to a shared resource. For example, the class managing the connection to a database.
 * A service or resource that is transveral in the sense that it can be accessed from different parts of the application or by different users and do its work. For example, the class at the core of the logging system or utility.
-# Design Patterns: Structural
+# Design Patterns - Structural
 > Structural patterns provide a manner to define relationships between classes or objects.
 
 * Adapter
@@ -800,7 +800,7 @@ Basically, it's a class that functions as an interface to a particular resource 
 * Used to check if a user has sufficient privileges to access a piece of information. A protection/protective proxy can handle all security related actions.
 * Used when our application uses multiple threads and we want to move the burden of thread safety from the client code to the application. in this case, we can create a smart proxt to hide the thread-safety complexities from the client.
 * An __object-relational mapping__ (ORM) API is also an example of how to use a remote proy. Provide OOP-like access to a relational database. An ORM acts as a proxy to a relational database that can be actually located anywhere, either at a local or remote server.
-# Design Patterns: Behavioural
+# Design Patterns - Behavioural
 > Behavioural patterns define manners of communication between classes and objects.
 
 * Chain of Responsability

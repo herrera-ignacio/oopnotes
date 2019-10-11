@@ -1305,3 +1305,86 @@ For example, once the limit of 1000 request per day for an API is reached, next 
 * Limit the number of total requests to an API as N/day
 * Limit number of requests to an API as N/day for a given IP address, country or region
 * Limit number of reads or writes for authenticated users
+# BDD - Test first approach
+ ### Traditional testing approach
+
+In traditional testing, you write your automated test after the code has been written, with the following assumptions:
+
+* Automated tests can discover new bugs
+* The project is managed under a waterfall lifecycle or similar, where large chunks of functionality are developed until they are _perfect_ and only then is the code deployed
+
+These assumptions are mostly false nowadays. Automated tests cannot discover anything new but only provide feedback about whether the code behaves as specified or expected. From the point of view of preventing bugs, automated tests are only good as __regression test suites__.
+
+> A regression test suite contains tests that prove that a bug that is already known is fixed.
+
+Agile methodologies are all about fast feedback loops: plan a small slice of the product, implement it, deploy it, and check whether everything is as expected.
+
+Now, deelopment team needs to be able to deliver software with a fast pace and in an incremental way. So any good engineering practice shoulg be able to enable the team to change an existing code base quickly, no matter how big it is, without a detailed full plan of the project.
+
+ ### Test-first approach
+
+* CODING TASK: any sensible reason to change the codebase, as a functionality
+* WRITE A FAILING TEST
+* MAKE THE TEST PASS
+* CLEAN THE CODE (refactor)
+* REPEAT!
+
+Simple rule:
+
+> You should only write code to fix a failing test or to write a new failing test
+
+Summary:
+* Don't write any new tests if there is not a new coding task
+* A new test must always failing
+* A new test should be as simple as possible
+* Write only the minimum necessary code to fix a failing test, and don't bother with quality during this activity
+* You can only clean or redesign your code if all the test pass, try to do it in each cycle if possible
+
+ #### Write a failing test
+
+We try to figure out which one is the simplest test that can fail, then, we write it and finally see it fail.
+
+Go in small incremental steps and do not try to write a comple test.
+
+First test might be the success case, this is simple because it establishes an example of what is valid input, and the input and expectations are simple enough. It is often useful to think of the simplest input to your system that will not behave as expected.
+
+ #### Make the test pass
+
+Once you have a failing test, you are allowed to write some production code to fix it. The point of all of this is that you should not write new code if there is not a good reason to do so.
+
+In test-first, we use failing tests as a guide to know whether there is need for new code or not.
+
+This activity means simply to write the required code to make the test pass, __as fast as you can__, making minimal changes needed to make the test pass. You should not try to write a nice algorithm or very clean code to solve the whole problem.
+
+When you are done, run all the tests again. Maybe the test is not yet fixed as you expected, or your changes have broken another test.
+
+ #### Clean the code
+
+When all the tests are passing, you can start refactoring.
+
+Just stop and think whether your code is good enough or if it needs to be redesigned. Whenver you change the code, you need to run all the tests again to check that they are all passing and you have not broken anything.
+
+You may want to clean the test code too. After all the tests, you would probably end up with a bunch of if statements. You can use regular expression or, even better, have an array or validation rules that you can run against the input.
+
+ #### Repeat!
+
+When the code is good enough for you, then the cycle will end. Start from the beginning again and write a new failing test until you cannot write a new one.
+
+---
+
+ ### Consequences
+
+This way of writing code loks weird at first and requires a lot of discipline from the engineers. Maybe it really adds a big overhead to the costs of small projects or prototypes, but in general, this is not true, especialy for codebases that need to be maintained during periods of over 3 months.
+
+Test-first is just cutting the costs of developers doing manual testing anyway after each change they made to the code, by automating such activity and putting a lot of discipline in our workflow.
+
+1. Since you write tests first, the resulting code design ends up being easily testable. This is important since you want to add tests for new bugs and make sure that changes do not break the old functionality (__regression__).
+2. The resulting codebase is minimal. The whole cycle is designed to make us write just the amount of code needed to implement the required functionality, this is represented by failing tests, and you cannot write new code without a failing test.
+3. Codebase can be enhanced using refactoring mechanisms. Without tests, it is very difficult to do this since you cannot know whether the code change you have done has changed the functionality.
+4. Cleaning the code in each cycle makes the codebase more maintainable.
+5. There is a fast feedback for the developers, by just running the test suite, you know in the moment, that the changes in the code are not breaking anything and that you are evolving the system in a good direction.
+6. Since there are tests covering the code, deelopers feel more comfortable adding features to the code, fixing bus or exploring new designs.
+
+There is, perhaps, a drawback: you cannot adopt test-first approach easiliy in a project that is in the middle of its development and has been started without this approach in mind.
+# BDD vs TDD
+The problem with TDD is that it does not say anything about what a coding task is, when a new one should be created, or what kind of changes we should allow.

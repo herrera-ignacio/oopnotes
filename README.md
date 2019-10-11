@@ -1386,5 +1386,108 @@ Test-first is just cutting the costs of developers doing manual testing anyway a
 6. Since there are tests covering the code, deelopers feel more comfortable adding features to the code, fixing bus or exploring new designs.
 
 There is, perhaps, a drawback: you cannot adopt test-first approach easiliy in a project that is in the middle of its development and has been started without this approach in mind.
-# BDD vs TDD
-The problem with TDD is that it does not say anything about what a coding task is, when a new one should be created, or what kind of changes we should allow.
+# BDD or TDD?
+ ### The problem with TDD
+
+One problem with TDD is that it does not say anything about what a coding task is, when a new one should be created, or what kind of changes we should allow.
+
+The biggest problem in classic TDD is that there is a disconnection between what the product is supposed to do and what the test suite that the development team builds is testing, as TDD does not explicitly say how to connect both worlds. This leads to a lot of teams doing TDD, but testing the wrong things, testing whether the classes behave as expected, __not whether the product behaves as expected.__
+
+Problems:
+* No clear and explicit correlation between components and features
+* Test results only make sense for the engineering team
+* If a component test is failing, which features are failing?
+* Test checking whether component behaves according to the technical design, so if you change te design, then you need to change the tests
+
+
+BDD tries to fix these problems by making the test suite directly dependent of the feature set of the product.
+
+ ### BDD to the rescue
+
+BDD is a test-first approach where __a new coding task can be created only when a change in the product happens__: a new requisite, a change in an existing one, or a new bug. __Dan North__ was who first coined the term BDD to the specific way of doing TDD.
+
+BDD exposes a good insight: __we should test features instead of components__.
+
+> Don't write any new test if there is not a change in the product
+
+ #### Keys of BDD
+
+* You should not add a new class or function, or change design if there is not a change in the product.
+* As a change in the product always represents only a feature or bug, you only need to test those, not components or classes. There is no need to test individual classes or functions, although this does not mean that is a bad idea to do so, such tests are not viewed as essential from the BDD point of view.
+* Tests are always about describing how the product behaves and never about technical details. Key difference with TDD.
+* Tests should be described in a way that the stakeholders can understand to give feedback about whether they reflect their expected behavior of the system, that is why, in BDD jargon, tests are note called tests, but specifications or features.
+* Tests reports should be understandable for the stakeholders. This way, they can have direct feedback of the status of the project, instad of having the need for the chief architect to explain the test suites.
+* BDD is not only an engineering practice, but it needs the team to engage frequently with the stakeholders to build a common understanding of the features.
+
+ #### Advantages
+
+* If a test is failing, then it means that the corresponding feature is broken
+* We don't need a very detailed up-front design to start coding, fine-tune our design incrementally using the "clean code" step of the workflow
+* Isolate the test from the most technical changes and refactorings, so in the end, it will be better for our codebase quality
+* Features are the main thing we need to ensure that are working properly
+
+
+ #### Disadvantages
+
+* A feature failing doesnt't tell us which component needs to be fixed, need to debug
+
+BDD is an absolute minimum, but unit testing some of the key components can be beneficial. The bigger the system is, the more component unit testing we should write, in addition to the BDD test suite.
+# BDD - Unit testing
+The notion of units its very generic and does not seem to be very useful to guide the practice of test-first. There  ir a consensus that there exists at least two kind of units:
+
+ #### Features
+
+A feature is a single concrete action that the user can perform on the system, this will change the state of the system and/or make the system perform actions on other third-party systems.
+
+They describe the behavior of the system from the point of view of the user. Slicing a user into features is a key activity of BDD.
+
+ #### Components
+
+A component is any software artifact, such as classes, procedures, or first-order functions, that we use to build the system.
+
+ ### Structure of a test
+
+* __Set up__: Set the state of the system in a well-known state. This implies choosing the correct input parameters, data in the database, or making the third-party systems return a well-knwon response.
+* __Act__: Perform the operation we are testing, as a general rule, the act phase of each test should involve only one action.
+* __Assert__: Check the return value of the operation and the side effects
+
+---
+
+ ## Test doubles
+
+Unit testing should test the units of our system in an isolated way. By isolated, it means that each test must check each unit in a way independent of the others. If there is a problem with a unit, only the tests for that unit should be failing, not the other ones. In BDD, this means that a problem in a feature should only make the tests fail for that feature.
+
+In component unit testing, it means that a proble mwith a component (a class, for example), should only affect the tests for that class.
+
+However, in practice, this is not enough. Usually, features can be chained together to perform a user workflow, and components can depend on other components to implement a feature. It is usually the case that a feature needs to talk with other systems. This implies thgat the set up phase must manipulat the state of these third-pary systems. It is often unfeasible to do so, because these systems are not udner our control. Furthermore, it can happen that these systems are not really stabel or are shared by other systems apart from us.
+
+In order to solve both the isolation problem and the set up problem, we can use test doubles.
+
+__Test doubles are objects that impersonate the real third-party systems or components__ just for the purpose of testing. There are mainly the following type of test doubles:
+
+We can use __spies in the assertion phase__ of the test and __stubs in the set up phase__, so it is common that a test double is both a spy and a stub.
+
+ #### Fakes
+
+Simplified implementation of the system that we are impersonating. They usually involve writing some simple logic. This logic should never be complex, if not, we will end up reimplementing such third-party systems.
+
+ #### Stubs
+
+Objects that return a predefined value whenever one of its methods is called with a specific set of parameters. You can think of them as a set of hardcoded responses.
+
+ #### Spies
+
+Objects that record their interactions with our unit. This way, we can ask them later what happened during our assertion phase.
+
+ #### Mocks
+
+Self-validiting spies that can be programmed during the set up phase with the expected interaction. If some interaction happens that is not expected, they would fail during the assertion phase.
+
+---
+
+ ## What is a good test
+
+* Should be relevant from the point of view of the product. There is no point in testing. something that, when it is done, does not clearly move the project forward to completion.
+* Should be repeatable and offer the same results if there has not been a code change.
+* Should be fast, after all, one key point of test-first is rapid feedback and quick iteration.
+* Should be isolated. A test should fail only because the feature/component it is testing has a defect.

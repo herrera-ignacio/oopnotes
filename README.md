@@ -1491,3 +1491,204 @@ Self-validiting spies that can be programmed during the set up phase with the ex
 * Should be repeatable and offer the same results if there has not been a code change.
 * Should be fast, after all, one key point of test-first is rapid feedback and quick iteration.
 * Should be isolated. A test should fail only because the feature/component it is testing has a defect.
+# Devops
+ #### Before DevOps
+
+Development and Operations are often in conflict with each other. Development wants to see their changes delivered to customer quickly, whereas Operations are interested in stability, which means not changing the production systems too often.
+
+As consequence, Development and Operations often act like silos, being two distinct teams with suboptimal collaboration.
+
+ ## What to Learn
+
+* What DevOps is and how it can result in better and faster delivered software
+
+* Apply patterns to improve collaboration between development and operations
+
+* Unify processes and incentives to support shared goals
+
+* Address pain points in your individual environment with appropiate recipes
+
+* Break down existing walls that create an unnecesarily sluggish delivery process
+
+ #### What is DevOps?
+
+DevOps means to close these gaps by aligning incentives and sharing approaches for process and tools, broaden the usage of Agile practices to operations to foster collaboration and streamline the entire software delivery process in a holistic way.
+
+> The fundamental bases for succesful DevOps are a culture of trust and a feeling of fellowship, thus DevOps centers on the concept of __sharing__, share ideas, issues, goals, processes, tools and goals.
+
+Aligning existing structures and roles with DevOps is a process. Please do not think of DevOps as a new tool for eliminating operatings staff or as a tool suite, rather it's an approach for freeing up time of the current staff to focus on harder problems that can deliver even more business value.
+
+DevOps may bring together subprocesses to form a comprehensive delivery process that enables software to be delivered at high speed and with high quality. However, DevOps does not necesarily introduce new tools. A specific new tool can be used to implement a given process.
+
+ #### What is not DevOps?
+
+DevOps does not allow developers to work in the production system. It is not a "free" process that opens production-relevant aspects to developers. Instead, DevOps is about discipline, conventions, and a defined process that is transparent for all.
+
+Similarly, the opposite is neither true. DevOps does not mean that operations experts take over all development tasks.
+
+> Responsabilities can, and do, shift over thime, and as they shift, so do job descriptions. But no matter how slice it, the same jobs need to be done, and one of those jobs is operations.
+
+DevOps is __not a new department__. Every attemp to establish a DevOps-type department leads to bizarre constructions. Some people believe that "NoOps" is the future.
+
+DevOps is also not a new role profile that will supplant current developers and operations experts.
+
+Some people make the false statement that "DevOps is a catalog of recipes, implement them all, and you are all done". This is false because you will focus on finding the best solution to your individual situation. There is no one-size-fits-all solution and no "Devops by the book" approach that will solve your problems.
+
+Others will claim that "DevOps will lose importance as Cloud solutions gain popularity, PaaS solutions will make DevOps unnecesary". This objection is an interesting one, but the truth is that Cloud solutions introduce another abstraction level and do not supplant operations.
+
+
+ #### Definition of DevOps
+
+DevOps is a mix of patterns intended to improve collaboration between development and operations. Addresses shared goals and incentives, as well as processes and tools. It respects the fact that companies and projects have specific cultures and that people are more important than processes, which in turn, are more important than tools.
+
+ #### Why DevOps?
+
+DevOps describes practices that streamline the software delivery process, emphazising the learning by streaming feedback from production to development and improving the cycle time.
+
+DevOps will not only empower you to deliver software more quickly, but it will also help you produce higher-quality software that is more aligned with individual requirements and basic conditions.
+
+
+ #### DevOps Activities
+
+* __Culture__: People over processes and tools. Software is made by and for people.
+
+* __Automation__: Essential to gain quick feedback.
+
+* __Measurement__: Quality and shared (or at least aligned) incentives are critical.
+
+* __Sharing__: Creates a culture where people share ideas and tools.
+
+---
+
+ ## Agile Practices
+
+Agile software development has helped to bring toghether different project roles/experts that comprise cross-functional development teams.
+
+Projects often go through those phases:
+1. _Inception_: Project scope is defined and the business case is justified
+2. _Elaboration_: Requirements are gathered, risk factors defined, and a system architecture initialized
+3. _Construction_: Software is constructed, programmed and tested
+4. _Transition_: Software delivered to the user
+5. _Operations_: Software available to the user and maintained by operations team
+
+Agile efforts often end at the transition phase from development to operations. The delivery of software is covered by DevOps (i.e lean practices for shipping the software to production and making it available to end users).
+
+DevOps provides patterns to foster collaboation among project stakeholders and user processes, as well as tools to streamline the software delivery process and reduce the overall cycle time.
+# DevOps - Agile team settings
+The Agile movement addressed the pains of suboptimal collaboration and divergent goals.
+
+The "__one team__" approach fosters communication and collaboration by bringing different parties together to form one team that shares the same goals.
+
+The term _developer_ takes a different meaning, as both programmers and testers develop the software. Programmers and testers work together seamlessly and comprise the working group known as developers.
+
+Many projects experience the best results by allowing one team of programmers and testers to work closely together and conduct the whole QA. Everyone in the team performs QA and is responsible for quality.
+
+ #### Different approach
+
+* __Quality__: Testers are not solely responsible for quality, rather, the whole team works together to maintain quality.
+
+* __Development__: Programmers do not code alone, rather, everyone helps them understand what to code.
+
+* __Project roles__: Cross-functional teams are set up and roles decoupled from activities.
+
+If you define work as activities to be accomplished together, you break down role boundaries and allow team members to add value in multiple areas.
+
+For example, you can enable programmers to conduct exploratory tests, and QA leads to work with the application code if they find a fixable bug.
+
+ #### Development and Operations
+
+In Agile approaches, development consists of programmers, testers and QA. Operations often acts or gets treated as a silo.
+
+Agile approaches claim to produce happier participants. However, the operations department is still perceived by some as a strange group of highly specialized server techies in the engine room.
+
+In contrast to developers, the operations team is tasked with the deliverables received from the development team and making software available on production machines such that the software can be used by users. At the same time, operations team often receives nonfunctional requirements (such as target values for the availability of the application). The shipped software (delivered by development team) may conflict with those requirements.
+
+The main task of the development team is to fulfill the customer's requirements, test the solution, and provide software updates in quick succession. New features that have been implemented and tested by the developers add potential value for the customer. On the one hand, the development team wants change. On the other hand, the operations team is mainly interested in reliable and stable software.
+
+ ### Blame Game
+
+ #### Conflicts during Deployment
+
+Conflicts often originate from time pressures. Typically, a new software realese must be deployed quickly. Another scenario that requires operations team to react quickly is when the system is down, and restoring it quickly becomes the highest priority. This situation often leads to a blame game where each side accuses the other of causing the problem.
+
+* Development passes a new release but Operations is unable to get it running on production system
+* Operations team contacts the member of the development team to get them to fix the problem, the former describes the errors experienced while trying to bring the release to production
+* Development blocks communication and does not offer any help
+* Development claims that software ran in test environment without problems, therefore reasons that the operations team is at fault for not bringing the release to life
+* Test and production environment may be different in some minor detail and neither party be aware of that
+
+ #### Conflicts after Deployment 
+
+Here is one scenario:
+1. Many more users are using new features than expected
+2. Response times slow down until software stops responding entirely
+3. Escalating the issue leads to finger pointing: development claims is the fault of the database group, the database team blames the network group, and other speculates that the server group is responsible
+4. Company begins an objective investigation. By the time the root cause is discovered, users have already been scared away from the new application and company incurs heavy losses in sales and reputation
+
+ #### Conflicts about Performance
+
+* Test environment does not fully mirror Production environment
+* Finger pointing...
+
+ ### Operations as Bottleneck
+
+The conflict between development and operations worsened when development began adopting more Agile processes while developing software. During the past few years, iterative models such as Scrum, have become mainstream, but all too often, companies have stopped adding people and activities to the Scrum process at the point when software releases were shipped to production.
+
+The __one team approach__ should also include experts from operations who develop, for instance, scripts or "__infrastructure as code__" to provide solutions to users.
+
+The advantages of Agile processes are often nullified because of the obstacles to collaboration, processes, and tools that are built up in front of operations. As a result, software is released frequently but only in test environments. Consequently, software is rarely brought to the production phase but released frequently in test environments. In other words, not all realeses are produced, and deployment to production often happens after the development team has coded and tested the release. In sum, the cycle time (i.e, the time from the inception of an idea to its delivery to users) is still too long.
+
+High frequency of software releases from development and the incentives for operations leads to what many people in the company will perceive as a bottleneck at operations.
+
+Development may have finished the functionality in fast cycles by using Agile frameworks, but operations may not want or be unable to receive all of the changes in these fine-grained portions.
+
+Development will blame operations for not being able or willing to set the software live. Operations will blame the development team members because of their inability to develop production-ready software.
+
+The root cause of these mismatches can be narrowed down to different goals and suboptimal collaboration between these groups. The underlying cause is also influenced by the horizontal alignment.
+# DevOps - Traditional team settings
+In tradititional team settings, the term _development_ describes the programmers in the team. Testers and QA are often dedicated project roles whose activities start after the programmers have finished their work. _Operations_ contains database, system, network, and other types of administrators who set up and maintain the server and systems. The operations groups essentialy accompanies and accounts for the "last mile" in the delivery process.
+
+In worst case, waterfall-like scenario, programmers code the application that is tested by testers afterward. QA performs down-streamed quality assurance afterward. The walls (in the form of organizational or process borders) between different groups prevent close collaboration.
+
+ ## Attributes
+
+* Hero Cult
+* Emphasis on titles
+* Shadow responsabilities
+* Favor a plan over planning
+
+ #### Hero Cult
+
+> Team is nothing, individuals are kings.
+
+Consider a programmer who fails to document his work adequately and delivers low-quality software that requires adjustments and bug fixes that can only be performed by the hero creator because he did not document or share his knowledge, decisions, and project experience with the team.
+
+ #### Emphasis on Titles
+
+Everyone in the team plays a role. One person is a only a developer and other a senior developer. Often, the primary factor behind a promotion is the duration of the person's membership in the company and not its technical or soft skills.
+
+ #### Shadow responsabilities
+
+People persue other activities that are not part of their responsabilities simply to protect their turf and ensure their influence or to indulge their 'pet projects'.
+
+ #### Favor a plan over planning
+
+Everything is planned, but the activity of planning is seldom performed. Planning (ie, adjusting the original plan) is a rare activity.
+
+ ## Cultural Barriers
+
+* Separate teams
+* No common language
+* Fear
+
+ #### Separate teams
+
+You'll have separated or loosely coupled working groups. Unfortunally a collection of great teams is not a replacement for one team that pursues a unified and shared project goal.
+
+ #### No common language
+
+Specialized teams and project roles prefer to use the language that is most comfortable for them, instead of a shared language that the whole project understands or even better, one that is also understood by the user and customer. As result, misunderstandings occur.
+
+ #### Fear
+
+What others do is bad, and any activities by other people that could impact one's own type of work or activity are confronted with skepticism. Perciving shared goals and knowledge as risky will lead to fear on all sides, especially fear of losing power, influence, and reputation.

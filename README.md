@@ -1769,4 +1769,14 @@ Because of the resistence of different teams to adjust their daily routines when
 Upper managment will also resist by questinoning the wisdom of implementing DevOps if the concrete benefits are not visible. Better cash flow and improved time to market are hard to measure. managment ask questions that address the core problems of software engineering while ignoring the symptoms, how can the company achieve maximal earnings in a short period of time? How can requirements be made stable and delivered to customers quickly? These results and visions should be measured with metrics that are shared by development and operations. Existing metrics can be further used or replaced by metrics that accurately express business value.
 
 # Devops - Building Blocks
+ ## Measurement and Metrics
 
+Crucial aspect of software engineering is __measuring what you are doing__. Sooner or later, you'll have to decide on which metrics you want to use during your software engineering process, consider which metric is meaningful enough to aid all participants, as well as the development and delivery processes.
+
+Traditional projects emphasize measurement as an important tool for tracking progress, indentifying the current status, and scheduling dates.
+
+Agile projects settings try to find different approaches to create measurements, but often find themselves on dead-end streets when trying to bridge operations to development.
+
+Both traiditional and agile projects often emphasize the importance of measurement because __you can only improve if you measure__.
+
+ #### Traiditonal use of metrics

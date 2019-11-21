@@ -1779,4 +1779,53 @@ Agile projects settings try to find different approaches to create measurements,
 
 Both traiditional and agile projects often emphasize the importance of measurement because __you can only improve if you measure__.
 
- #### Traiditonal use of metrics
+ ## Traiditonal approach of metrics
+
+Often driven by numbers. Classic metrics such as static code analysis or test coverage, may continuously draw the attention of the whole team without returning benefits in the same degree. It is simply too easy to fake metrics or to adapt the process to obey the metrics instead of improving the process itself.
+
+ ## Agile approach of metrics
+
+Agile development methods require a disciplined approach to ensure that customer feedback, continous testing, and iterative development actually lead to frequent deliveries of working, valuable software.
+
+Agile teams often view metrics as a __onetime pointer instead of a continuous measurement__. The pointer makes the current state of the software's internal quality visible. It is then up to the team to decide what and when to adjust, or whether to do so at all. These pointers provide indicators that there's something worth investigating, but they don't provide the context and understanding needed to make critical decisions.
+
+ #### Definition of Done (DoD)
+
+Before the job is started, a definition of a completed job is specified, and the team commits to this definition. DoD often states that no development job is finished until testing is complete or the software is shipped to target systems, in a defined quality.
+
+By using DoD, the whole team shares the same understanding of when the task is completed.
+
+ #### Broken Agile Metrics
+
+* __Test pass/fail ratios__: Agile team stops the line and immediately fixes a broken test. Those ratios are not usefull because team stops and directly fixes the regression. However, the metric is usefulf for detecting basic flaws. For example, is test coverage is below 20 percent, it is pretty obvious that technical debt has been accumulated.
+* __Number of defects created/resolved__: Instead of helping the project move forward, these numbers often result in finger pointing and arguin about what what was and wasn't a bug or a feature.
+* __Continuous Deployments__: Build jobs are often broken, and packaged applications frequently cannot be deployed to a target system. Obviously, there is a gap between what the application expects of the target environment and the current state of the environment.
+ #### Qualify Changes
+
+Agile teams often use a general unit called "__change__" to track progress.
+
+As soon as a change is applied to the system, it may lead to a problem that may take significant amount of time to notice and identify its root cause.
+
+---
+
+ ## Improving Flow of Features
+
+DevOps is essentialy about gaining fast feedback and decreasing the risk of releases through a holistic approach that is meaningful for both development and operations.
+
+One major step for achieving this approach is to improve the flow of features from their inception to their availability. This process can be refined to the point that it becomes important to reduce __batch size__ (size of one package of changes or the amount of work that is done before a new version is shipped) without changing capacity or demand.
+
+ #### Cycle Time
+
+Period required to complete one cycle of an operation or process. Cycle time required to process a customer order might start with the customer's phone call and end with the order being shipped. In software engineering, cycle time describes the __amount of time required from the start of the development process to the beginning of the revenue generation__.
+
+The overall process comprises many different steps. The cumulative cycle time of all of the subprocesses in your operation determines when you can promise a delivered feature to your customer.
+
+Cycle time is __only meaningful if you define "done"__ as the point at which features have been developed, tested, and shipped to the customer, who can then begin to using them.
+
+If you declare victory as soon as the product ships, there is likely to be insufficient attention devoted to the residual engineering that must be performed to finish optimizing the product for production. Insisting that all of this optimization takes place before shipping the first unit is usually a bad economic choice, albeit a common mistake.
+
+> The key point is to agree on a measurable starting and ending point.
+
+ #### Lead Time
+
+The term _lead time_ can be used in addition to cycle time. It can refer the amount of time between an input for a request to the system and the completion of that order.

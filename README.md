@@ -1574,6 +1574,53 @@ Projects often go through those phases:
 Agile efforts often end at the transition phase from development to operations. The delivery of software is covered by DevOps (i.e lean practices for shipping the software to production and making it available to end users).
 
 DevOps provides patterns to foster collaboation among project stakeholders and user processes, as well as tools to streamline the software delivery process and reduce the overall cycle time.
+# DevOps - Traditional team settings
+In tradititional team settings, the term _development_ describes the programmers in the team. Testers and QA are often dedicated project roles whose activities start after the programmers have finished their work. _Operations_ contains database, system, network, and other types of administrators who set up and maintain the server and systems. The operations groups essentialy accompanies and accounts for the "last mile" in the delivery process.
+
+In worst case, waterfall-like scenario, programmers code the application that is tested by testers afterward. QA performs down-streamed quality assurance afterward. The walls (in the form of organizational or process borders) between different groups prevent close collaboration.
+
+ ## Attributes
+
+* Hero Cult
+* Emphasis on titles
+* Shadow responsabilities
+* Favor a plan over planning
+
+ #### Hero Cult
+
+> Team is nothing, individuals are kings.
+
+Consider a programmer who fails to document his work adequately and delivers low-quality software that requires adjustments and bug fixes that can only be performed by the hero creator because he did not document or share his knowledge, decisions, and project experience with the team.
+
+ #### Emphasis on Titles
+
+Everyone in the team plays a role. One person is a only a developer and other a senior developer. Often, the primary factor behind a promotion is the duration of the person's membership in the company and not its technical or soft skills.
+
+ #### Shadow responsabilities
+
+People persue other activities that are not part of their responsabilities simply to protect their turf and ensure their influence or to indulge their 'pet projects'.
+
+ #### Favor a plan over planning
+
+Everything is planned, but the activity of planning is seldom performed. Planning (ie, adjusting the original plan) is a rare activity.
+
+ ## Cultural Barriers
+
+* Separate teams
+* No common language
+* Fear
+
+ #### Separate teams
+
+You'll have separated or loosely coupled working groups. Unfortunally a collection of great teams is not a replacement for one team that pursues a unified and shared project goal.
+
+ #### No common language
+
+Specialized teams and project roles prefer to use the language that is most comfortable for them, instead of a shared language that the whole project understands or even better, one that is also understood by the user and customer. As result, misunderstandings occur.
+
+ #### Fear
+
+What others do is bad, and any activities by other people that could impact one's own type of work or activity are confronted with skepticism. Perciving shared goals and knowledge as risky will lead to fear on all sides, especially fear of losing power, influence, and reputation.
 # DevOps - Agile team settings
 The Agile movement addressed the pains of suboptimal collaboration and divergent goals.
 
@@ -1645,50 +1692,81 @@ Development may have finished the functionality in fast cycles by using Agile fr
 Development will blame operations for not being able or willing to set the software live. Operations will blame the development team members because of their inability to develop production-ready software.
 
 The root cause of these mismatches can be narrowed down to different goals and suboptimal collaboration between these groups. The underlying cause is also influenced by the horizontal alignment.
-# DevOps - Traditional team settings
-In tradititional team settings, the term _development_ describes the programmers in the team. Testers and QA are often dedicated project roles whose activities start after the programmers have finished their work. _Operations_ contains database, system, network, and other types of administrators who set up and maintain the server and systems. The operations groups essentialy accompanies and accounts for the "last mile" in the delivery process.
+# DevOps - To the rescue
+DevOps one team approach consist of programmers, testers, QA, and experts from operations. They all develop software and help to bring it to the user.
 
-In worst case, waterfall-like scenario, programmers code the application that is tested by testers afterward. QA performs down-streamed quality assurance afterward. The walls (in the form of organizational or process borders) between different groups prevent close collaboration.
+ ### Values and Goals
 
- ## Attributes
+* Respect for one another
+* Commitment to shared goals
+* Collective ownership
+* Shared values
 
-* Hero Cult
-* Emphasis on titles
-* Shadow responsabilities
-* Favor a plan over planning
+Essential to improving collaboration is the alignment of incentives across teams as well as the application of shared processes and tools. This includes a shared definition of quality for the whole project and a commitment to it.
 
- #### Hero Cult
+Aligner with defined quality attributes, visibility and transparency can help to foster ollaboration. Incentives must treat the development and operations groups as one team. That is, they should be rewared for developing many changes that are stable and shipped.
 
-> Team is nothing, individuals are kings.
+As a prerequisite, teams are cross-functinoal. Thus, individual experts share their skills and experiences with others, which leads to a one team approach where individualshave at least a basic understanding of other's domains.
 
-Consider a programmer who fails to document his work adequately and delivers low-quality software that requires adjustments and bug fixes that can only be performed by the hero creator because he did not document or share his knowledge, decisions, and project experience with the team.
+DevOps is about __team play__ and a __collaborative problem-solving approach__. if a service goes down, eeryone must know what procedures to follow to diagnose the problem and get the system up and running again. Additionally, all of the roles and skills necessary to perform these tasks must be available and able to work together well. __Training__ and __effective collaboration__ are critical here.
 
- #### Emphasis on Titles
+Because of the changing requirements for team members, DevOps will gain more importance in central companies, such as human relations, which has to hire people who are open-minded and willing to collaborate in a team.
 
-Everyone in the team plays a role. One person is a only a developer and other a senior developer. Often, the primary factor behind a promotion is the duration of the person's membership in the company and not its technical or soft skills.
+ ### Processes
 
- #### Shadow responsabilities
+Processes that define how software is developed and delivered are more imprtant than tools. After developing a process that fits your individual requirements and basic conditions, you can choose the tools that best implement your process.
 
-People persue other activities that are not part of their responsabilities simply to protect their turf and ensure their influence or to indulge their 'pet projects'.
+Processes are even more important when addresing the interactions between different departments. A handover of artifacts for delivery must be defined. It's important to install inderdisciplinary experts in the interface of both development and operations.
 
- #### Favor a plan over planning
+We want to accomplish the following:
 
-Everything is planned, but the activity of planning is seldom performed. Planning (ie, adjusting the original plan) is a rare activity.
+* Aligning responsabilities with artifacts (deliverables), not with roles (traditional approach)
+* Setting up streamlining of holistic process that maintains speed while development hands off software to operations
+* Including development and operations in a comprehensive end-to-end delivery processes
+* Including operations in Agile frameworks and processes, such as Scrum and Kanban
 
- ## Cultural Barriers
+Development and operations share the same processes, and both groups are focused on delivering application changes to the user at a high frequency and uqality. The __unified process emphasizes the cycle time and prefers the vertical optimization approach__. According to this method, aevery application is created and executed on the architecture that is perfect for this concrete application. The individual components of the infrastructure are laid out to fulfill the requirements for the specific application. Optimization across the borders of individual applications is rare or does not occur at all.
 
-* Separate teams
-* No common language
-* Fear
+Traditionally, the vertical optimization approach is preferred by development team. In DevOps, both development and operations __prefer workable solutions in production and are open-mined about optimizing vertically__.
 
- #### Separate teams
+ ### Tools
 
-You'll have separated or loosely coupled working groups. Unfortunally a collection of great teams is not a replacement for one team that pursues a unified and shared project goal.
+Processes are more important than tools, but tools are stint important, specially for automating activities along the delivery process. The more tools you have in your tool kit, the better you can decide which tool is the best fir for a given task.
 
- #### No common language
+Streamlining DevOps is heavy reliant on __end-to-end automation__:
 
-Specialized teams and project roles prefer to use the language that is most comfortable for them, instead of a shared language that the whole project understands or even better, one that is also understood by the user and customer. As result, misunderstandings occur.
+Code and scripts for:
+* building
+* unit testing
+* acceptance testing
+* deploying application
+* configuration options for different target environments
+* programming attributes and "heavior" of target environments
 
- #### Fear
+With tools like Puppet or Chef, domain-specific languages (DSL) can be used to describe the attributes of the environment (e.g, technical users, permissions, and installed packages). Code and scripts are stored in version control systems, such as Git.
 
-What others do is bad, and any activities by other people that could impact one's own type of work or activity are confronted with skepticism. Perciving shared goals and knowledge as risky will lead to fear on all sides, especially fear of losing power, influence, and reputation.
+This approach has many benefits:
+
+* Abstracted descriptions of machines by using DSL while enjoying full power of scripting langauges (in both Puppet and Chef you can describe behavior in Ruby)
+* Declarative descriptions of target behavior
+* Managment of code in version control
+* Synchronization of environments by using version control system and automatic provisioning of environments
+* Using tools as Jenkins, Puppet and Vagrant, complete setups, including virtualizations, can be managed automatically
+* Sharing scripts (e.g, Puppet manifest). A cross-functional team and all diferent aparties can use those scripts to set up their respective environements
+
+ #### Automation is the backbone of DevOps
+
+> Automation can ensure that the software is built the same way each time, tehat the team sees every change made to the software, and that the software is tested and reviewed in the same way, every day, so that no defects slip through or are introduced through human error.
+
+In software development projects, a high level of automation is a prerequisite for quickly delivering the best quality and for obtaining feedback from stakeholders early and often. Automating aspects of DevOps helps to make parts of the process transparent for the whole team and also helps deploy software to different target environments in the same way.
+
+You can best improve what you measure, and to measure something usefully, you need a process that delivers results in a reproducible way.
+
+ #### Resistance to change
+
+Because of the resistence of different teams to adjust their daily routines when their self-made, isolated solutions have worked just fine, the incentives and commitment provided by upper managmente are important, which are not enough, unified processes and tool chains are also important.
+
+Upper managment will also resist by questinoning the wisdom of implementing DevOps if the concrete benefits are not visible. Better cash flow and improved time to market are hard to measure. managment ask questions that address the core problems of software engineering while ignoring the symptoms, how can the company achieve maximal earnings in a short period of time? How can requirements be made stable and delivered to customers quickly? These results and visions should be measured with metrics that are shared by development and operations. Existing metrics can be further used or replaced by metrics that accurately express business value.
+
+# Devops - Building Blocks
+

@@ -1491,6 +1491,57 @@ Self-validiting spies that can be programmed during the set up phase with the ex
 * Should be repeatable and offer the same results if there has not been a code change.
 * Should be fast, after all, one key point of test-first is rapid feedback and quick iteration.
 * Should be isolated. A test should fail only because the feature/component it is testing has a defect.
+# ITIL - Information Technology Infrastructure Library
+Framework designed to standarize the selection, planning, delivery and maintenance of IT services within a business. The goal is to improve efficiency and achieve predictable service delivery.
+
+ITIL guidelines and best practices align IT department actions and expenses to business needs and changes them as the business grows or shifts direction.
+
+ITIL started in the 1980s, when data centers descentralized and adopted more geographically diverse architectures. This practice caused process and deployment discrepancies and brough inconsistent or suboptimal IT service perfomance into organizations.
+
+ ### Process framework
+
+Five core publications, which are periodically reviewed and updated as technologies changes. Each book collects best practices for each IT service managmente (ITSM) lifecycle.
+
+1. __Service Strategy__: Describes business goals and custome requirements and how to align objetives of both entities.
+
+2. __Service Design__: Outlines practices for the production of IT policies, architectures and documentation.
+
+3. __Service Transition__: Advises on change managmente and release practices, guides admins through environmental interruptions and changes.
+
+4. __Service Operation__: Offers ways to manage IT services on daily, monthly and yearly basis.
+
+5. __Continual Service Improvement__: Covers how to introduce improvements and policy updates within the ITIL process framework.
+
+ ### Guidelines
+
+* 1989 - v1
+* 2001 - v2: more uniform and usable structure
+* 2007 - v3: feedback loop for improvement, continual service improvement
+* 2011 - v3+: expands upon and clarifies processes in ITIL v3
+* 2019 - v4: practical guidance, connection with new approaches such as DevOps
+
+ ### Certifications 
+
+* Foundation
+* Practitioner
+* Intermediate
+* Expert
+* Master
+
+ ### Benefits
+
+* Better goal alignment between IT departments and the business
+* Improved service timelines and customer satisfaction
+* Reduced operational costs due to better resource utilization
+* Increased visibility of IT costs and assets
+* Streamlined service disruption response and management
+* More flexible service environment that can easily adapt to change
+
+ITIL also provides good foundation for organizations that don't have any sort of services framework or best practices and enables admins to pursue job specializations.
+
+Admins must be cautions about how management interprets and implements ITIL, however. It is an industry standard, but that doesn't mean it will solve internal personnel or compliance issues. Its implementation guides can make process development easier, but they don't necessarily account for more innovate processes or tecnhologies.
+
+ITIL's implementation requires staff time, training and expertise, so organizations must ensure that they have appropiate resources (and certified employees) before going through an ITIL implemetation.
 # Devops
  #### Before DevOps
 
@@ -1769,6 +1820,11 @@ Because of the resistence of different teams to adjust their daily routines when
 Upper managment will also resist by questinoning the wisdom of implementing DevOps if the concrete benefits are not visible. Better cash flow and improved time to market are hard to measure. managment ask questions that address the core problems of software engineering while ignoring the symptoms, how can the company achieve maximal earnings in a short period of time? How can requirements be made stable and delivered to customers quickly? These results and visions should be measured with metrics that are shared by development and operations. Existing metrics can be further used or replaced by metrics that accurately express business value.
 
 # Devops - Building Blocks
+* Measurements and Metrics
+* Improving Flow of Features
+* Improve and accelerate delivery
+* Automation
+
  ## Measurement and Metrics
 
 Crucial aspect of software engineering is __measuring what you are doing__. Sooner or later, you'll have to decide on which metrics you want to use during your software engineering process, consider which metric is meaningful enough to aid all participants, as well as the development and delivery processes.
@@ -1828,4 +1884,90 @@ If you declare victory as soon as the product ships, there is likely to be insuf
 
  #### Lead Time
 
-The term _lead time_ can be used in addition to cycle time. It can refer the amount of time between an input for a request to the system and the completion of that order.
+The term _lead time_ can be used in addition to cycle time. It can refer the amount of time between an input for a request to the system and the completion of that order. Typically includes queuing time and work order preparation time.
+
+ ## Improve and Accelerate Delivery
+
+After a release engineering team spends a weekend in a data center deploying the past three months' of work, the last thing anybody wants to do is deploy again anytime soon. If a task is painful, the solution is to do it more often and bring the pain forward.
+
+Choosing small releases over big releases eventually delivers the same amount of functionality, but more functionality is delviered more quickly, and software will return value more quickly also.
+
+Deploying to production frequently will help keep things simple and make the individual changes more focused. The risk of deployments is reduced because you practice the process of deployments. By bringing the pain forward, you'll identify problems in your process and tool chains earlier and will be able to optimize accordingly. As a result, the deployment itself will also only change in smaller batches between different deployments. The process of fixing incidents will also become optimized too, as changes between deployments are small, and in turn helps with learning about the root causes of production incidents, errors can be fixed faster, and that makes a total rollback unnecesary, but even if you have to rollback, you only need to do so back a small set of changes. This is not only a technical issue but also more managable from a business viewpoint to roll back a single feature than a full release with hundred of features.
+
+ ## Automation
+
+Automating common tasks in building, testing, and releasing software helps to increase efficiency and set up a reproducible process that can be implemented by tool chains. We can even automate the provisioning and deployment of the virtual machines and middleware. This ensures repeatibility.
+
+> Automating the integrating, build, packaging, and deployment steps will facilitate rapid iterative development.
+
+> Automating the most error-prone, most repetitive, and most time-consuming activities is essential
+
+ ### Automation good practices
+
+Do not automate simply because you want to automate. __It's bad if your automation activities are driven by technical instead of business considerations__. Automation is performed to gain fast feedback. Efficient automation __makes humans more important__ not less. Always be aware of the consequences of automation, including the law of marginal costs and the paradox of automation.
+
+ ### Pitfalls of automation
+
+* Law of marginal costs
+* Verb/noun mistake
+* Paradox of automation
+* Irony of automation
+
+ #### Law of marginal costs
+
+In most cases you should not automate everything. Software development needs maintenance, and enchancements are coded continuously. The same is for the automation system itself.
+If something has to change in the running automation system because new requirements have emerged or changes are being implemented, these activies will cost time and thus money.
+
+ #### Verb/Noun Mistake
+
+Project activities are often mixed up with sense and stateless deliverables. You will most probably not want to automate 100 percent of your tests just to have a big batch of test cases. Moreover, a crucial part of tests cannot be automated at all (i.e exploratory testing of user interfaces).
+
+ #### Paradox of automation
+
+> The more efficient the automated system is, the more essential the human contribution that is needed to run the automation system.
+
+Humans are less involved in heavily automated systems, but their involvement becomes more critical.
+
+If an automated system has an error, the full system is often completely unavailable until the error is identified and fixed. Finding the error is a nontrivial task that cannot be performed by a novice engineer who is not an expert at the underyling, automated baby steps. Strong skills and experience is needed to monitor and operate a running system, and to maintain and develop the system further because requirements will change and new requirements will be raised in the future.
+
+ #### Irony of automation
+
+The more reliable the plant, the less oportunity there will be for the operator to practice direct intervention, and the more difficult will be the demands of the remainint tasks requiring operator intervention.
+
+According to __Ashwin Parameswaran__, running most scenarios via "autopilot" with a high automation grade results in a deskilled and novice human operator who cannot fix the system if fails.
+
+Quote from his "__People make poor monitors for computers":
+
+> Because a failure is inevitably taken as evidence of human failure, the system is automated even further, and more safeguards and redundancies are built into the system. This increased automation exacerbates the absense of feedback if a small error occurs. The buildup of latent errors again increases, and failures becomes even more catasthropic.
+
+As a possible consequence from accidents in highly automated systems, you may claim that __only error situation itself provides a situation you can learn from to improve and do better__. But as soon as the incident arises, it may be too late to adjust accordingly.
+
+The operator needs to gain and preserve a better understanding not only about the whole automated system, but also about the single modules and facets that are not part of it. This results in the operator becoming what he or she should be, an expert, not a monitor for a computer.
+# Devops - Decoupled Deployment and release
+Decoupling deployment and release improves and accelerates delivery, which is one building block of devops.
+
+* Branch by Abstraction
+* Feature Toggles
+
+ ### Branch by Abstraction
+
+Incrementally makes large-scale changes to your system. The strategy was initially introduced by __Paul Hammant__.
+
+Main steps:
+1. Create an abstraction over the part of the system that you need to change
+2. Refactor the rest of the system to use the abstraction layer
+3. Contiune coding, the abstraction layer delegates to the old or new code as required
+4. Remove the old implementaion
+5. Iterate over steps 3 and 4. Ship your system in the meantime.
+6. Once the old implementation has been totally replaced, remove the abstraction layer.
+
+ ### Feature Toggles
+
+Deliver complete code to production but use data-driven switches to decide which feature is made available during runtime. To enable this, configuration files are often used.
+
+The team can develop in the same development mainline (without the need for using branches) and ship the complete code to production.
+
+Feature toggles can help to degrade your service gracefully under load. This ability to restore your system to a baseline is vital not just when a deployment goes wrong but also as part of your disaster recovery strategy.
+
+The advantage of feature toggles is a disadvantage too: altough fading out features in production, the production code does contain parts that are not relevant for that specific release. This non-relevant code may influence other code parts or even provoke errors. Additionally, fading out features on the user interface may easily be possible, but it may not be possible to fade out corresponding functionality in the backend of application.
+

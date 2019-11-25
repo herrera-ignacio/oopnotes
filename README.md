@@ -1948,6 +1948,8 @@ Decoupling deployment and release improves and accelerates delivery, which is on
 
 * Branch by Abstraction
 * Feature Toggles
+* Dark Launching
+* Blue-Green deployment
 
  ### Branch by Abstraction
 
@@ -1971,3 +1973,190 @@ Feature toggles can help to degrade your service gracefully under load. This abi
 
 The advantage of feature toggles is a disadvantage too: altough fading out features in production, the production code does contain parts that are not relevant for that specific release. This non-relevant code may influence other code parts or even provoke errors. Additionally, fading out features on the user interface may easily be possible, but it may not be possible to fade out corresponding functionality in the backend of application.
 
+ ### Dark Launching
+
+Strategy of deploying first versions of functionality into production before releasing the functionality to all users. This decouples the deployment of a new version of software from the release of the features within it. You can deploy new versions of the software continuosly, regardless of which features are available to which users.
+
+With first versions in production made available for a subset of end users only, you can find any bugs more easily, before you make the release available to all users.
+
+Dark launching provides an approach to remediate in a low-risk way. If a problem occurs with an early version of a feature, only a few users may experience the problem. Additionally, you can address the incident without a complete heavyweight rollback, just by switching off the feature or by changing a router setting.
+
+ ### Blue-Green deployment
+
+Deploy new version of the application side by side with the old version. To switch over to the new version or roll back to the old version, back and forth, we only need to change a load balancer or route setting.
+
+Blue-Green deployment ensures that you have two production environments that are as similar as possible. At any one time, one of them (i.e. the green deployment) is live. Whiling brining a new release of your software to production, you conduct the final steps of testing in the blue deployment. Once the software is working in the blue enviornment as expected, configurations are done, and smoke tests are run successfully, we switch the router to redirect all incoming requests to the blue environment. Afterward, the green environment is out of production and can be used to prepare the next release.
+
+# Devops - Quality and Testing
+ ## What is Quality?
+
+The definition of quality is unique to a given context.
+
+> Gerald M Weinberg: quality is conforming to someone's requirements
+
+Traditional attributes:
+* Expansive test coverage of unit tests
+* Small number of entries in the bug tracker
+* Small number of entries in the bug tracker given a specific priority of ranking entries
+* Minimization of accidental complexity
+* Compliance with defined metrics checked with static source code analyzers such as PMD or FindBugs
+* Compliance with system runtime quality, including functionality, performance, security, availability, resilience, usability, and interoperability.
+* Compliance with system non-runtime quality, including modifiability, portability, reusability and testability.
+* Excelent stability and capacity of the software
+
+More subtle such as follow:
+* A good business quality, including costs, schedule, marketability, and appropiateness for the organization
+* A good overall cycle time.
+
+ #### Capacity
+
+The maximum throughput a system can sustain for a given workload while maintaining an acceptable response time for each individual transaction.
+
+ #### Resilience
+
+Intrisic ability of a system to adjust its functioning prior to, during, or following changes and disturbances, so that it can sustain required operations under both expected and unexpected conditions.
+
+ ## Leading and Supporting Attributes
+
+For the DevOps approach, we are more interested in comprehensive, objective, measurable values that are meaningful for both development and operations (__leading attributes__), so that they can integrate and align themselves with these leading quality attributes. These attributes are vehicles for better cooperation and shared goals.
+
+Support attributes can be helpful in specific contexts as well, altough attributes such as "number of entries in the bug tracker" are not meaningful and can be manipulated easily.
+
+ #### Measurable Attributes
+
+To know wether a specific quality has been achieved, it has to be measured. As soon as you have a measured value, you can benchmark it and try to improve it.
+
+ #### Reliability on Context
+
+Quality heavily relies on context and interdependency of quality attributes. Decisions directly impact quality, and a decision in favor of one quality often impacts another.
+
+Quality must be set in context, and often, the solution is a compromise and a matter of prioritizing the different quality attributes.
+
+Dedicated teams (such as development and operations) may have different priorities for quality attributes or may not want to deal with attributes from other groups. Thus, to obtain the best overall solution, teams must define quality in a holistic way. Leading attributes are the best candidates for a well-rounded definition of quality because they feature a holistic macrofocus rather than a microfocus.
+
+
+ #### Internal Quality
+
+Quality of the design and the code. Can be improved by applgying good design and coding practices, and a sustainable development and delivery process.
+
+ #### External Quality
+
+Measured by what you see while using the application. Even if the external quality is great (all functions are available), the internal quality ay be very bad (bad code and code that is not maintainable).
+
+In the ase of poor internal quality, external quality __will suffer__ eventually because the application will raise an increasing number of bugs. Additionally, __development time will increase__ because of the increased technical debt.
+
+ #### Quality is an Inherent Part
+
+Quality in software engineering is important at all times, from the very beginning until the application is running and is maintained in production. __Quality can't be injected into the application post mortem__. Additionally, it's not sufficient to improve on a local scope, or to expect any great quality improvements by microtunning individual software units.
+
+> Quality comes not from inspection, but from improvement of the production process
+
+ ## Degeneration: Faults and Failures
+
+Degenerations happens, for example, if too many versions are pushed to production, with the application having suboptimal internal quality, and many more upcoming requirements should be implemented in the software.
+
+Other worse-case scenarios include automation that is not tested and packing and deploying the software to production when it is error-prone, monitoring is not in place, or nonfunctional requirements were not implemented accordingly. 
+
+High speed releasing, together with high portion of technical debt, leads to degeneration, which has consequences. In particular, degeneration of quality at the beginning of the process negativelry affects the entire process, with self-reinforcing results (i.e. degeneration of qualtiy will probably lead to more degeneration of quality). It will not work to inject quality into the software post mortem.
+
+> Weinberg, "A fault is the defect in the program that, when executed under particular conditions, causes a failure".
+
+> Weinberg, "A failure is the departure of the external results of a program operation from requirement".
+
+Obviously, inherent quality will decrease the amount of faults by identifying, isolating, and addressing defects early and keeping the internal quality up, and so, the impact of faults, meaning the failures.
+
+Because quality attributes must be taken care from the start, you have to address the challenge of dealing with quality that is traditionally detected or important for project roles in the later steps of the delivery chain. For example, altough the stability of an application may be crucial for operations, that stability must be built into the application during the prior development phase. Quality attributes must be an inherent part of the software development and delivery process from the beginning.
+
+---
+
+ ## Patterns for improving quality
+
+* Use Scenarios to describe Quality
+* QA and making Quality Visible (CI)
+* Test Automation Mix
+* Acceptance Criteria
+* Inject Quality Gates
+
+ #### Scenarios to describe Quality
+
+Describe quality attributes in terms of scenarios such as the following:
+
+> if ten users initiate logout actions, the logout component will process the requests with an average latency of one second under normal circumstances.
+
+This scenario allows the team to make quantifiable arguments about a system. 
+
+In DevOps, it is important to identify connections and see implications for the whole system. Scenarios are useful for managing a given complex structure with its connections to other scturtures. For example, if a developer changes a core part of the client-server connection of an application, this must be tested thoroughly on target systems, not only by the developer but also by operations.
+
+A Scenario description consists of a source of stimulus (e.g., users), the actual stimulus (e.g., initiated transaction), the artifact affected (e.g., logout component), the environment in which it exists (e.g., normal operation), the effect of the action (e.g., transaction processed), and the response measure (e.g., within one second).
+
+Writing such detailed statements is only possible if the relevant requirements have been identified and an idea of the components has been proposed. 
+
+ #### QA and making Quality Visible (CI)
+
+QA is performed by the whole team, including development and operations. You can ensure the quality of an application only if you have control over that application, that means, the authority to change the application.
+
+Real and holistic QA can only be done if you can change the solution (with its parts, application, middleware, and infrastructure), thus, bringing together development and operations.
+
+With DevOps, instead of being an explicit downstream activity, QA is done at any time and by the whole team.
+
+Quality is made visible by appliying __continuous integration__ and __continuous delivery__.
+
+Continuous integration is, in short, a shared agreement in the team that when the team gets the latest code from the code repository it will always build successfully and pass all tests, with the prerequisite that the team checks in their code every few hours
+
+Continuous Delivery is, in short, continuously stage software through a delivery pipeline, from development to production.
+
+A crucial observation is that quality gains further momentum the closer we get to production (operations). The main reason for this is that it is often not the software you bring to production that you _wish_ to bring to pruduction. What you bring to production is the _real_ software with its actual quality. There might be big differences between the wish and the reality, or in other words, between the result of concepts and versions of the software in the development, and the result of the same software running on real production machines.
+
+Deployment and running in production closes the __definition of done__. Having the software in production is the moment when you see that you've done your work accurately. There is no replacemente for software running in production from both perspectives, gaining business value and gaining meaningful (technical) insight about the quality.
+
+ #### Test Automation Mix
+
+Flaws and bugs should be detected as soon as possible. Automated tests provide __fast and continuous feedback__ on the state and quality of the software. Automated tests provide a safety net required to add new features and incorporate bug fixes without breaking existing features. The whole team is responsible for test automation.
+
+Altough is crucial to use automated tests, not all tests can be automated, e.g. usability tests, exploratory tests, or one-off tests.
+
+The test automation mix includes:
+* unit tests
+* service tests
+* UI tests
+
+![Test pyramid](https://i.ibb.co/Bc0QswZ/Screen-Shot-2019-11-28-at-18-36-55.png)
+
+Practices such as TDD (Test-driven development) recommend writing tests first and writing functional and test ode in small interations along with refactorings to improve the code designe.
+
+A broad selection of unit tests is __essential for fast feedback cycles__ and to improve the quality of the code, particularly its design.
+
+A common error in test strategy is to not start with the fundament of the pyramid. A common antipattern skips unit tests and even service tests and only sets up and runs UI tests. As a result of overemphazising automatic UI tests, the following problems emerge:
+
+* Gaining feedbak takes too much time, especially for bug fixes
+* Isolating bugs becomes more difficult
+* Inner quality of whole application will suffer because units are not covered by tests
+* Design suffers because other tests help to improve the design
+
+ #### Acceptance Criteria 
+
+Include good acceptance criteria to your product backlog items. This defines when you're done (definition of done).
+
+> The backlog is an ordered list of everything that might be needed in the product and is the single source of requirements for any changes to be made to the product
+
+Test aspects are crucial parts of your backlog. You should always try to ensure testable stories by defining a test case. You should also estimate testing efforts when estimating a user story for your backlog.
+
+ #### Inject Quality Gates
+
+Check if quality is accurate. With Scrum, strategies include the definition of and alignment with the definition of done, or the demostration of the iteration result after the iteration is completed.
+
+Altough QA should be done by the whole team at any time in development, having quality gates can be of value.
+
+Quality gate __is a milestone during delivery__ where special quality requirements are checked. If the requirements are fulfilled, the software may be staged further into the direction of production until it is in production and available for the users.
+
+Optimally, quality gates can fail automatically to maximize the flow and minimize cumbersome, manual activities. However, there are different contexts. Some projects obtain good results by not introducing quality gates, if any type of quality gate is a potential ottleneck that prevents features from being delivered to the customer.
+
+Typicale use cases for quality gates:
+
+* Continuous Build fails if checked-in code provokes test failures
+* Continuous Build fails if the test coverage of new code fails to meet coverage goals
+* Continuous Build fails if Checkstyle, PMD, etc (static code analyzers) detects a design or code flow with severe 'errors'
+* QA build fails if automatic acceptance tests fail
+* Release build fails if application still depends on components that in turn are still under development
+* Rollout to production fails if BDD tests fail to check behavior of infrastructure
+* Any further rollout is stopped if check-ins to infrastructure code provoke build errors

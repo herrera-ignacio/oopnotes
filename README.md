@@ -2160,3 +2160,124 @@ Typicale use cases for quality gates:
 * Release build fails if application still depends on components that in turn are still under development
 * Rollout to production fails if BDD tests fail to check behavior of infrastructure
 * Any further rollout is stopped if check-ins to infrastructure code provoke build errors
+# DevOps - Shared incentives
+Evolve a team from a working group. Goals, working agreements, and motivation are essential for creating shared incentives.
+
+* Goals
+* Working agreements
+* Motivation
+
+ #### What is a Team?
+
+A team is a working group in which __members work together closely, cooperatively, and interdependently to achieve a shared group goal__. Besides the goal, the team has agreed on an approach to the work (e.g., by saring the _definiton of done_) and consensus culture at work.
+
+Often the team has complementary skills. This means that every role has equal value, and the sum of all roles forms the team in which anyone can pick up tasks. Teams are not too big (up to ten members at most). The optimal size of a team depends on the complexity of the task to be accomplished. Too many members complicates team building and increases misunderstandings and the amount of communication pairs.
+
+Teams forms communities and are ecosystems. Altough having personal goals and personal knowledge, on teams, people pull approximately in the same direction.
+
+In order to become a team, it is essential for the group to __share goals and commit to working agreements__.
+
+ #### Goals
+
+> When people have a common goal, make commitments to each other about their interdependent tasks, and use an agreed-upon approach to the work, they are part of a team.
+
+A __goal__ is a desired result the team plans and commits to achieve. Every team member has individual goals that must be aligned with the overall goal of the whole team.
+
+> Goals have to be real and easily recognizable as valuable
+
+> Tom DeMarco, "Getting the system built was an arbitrary goal, but the team had accepted it. It was what they had formed around. From the time of jelling, the team itself had been the real focus for their energies. they were in it for joint success, the pleasure of achieving the goal, and any goal, together."
+
+ #### Working agreements
+
+Setting up concepts, particularly requirements documents, is essential for fostering agreement. __Working agreements__ guide daily work of the team:
+
+* Explicit set of agreements about how a team functions provides clarity that prevents confusion and conflict later.
+
+* Team function together in many ways and every time does it differently. You can only assume that everyone shares the same understandings if you have discussed and doccumented them.
+
+* Working agreements help new memebers learn how to participate constructively. They serve as the basic list of key dos and don'ts.
+
+* In meetings, explicit working agreements help members stay accountable, because if they violate an agreement, any other memeber can point out what they agreed to.
+
+Examples of team-related working agreements:
+
+* __Moving forward__: any member may ask for a test for agreement at any time
+* __Wise use of meeting time__: Stick to one conversation at a time in meetings
+* __Decisions__: First decide how you will decide (voting, consensus, command, delegation)
+* __Feedback__: Seek and offer feedback on the impact of actions and interactions
+* __Time__: When team meetings are set, make an effort to attend, be on time, come prepared
+* __Learning__: Fail fast, fail often, identify mistakes early
+* __Knowledge transfer__: Developers pair with members of operations and viceversa
+* __Collective ownership__: Ask for help when stuck on a task
+
+ #### Motivation
+
+Inner driver that pushes toward performing actions. For motivation, it is important to have goals. Achieving those goals is important for further motivation, so it may be a good idea to make those goals manageable and achievable in order to be able to finish what you've started.
+
+Values are important for motivation too, such as respect, trust, opennes, focus, courage, commitment, and simplicity.
+
+Work factors that stimulate people's behavior include challenging work, achievement, personal growth, best-of-breed processes and tools, recognition, responsibilities, job satisfaction, team work, success, and creative environments.
+
+Mary and Top Poppendieck state that the __building blocks of motivation are__:
+
+* __Belonging__: Team wins or loses as a group
+* __Safety__: No zero defects mentality, rather an atmosphere that tolerates mistakes
+* __Competence__: People want to be involved in something they believe will work
+* __Progress__: When a team meets an important objective, it's time for a celebration
+
+---
+
+ ## Becoming a Team
+
+1. Define foundations: determine shared goals
+2. Define scope as well as boundaries and context
+3. Define quick wins, a result that can be achieved quickly and is appreciated by all
+4. Define the path to solution, how you want to come up with shared goals (e.g, brainstorming)
+5. Define the steps: rearrange and plan next steps to foster shared goals
+6. Define slack time in order to improve your daily work, team collaboration and definitions of shared goals. Slack time enables thinking and analyzing the current working approach
+7. Inspect and interate
+
+It's essential to include both development and operations, and focus on __sharing__:
+
+* Celebrate success together
+* Acknowledge the work of others
+* Apply shared practices and tools across departments
+* Ask questions and give feedback and interactions, to show interest, to learn, and to foster shared understanding
+* Emphasize visibility
+
+Additionally, you need __commitment__ from both the management and the team. Managment should commit to:
+
+* Allow self-direction
+* Provide right motivation (e.g., removing micromanagmenet)
+* Provide slack time
+* Enable team to do its job successfully (providing and allowing good practices and tools)
+* Foster training and collaboration by rotating roles, and emphasize general communication strategies
+* Accept impacts of physical logistics
+
+ #### Tuckman's Stages of Group Development
+
+In 1965 Bruce Tuckman introduced a model for group development. According to the model, the team must go through all four stages to react a state that enables it to perform.
+
+1. __Forming stage__: Individual's behavior is driven by a desire to be accepted by the others, to explore, and to avoid conflict.
+2. __Storming stage__: Members with different ideas compete for consideration. Team tries to find out how they function independently and together and what leadership model they will accept. Team members open up to one another and confront one another's ideas and perspectives. Some team members will focus on minutiae to evade real issues. This stage is necessary to the growth of the team.
+3. __Norming stage__: if it manages to have one goal and comes to a mutual plan. Some may have to give up their own ideas and agree with others in order to make the team function. In this stage, all team members take the responsability and have the ambition to work for the success of the team's goals. Some groups never pass this stage.
+4. __Performing stage__: High-performing teams are able to function as a unit as the team members find ways to get the job done smoothly and effectively without inappropriate conflict or the need for external supervision. By this time, they are motivated and knowledgeable. Team members are now competent, autonomous, and able to handle the decision-making process without supervision. Dissent is expected and allowed as long as it is channeled through means acceptable to the team.
+
+Any time the team is changed (e.g., new members are added), the group may have to start again with the forming stage. If you enter a team in the storming phase, you may be skeptical about the team's behavior or you may even doubt that this is or will be a team. Facilitators and caretakers can be helpful for team building.
+
+ #### Facilitators and Caretakers
+
+Altough working groups cannot be forced to act as teams, there are many possible ways to introduce and help the team to form itself.
+
+One way is to install a __facilitator__ who helps the team to understand and achieve its goals and assits during the daily work. A special form of a facilitator would be a Scrum master, which is a caretaker who maintains the process and enables the team to do its work. Another form of caretaker is the _gatekeeper_. 
+
+It's also important to find and install a human facilitator for pushing DevOps.
+
+Mary Lynn Manns and Linda Rising provides patterns:
+
+* __Local Sponsor__: Find a first-line manager to support the new idea, ideally, your boss, ask for support from first-line managment to introduce your ideas
+* __Dedicated champion__: Introducing a new idea into an organization is too much work for a volunteer, make a case for having the work part of the job description
+* __Corporate angel__: To help align the innovation with the goals of the organization, get support from a high-level executive
+* __Evangelist__: To begin introduce a new idea into the organization, do everything you can to share your passion for it
+# DevOps - Process - Gain Fast Feedback
+

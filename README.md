@@ -2279,5 +2279,73 @@ Mary Lynn Manns and Linda Rising provides patterns:
 * __Dedicated champion__: Introducing a new idea into an organization is too much work for a volunteer, make a case for having the work part of the job description
 * __Corporate angel__: To help align the innovation with the goals of the organization, get support from a high-level executive
 * __Evangelist__: To begin introduce a new idea into the organization, do everything you can to share your passion for it
-# DevOps - Process - Gain Fast Feedback
+# DevOps - Area Matrix
+* _Area 1: Extend development to operations_: development and operations collaborate on anything that is related to delivering the project outcome to production.
 
+* _Area 2: Extend operations to development_: This area focuses on collaboration in the sense of streaming information from operations back to development.
+
+* _Area 3: Embed development into operations_: This area focuses on development's involvement in items that are originally located in produiction (or are under the responsability of operations)
+
+* _Area 4: Embed operations into development_: Last area deals with the operations deprtament's involvement in the development process in a holistic way.
+
+![Areas](https://i.ibb.co/nQmTsCG/Screen-Shot-2019-11-29-at-10-28-42.png)
+
+ #### 1 - Extend Development to Operations
+
+__Practice__: Use tools like Puppet to provision environments from versioned code
+
+__Goal__:
+* Fast feedback through automation
+* Reuse of code and tools
+* Reliability of delivery process and provisioning
+
+Compromises actions to interpret software development in a more holistic way by applying production-relevant items early and often as part of the development process (with continuous and thorough collaboration with operations).
+
+A typical practice of this are uses processes and tools for provisioning infrastructure. This infrastructure code can be managed the same way that application code is managed. The goal of this approach is to __avoid manually provisioning infrastructure__. Instead, with DevOps, environments canbe provisioned automatically.
+
+Infrastructure artifacts are also part of a software release and thus have to be put to a baseline. As a software release, they should be put in version control. Doing so not only fosters fast feedback through automation and the reuse of code and tools but also improves reliability of the delivery process.
+
+ #### 2 - Extend Operations to Development
+
+__Practice__:  Provide monitoring and log files to development
+
+__Goal__:
+* Share information about state in production
+* Enable development to improve
+* Enable development to trace production incidents
+
+Similar to Area 1, but here, convergence starts from operations. In this area, development often does not have any insight about an application's behavior once the application is deployed to a target system.
+
+Operations has the __information about runtime behavior__. Without streaming information back to development, an opportunity for development to learn and improve is missed.
+
+With DevOps, monitoring is provided to and integrated with development.
+
+Part of this area, log files are often rotated to a shared file system where development can examine past files. This function is particularly important if development has to fix bugs that were detected in a running system. It's an impractical and mostly forbidden solution to allow developers to scan log files in production (accesing remote systems with their dedicated accounts and protocols). Streaming log files continuously to development is very practical.
+
+ #### 3 - Embed Development into Operations
+
+__Practice__: Set stability and capacity as development goals
+
+__Goal__: Align goals, share incentives
+
+Shapes processes across development and operations by embedding development (not only the team but also its activities and goals) into operations.
+
+If development neglects nonfunctional requirements because its primary goal is to deliver new features, the overall solution will be suboptimal.
+
+Setting nonfunctional requirements (e.g., stability and capacity) as goals for the development team will bridge the gap between development and operations.
+
+
+ #### 4 - Embed Operations Into Development
+
+__Practice__: Operations gives feedback about the design of the application that is under development, early and often
+
+__Goal__:
+* Development gains feedback about feasibility
+* Share knowledge
+
+
+Operations team is part of the development team. Both teams work closely together to provide the best solution possible. The operations team consults and gives feedback about the solution under development. The goal is to enable the development team to gain fast feedback about thre feasiblity and to share knowledge across teams early and often.
+
+A common practice for this area shapes nonfunctional requirements in the development process. It's hardly possible or costs too much money to implement nonfunctional requirements ex post (i.e., after the software is designed, coded and sent to production).
+
+Consider the development opf the NASA space shuttle. Tomakyo writes, "_In the late 1970's, NASA relaized that more powerful computers were needed as the transition was made from development to operations_". This type of scaling software is pretty bad, especially if its necessity is detected too late.

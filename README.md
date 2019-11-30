@@ -2349,3 +2349,51 @@ Operations team is part of the development team. Both teams work closely togethe
 A common practice for this area shapes nonfunctional requirements in the development process. It's hardly possible or costs too much money to implement nonfunctional requirements ex post (i.e., after the software is designed, coded and sent to production).
 
 Consider the development opf the NASA space shuttle. Tomakyo writes, "_In the late 1970's, NASA relaized that more powerful computers were needed as the transition was made from development to operations_". This type of scaling software is pretty bad, especially if its necessity is detected too late.
+# DevOps - Kanban
+Kanban method starts with the roles and processes you have and stimulates continuous, incremental and evolutionary changes to your system.
+
+The organization (or team) must agree that this is the way to make system improvements and make them stick. Sweeping changes may seem more effective, but more often than not, they fail because resistance and fear.
+
+The current organization likely has some elements that work acceptably and are worth preserving.
+
+Kanban is __influenced by TOC (Theory of constraints)__. The base of TOC is the idiom that a chain is no stronger than its weakest link. The idiom is transported to managment and software engineering. The weakest element in the overall chain can cause failure or adversely affect the outcome.
+
+In Kanban, stations receive a "_pull_" from the demand. Therefore the supply is determined according to the actual demand, not according to some theoretical, forecasted or even academic target demand.
+
+![Kanban Board](https://i.ibb.co/4gfw1RY/Screen-Shot-2019-11-30-at-20-08-36.png)
+
+ ## Five Core Principles
+
+* Visualize the Workflow
+* Limit WIP
+* Manage Flow
+* Make Process Policies Explicit
+* Improve Collaboratively
+
+ #### Visualize the Workflow
+
+Visualizing the flow of work and making it visible are core to understanding how work proceeds. Without understanding the workflow, making the right changes is harder.
+
+A common way to visualize the workflow is to use a card wall.
+
+ #### Limit WIP
+
+Limiting work in progess implies that a pull system is implemented in parts or all of the workflow.
+
+The pull system will act as one of the main stimulus for continuous, incremental, and evolutionary changes to your system.
+
+The critical elements are that the WIP at each state in the workflow is limited, and the new work is 'pulled' into the new information discovery activity if there is available capacity within the local WIP limit.
+
+ #### Manage Flow
+
+Flow of work through each state in the workflow should be monitored, measured, and reported. By actively managing the flow, one can evaluate whether the changes to the system have positive or negative effects.
+
+ #### Make Process Policies Explicit
+
+Until the mechanism of a process is made explicit, it is often hard or impossible to hold a discussion about improving it.
+
+Without a explicit understanding of how things work and how work is actually done, any discussion of problems tend to be emotional, anecdotal, and subjective.
+
+ #### Improve Collaboratively
+
+If a team have a shared understanding of theories about work, workflow, process and risk, they are more likely to be able to build a shared comprehension of a problem and suggest improvement actions that can be agreed upon by consensus.

@@ -2519,3 +2519,113 @@ _Hidden information_ exists if the principal can keep track of the agent's activ
 Both situatiosn result in a problematic state in which the principal cannot assess the result to determine whether it arose because of the agent's qualified efforts or because it was caused by the environment.
 
 ---
+# DevOps - Automatic Releasing
+Automating releasing __reduces the risk of releasing software, ensures repeatability, and above all, helps to gain fast feedback__. Automating error-prone, repetitive, and time-consuming activities is essential.
+
+ #### Releasing
+
+Releasing means integrating the work of the team and compiling, linking, packaging and deploying the software to environments (target systems).
+
+The essential parts of releasing are managing the infrastructure, installing the correct version in the infrastructure, and configuring the application according to that specific environment. 
+
+__Releasing is the process of making changes available to the end user__. A deployment can result in a release, but that's not mandatory. Rollout, deploying and releasing are often used as synonyms to describe activities of this transition phase. The content of a release is tested and deployed as a single unit
+
+To gain fast feedback and synchronize across departments continuously, scripts and tool chains support or completely perform repetitive tasks.
+
+ ## Prerequisites for automating releasing
+
+* Promote team commitement in collaborative working environments
+* Use highly integrated tool chains consiting of lightweight tools (e.g., Jenkins, Sonar, Maven) that can be choosen and orchestrated as needed
+* Put configuration items into version control (source, database scripts, middleware, infrastructure, etc)
+* Declarative formats to set up automationg and releasing process wherever possible
+* Declare explicitly and isolate dependencies of the application
+* Apply __CI__ that __continuosly synchronizes the work of colleagues__, and take special care that you adhere to the followiwing:
+    * Don't check in (commit) if build is broken
+    * Shape the process when you can check in code (test should run succesfully)
+    * Fix broken tests
+* Distinguish between version control systems (Git), where you hold your sources, component repositories (such as Artifactory), and package repositoris (YUM) where you hold your software binaries.
+* Build binaries once and deploy them to target systems by configuration (application is configured during deployment time or upon startup, not in a static fashion)
+* Smoke test deployments to ensure that the deployment went well
+* Keep enviornment similar between development and operations (keeping them equal is not practical because of costs and different nonfunctional requirements in specific environments)
+* Define a process (also for patching and merging back changes in production versions)
+* Cover repetitive and time-consuming tasks through automation, but remember the costs of and the "_paradox_" of automation
+* Ensure the delivered software is solely built by the build server and is neither built manually nor patched or built on developers' desktop to ensure reproducibility.
+
+---
+
+ ## Patterns with Appropiate Tools
+
+* Delivery Pipelines
+* Baselines
+* Share version numbers (Automatically create version numbers)
+* Task-based Development
+* Database Update scripts
+
+ ### Delivery Pipelines
+
+Also called build pipelines or staged builds, comprise a set of steps and their interdependencies for delivering software. A delivery pipeline __is a metaphor for the process of delivering software__. It indicates that software changes are inputs to the process (the pipeline) at the beginning and are automatically piped through the whole process to the end of the pipeline, which is the production system.
+
+For a more technical viewpoint, a pipeline is a __way of grouping build jobs and putting them into relation to one another__. In other words, pipelines are a __way of orchestrating your build process through a series of quality gates, with automated or manually approval processes at specific stages__. Thus, these pipelines streamline the delivery process of software toward production.
+
+* Compiling software
+* Running unit tests
+* Running audit or metrics
+* Packaging and linking the software
+* Deploying the application with all parts of the software version
+* Creating backups of the system
+* Configuring the application (during deployment or runtime)
+* Migrating and preparing data
+* Smoke testing application or deployment
+* Automatic acceptance testing
+* Manual testing (above all, exploratory testing) that emphasize the personal experience and responsabilities of the individual testers
+* Promoting the application approval that supports the release
+* Creating virtual machines, network, load balancers, monitoring agents, and other infrastructure elements
+* Monitoring the application in production
+
+![Example pipeline](https://i.ibb.co/LrSqb5S/Screen-Shot-2019-12-01-at-12-47-56.png)
+
+ ### Baselines
+
+A baseline is a __specification or product that has been formerly reviewed and agreed on, and serves as a basis for further development__. A baseline is often a tag in the version control system.
+
+Don't commit changes back to the baseline. Once created, a baseline does not change over time. Once a baseline is created, you can pick it up again any time you want to retrieve a labeled state reproducibly and apply further work on the baseline.
+
+ ### Shared version numbers
+
+It is essential to find shared names for versions across departments. Collaboratively sharing a version control system, will foster collaboration between development and operations.
+
+We can do many things with the revision number, including adding the number to the name of artifacts or adding a short text to build information.
+
+ ### Task based development
+
+We can align processes with tasks and shared tools.
+
+Work items (issues, defects, incidents) should be managed with a defect-tracking tool, such as JIRA. DevOps means that both development and operations use the same ticket system to track and synchronize their work.
+
+The __task is the unit of interaction of all participants__.
+Tasks are spread across artifact types, project phases, and tools. A task can be any one of the following:
+
+* A fine grained, measurable unit of work
+* A change
+* An incident in production
+* A slice from a broader scope, such as a use case
+
+ ### Database Update Scripts
+
+With DevOps, database elements should also be released automatically. It is a good idea to distinguish between database _expansion scripts_ and _contraction scripts_.
+
+Expansion scripts are database changes that can be applied without breaking the database's backward compatibility with the existing version of the software (e.g., adding new columns or tables).
+
+Contraction scripts migrate the database and break backward compatibility. This process conveniently decouples database migrations from application deployment.
+
+ #### Releasing database automatically
+
+One of the more advanced challenges in automating releasing databases is to link the database (the current set of structural elements) in its current version. By having database elements in version control already, you can create a defined baseline.
+
+* Put all database elements to version control
+* Create SQL scripts that have to be applied, grouped into single change sets
+* Create one file for each change set
+* Create baselines where you freeze all configuration items of your application, including database elements
+* 
+# DevOps - Infrastructure as Code
+> To make error is human. To propagate the error to all server in automatic way is DevOps

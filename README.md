@@ -2629,3 +2629,53 @@ One of the more advanced challenges in automating releasing databases is to link
 * 
 # DevOps - Infrastructure as Code
 > To make error is human. To propagate the error to all server in automatic way is DevOps
+
+The infrastructure on which software runs is still quite often a "_work of art_". Infrastructure comprises all of the environments of an organization together with supporting devices, such as firewalls and monitoring services.
+
+Infrastructure is set up and changed over time, before the software even goes into production. Often enough, it would not be an easy task to rebuild your infrastructure from scratch.
+
+__Infrastructure as code__ has become popular to emphasize the need to handle the set up of your infrastructure in the same way you would handle development of your code.
+
+Some of the most popular tools:
+
+* __Vagrant__: tool for managing virtualized development environments
+* __Puppet__: tool for managing infrastructure items, often called configurations
+
+ ### Starting with Infrastructure as Code
+
+Tools help developers and operations to work together and enable more transparency on the infrastructure level.
+
+Infrastructure should be:
+* Testable
+* Auditable
+* Transparent
+
+ #### Traditional Infrastructure Handling
+
+In the first phase, as the architecture is not yet fixed, developers will try components and eventually ending up in a first draft of the setup. At this point, there might not even be a shared environment in which software gets deployed continuosly.
+
+Each time developers try things on their local or test environments, they'll then report the change in infrastructure to operations, who then adjust their environments. There is no central, versionized version of the infrastructure that can be considered to be always runable.
+
+ ## Do it better
+
+Have executable specifications, utilizing virtualization to create and destroy their test environments on the fly, as needed.
+
+Gettings new developers on board would simply be a matter of having them check out the specification from version control repository, execute it, and use the same environment as their collegues.
+
+![Infrastructure as Code](https://i.ibb.co/QJFkcrv/Screen-Shot-2019-12-01-at-14-50-15.png)
+
+ #### Test environments with Vagrant
+
+Build virtual environments in an easy way, based on a textual specification in the so-called Vagrant file.
+
+Vagrant is based on Ruby and uses Oracle VirtualBox to run virtual machines.
+
+ #### Provisioning with Puppet
+
+Handling the set up of your infrastructure as code. Up until now, we only created some lightweight virtual machines. Ultimately, we want to create machines complete with software and configuration.
+
+Puppet is a __configuration management tool__ based on Ruby. It allows you to create so-called manifests, which include a description of the system in question.
+
+Puppet uses a domain-specific language to describe a system in form of resources. A resource can be nearly anything, from plain files to software packages, services, or even command executions. These resources can be grouped together in classes, modules or even node definitions.
+
+This is already quite useful for development teams and can also be used to set up and tear down QA environments as needed. Puppet's actual role is to manage every type of environment, be it development or production.

@@ -2397,3 +2397,125 @@ Without a explicit understanding of how things work and how work is actually don
  #### Improve Collaboratively
 
 If a team have a shared understanding of theories about work, workflow, process and risk, they are more likely to be able to build a shared comprehension of a problem and suggest improvement actions that can be agreed upon by consensus.
+# DevOps - Unified and Holistic Approach
+> DevOps Borat: "You can only call yourself senior programmer if you spend more minutes in meeting as in writing code".
+
+With DevOps, development and operations do emancipate themselves and accept responsabilities of management, particularly planning and coordination. We need a holistic, unified approach for creating traceable artifacts, spanning all roles, particularly development and operations.
+
+ ## Unified Approach 
+
+Enables development and operations to create _concepts_ collaboratively. This minimizes conceptual deficits and detects the first stages of those deficits early.
+
+* Foster Traceability
+* Check nonfunctional requirements
+* Align Goals
+
+ #### Foster Traceability
+
+Concept creation is a complex, distributed, and iterative process, and deficits can occur on all levels in the concept creation process.
+
+To enable good understanding, project teams need traceability. It becomes elementary to line up and illustrate the steps as single phases, from the idea to concrete requirements to implementing and operations of software, and also to examine the transition in between.
+
+The software solution is a product of a sequence of decisions, thus these decisions should be documented where they have been made. A prerequisite for traceability is that requirements are well documented.
+
+Linking conceptual artifacts provide feedback, foster traceability, and improve quality.
+
+![Linking artifacts](https://i.ibb.co/hL6Jc3j/Screen-Shot-2019-12-01-at-00-34-49.png) 
+
+ #### Check nonfunctional requirements
+
+A prerequisite is that the software must be testable. It is important to take care of nonfunctional requirements from the beginning of the development process. In most cases it's not possible (or really expensive) to implement nonfunctional requirements post mortem.
+
+If the software is testable, you can write tests for both functional and nonfunctional requirements.
+
+Another approach to check nonfunctional requirements is to link the requirement to artifacts where design decisions are made and documented. A typical example is to logically link the requirement to architecture documents or to software models.
+
+ #### Align Goals
+
+Sometimes, management is not aligned with the same goals of the company overall, which can result in subversive department behavior or individual activities driven by hidden agenda.
+
+Unfortunately, management defines the requirementes and hence can sweep a lot of dirt under the carpet. Adittionaly, if there are suspicions, the problem is often declared to be a mere technical problem until it is undeniably proven to be a conceptual deficit of other departments.
+
+This problem exists because the causality between effects and conceptual deficit is not easy to explain to C-level management and cannot be quickly retrieved.
+
+Creating concepts, particularly writing requirements, is an important area in which the teams of development and operations need to make agreements. Writing requirements documentation is done to guide future actions in developing the solution.
+
+> Much of the requirements work will be negated if choices, impositions and assumptions are not both understand and accepted by everyone involved.
+
+Thus, before moving out from the requirements phase into the rest of the process, all parties must understand and accept their responsabilities. To ensure understanding and acceptance, you must attemp to make every choice, imposition and assumption into explicit documented agreements.
+
+---
+
+ ## Concepts
+
+A concept is a __plan to achieve additional business value__. A concept should give answer to the question of what should be done by whom and how to gain promised buiness value.
+
+The concept consists of __processes and workflows that have to be defined in a consistent and complete way__. By that definition, a clear and explicit understanding is shaped, which is a prerequisite of automating processes.
+
+To define concepts, artifacts are created, such as requirements documents.
+
+ ### Nonfunctional Requirements
+
+Those are special interest for operations because they __specify runtime behavior__ of the software.
+
+For grouping types of requirements, we will use FURPS:
+
+* _Functionality_: What system does for the user
+* _Usability_: How easy is for a user to get the system to do it
+* _Reliability_: Availability and MTTR (Mean time to repair)
+* _Performance_: Capacity (number of transactions the system can accommodate) and Scalabity (ability of the system to be extended to accomodate more interactions)
+* _Supportability_: How easy it is for us to maintain and extend the system.
+
+Nonfunctonal requirements are often __defined by using a user voice form__, e.g. "As a consumer, I want to be notified of any messages from the utility in less that one minute of arrival so that I can take appropiate action quickly". Acceptance criteria determine if requirements are fulfiled.
+
+What most people think when they say nonfunctional, are functional requirements that are cross-cutting, or __not discrete but measurable on a sliding scale__.
+
+Many nonfunctional requirements can be considered as constraints on the system's behavior.
+
+ #### Conceptual Deficits
+
+Can result from either incomplete, wrong, or unimplemented nonfunctional requirements.
+
+![Conceptual Deficits](https://i.ibb.co/bBXwVQD/Screen-Shot-2019-11-30-at-22-27-15.png)
+
+ ## Origins of conceptual deficits
+
+__Accidently__ occuring deficits may result from limited rationality or complex/dynamic environments. If a deficit is in place __deliberately__, the principal-agent proble may be the reason, or we can speak of a moral hazard.
+
+ #### Limited Rationality
+
+The chain of rationality often excludes other teams or roles (such as management). This may lead to insufficient concepts (i.e, concepts that are not well understood or not well defined). Deficits include __wrong expectations, infeasible requirements, and nonimplementable specifications__. Such deficits can remain undiscovered until the beginning of the operations phase and beyond.
+
+Management often doesn't have the big picture in mind and only sees its actual desires relevant to its immediate surroundings. Sometimes, management learns a new business aspect while performing it.
+
+ #### Moral Hazard
+
+Moral hazard is a situation in which one party gets involved in a risky event knowing that it is protected against the risk and the other party will incur the cost.
+
+Power relations between teams or roles can lay the ground for a behavioral pattern that can foil the efforts.
+
+ #### Complex and dynamic environments
+
+Not all individual steps and decisions of frequently applied procedures are consciously executed, and not all reasons for those routines are clear to all persons.
+
+* __Management is not always conscious of all dependencies of its actions and wishes__. Not all relevant aspects of a feature requrest are conscious to the management. This problem often leads to incomplete concepts.
+
+* __Management is not always informed__. A solution evolves and a complete department may get its own conclussions on an issue without management's involvement, those ideas may be contrary to the ideas of the management.
+
+* __Management is not always organized and connected in the right way__. Such disconnection spreads the problems of individual issues.
+
+Awareness and commitment of management to DevOps are necessary.
+
+ #### Principal-Agent / Agency dilema
+
+Describes the challenges that may evolve under conditions of incomplete and asymmetric information. The situation arises if the principal (e.g, the company or boss of the department) hires an agent (e.g., external service provider) and wants him or her to pursue the principal's interests.
+
+Often, "_hidden action_" and "_hidden information_" arise ex post (e.g., while or after the agent performs his or her job).
+
+_Hidden actions_ means that the agent has opportunities where he can freely act while fullfilling the principal's task, whereas the principal cannot completely keep track of agent's activities. 
+
+_Hidden information_ exists if the principal can keep track of the agent's activities but cannot evaluate his quality because the principal lacks expert knowledge.
+
+Both situatiosn result in a problematic state in which the principal cannot assess the result to determine whether it arose because of the agent's qualified efforts or because it was caused by the environment.
+
+---

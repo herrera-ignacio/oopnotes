@@ -2679,3 +2679,29 @@ Puppet is a __configuration management tool__ based on Ruby. It allows you to cr
 Puppet uses a domain-specific language to describe a system in form of resources. A resource can be nearly anything, from plain files to software packages, services, or even command executions. These resources can be grouped together in classes, modules or even node definitions.
 
 This is already quite useful for development teams and can also be used to set up and tear down QA environments as needed. Puppet's actual role is to manage every type of environment, be it development or production.
+# DevOps - Specification by example
+One of the fundamental principles of DevOps is that any build that successfully passes the gauntley of automated checks, can potentially be delivered into production.
+
+It is __not enough to have a set of automated tests__, if you intend to automatically deliver a product into production, every team member must also be convinced of the quality of these tests, in the sense of whether the tests truly capture what the customers desired in the product and whether the tests have informative expressiveness to help developers develop the solution.
+
+ ## Acceptance tests
+
+Developers collaborate as a team to capture customer desires in the form of executable tests, and once they pass, the team turns those into regression checks.
+
+One major benefit of acceptance tests is __transparency__. The product owner should be able to know precisely which features are being delivered in a particular release, including what work and what doesn't. A medium is needed to foster communication between all stakeholders, and that medium can be acceptance tests.
+
+ #### Acceptance tests as a communication vehicle
+
+Automated aceptance testing is as much about publishind and communicating the result of the tests as it is about executing the tests.
+
+[Thucydides](http://www.thucydides.info/#/) open source library designed to make writing and reporting automated acceptance and regression tests easier.
+
+ #### Defining Acceptance Criteria
+
+Specification by example refers to the use of relatively concrete examples to illustrate how a system should work, as opposed to more formally written specifications expressed in very general terms.
+
+ ### BDD - Behavior Driven Developement
+
+BDD takes the position that you can turn an idea for a requirement into implemented, tested, production-ready code simply and effectively, as long as the requirement is specific enough that everyone know what's going on.
+
+BDD uses a story as the basic unit of functionality, and therefore of delivery. The acceptance criteria are an intrinsic part of the story.

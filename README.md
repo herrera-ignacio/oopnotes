@@ -2360,6 +2360,364 @@ Operations team is part of the development team. Both teams work closely togethe
 A common practice for this area shapes nonfunctional requirements in the development process. It's hardly possible or costs too much money to implement nonfunctional requirements ex post (i.e., after the software is designed, coded and sent to production).
 
 Consider the development opf the NASA space shuttle. Tomakyo writes, "_In the late 1970's, NASA relaized that more powerful computers were needed as the transition was made from development to operations_". This type of scaling software is pretty bad, especially if its necessity is detected too late.
+<<<<<<< HEAD
+# DevOps - Kanban
+Kanban method starts with the roles and processes you have and stimulates continuous, incremental and evolutionary changes to your system.
+
+The organization (or team) must agree that this is the way to make system improvements and make them stick. Sweeping changes may seem more effective, but more often than not, they fail because resistance and fear.
+
+The current organization likely has some elements that work acceptably and are worth preserving.
+
+Kanban is __influenced by TOC (Theory of constraints)__. The base of TOC is the idiom that a chain is no stronger than its weakest link. The idiom is transported to managment and software engineering. The weakest element in the overall chain can cause failure or adversely affect the outcome.
+
+In Kanban, stations receive a "_pull_" from the demand. Therefore the supply is determined according to the actual demand, not according to some theoretical, forecasted or even academic target demand.
+
+![Kanban Board](https://i.ibb.co/4gfw1RY/Screen-Shot-2019-11-30-at-20-08-36.png)
+
+ ## Five Core Principles
+
+* Visualize the Workflow
+* Limit WIP
+* Manage Flow
+* Make Process Policies Explicit
+* Improve Collaboratively
+
+ #### Visualize the Workflow
+
+Visualizing the flow of work and making it visible are core to understanding how work proceeds. Without understanding the workflow, making the right changes is harder.
+
+A common way to visualize the workflow is to use a card wall.
+
+ #### Limit WIP
+
+Limiting work in progess implies that a pull system is implemented in parts or all of the workflow.
+
+The pull system will act as one of the main stimulus for continuous, incremental, and evolutionary changes to your system.
+
+The critical elements are that the WIP at each state in the workflow is limited, and the new work is 'pulled' into the new information discovery activity if there is available capacity within the local WIP limit.
+
+ #### Manage Flow
+
+Flow of work through each state in the workflow should be monitored, measured, and reported. By actively managing the flow, one can evaluate whether the changes to the system have positive or negative effects.
+
+ #### Make Process Policies Explicit
+
+Until the mechanism of a process is made explicit, it is often hard or impossible to hold a discussion about improving it.
+
+Without a explicit understanding of how things work and how work is actually done, any discussion of problems tend to be emotional, anecdotal, and subjective.
+
+ #### Improve Collaboratively
+
+If a team have a shared understanding of theories about work, workflow, process and risk, they are more likely to be able to build a shared comprehension of a problem and suggest improvement actions that can be agreed upon by consensus.
+# DevOps - Unified and Holistic Approach
+> DevOps Borat: "You can only call yourself senior programmer if you spend more minutes in meeting as in writing code".
+
+With DevOps, development and operations do emancipate themselves and accept responsabilities of management, particularly planning and coordination. We need a holistic, unified approach for creating traceable artifacts, spanning all roles, particularly development and operations.
+
+ ## Unified Approach 
+
+Enables development and operations to create _concepts_ collaboratively. This minimizes conceptual deficits and detects the first stages of those deficits early.
+
+* Foster Traceability
+* Check nonfunctional requirements
+* Align Goals
+
+ #### Foster Traceability
+
+Concept creation is a complex, distributed, and iterative process, and deficits can occur on all levels in the concept creation process.
+
+To enable good understanding, project teams need traceability. It becomes elementary to line up and illustrate the steps as single phases, from the idea to concrete requirements to implementing and operations of software, and also to examine the transition in between.
+
+The software solution is a product of a sequence of decisions, thus these decisions should be documented where they have been made. A prerequisite for traceability is that requirements are well documented.
+
+Linking conceptual artifacts provide feedback, foster traceability, and improve quality.
+
+![Linking artifacts](https://i.ibb.co/hL6Jc3j/Screen-Shot-2019-12-01-at-00-34-49.png) 
+
+ #### Check nonfunctional requirements
+
+A prerequisite is that the software must be testable. It is important to take care of nonfunctional requirements from the beginning of the development process. In most cases it's not possible (or really expensive) to implement nonfunctional requirements post mortem.
+
+If the software is testable, you can write tests for both functional and nonfunctional requirements.
+
+Another approach to check nonfunctional requirements is to link the requirement to artifacts where design decisions are made and documented. A typical example is to logically link the requirement to architecture documents or to software models.
+
+ #### Align Goals
+
+Sometimes, management is not aligned with the same goals of the company overall, which can result in subversive department behavior or individual activities driven by hidden agenda.
+
+Unfortunately, management defines the requirementes and hence can sweep a lot of dirt under the carpet. Adittionaly, if there are suspicions, the problem is often declared to be a mere technical problem until it is undeniably proven to be a conceptual deficit of other departments.
+
+This problem exists because the causality between effects and conceptual deficit is not easy to explain to C-level management and cannot be quickly retrieved.
+
+Creating concepts, particularly writing requirements, is an important area in which the teams of development and operations need to make agreements. Writing requirements documentation is done to guide future actions in developing the solution.
+
+> Much of the requirements work will be negated if choices, impositions and assumptions are not both understand and accepted by everyone involved.
+
+Thus, before moving out from the requirements phase into the rest of the process, all parties must understand and accept their responsabilities. To ensure understanding and acceptance, you must attemp to make every choice, imposition and assumption into explicit documented agreements.
+
+---
+
+ ## Concepts
+
+A concept is a __plan to achieve additional business value__. A concept should give answer to the question of what should be done by whom and how to gain promised buiness value.
+
+The concept consists of __processes and workflows that have to be defined in a consistent and complete way__. By that definition, a clear and explicit understanding is shaped, which is a prerequisite of automating processes.
+
+To define concepts, artifacts are created, such as requirements documents.
+
+ ### Nonfunctional Requirements
+
+Those are special interest for operations because they __specify runtime behavior__ of the software.
+
+For grouping types of requirements, we will use FURPS:
+
+* _Functionality_: What system does for the user
+* _Usability_: How easy is for a user to get the system to do it
+* _Reliability_: Availability and MTTR (Mean time to repair)
+* _Performance_: Capacity (number of transactions the system can accommodate) and Scalabity (ability of the system to be extended to accomodate more interactions)
+* _Supportability_: How easy it is for us to maintain and extend the system.
+
+Nonfunctonal requirements are often __defined by using a user voice form__, e.g. "As a consumer, I want to be notified of any messages from the utility in less that one minute of arrival so that I can take appropiate action quickly". Acceptance criteria determine if requirements are fulfiled.
+
+What most people think when they say nonfunctional, are functional requirements that are cross-cutting, or __not discrete but measurable on a sliding scale__.
+
+Many nonfunctional requirements can be considered as constraints on the system's behavior.
+
+ #### Conceptual Deficits
+
+Can result from either incomplete, wrong, or unimplemented nonfunctional requirements.
+
+![Conceptual Deficits](https://i.ibb.co/bBXwVQD/Screen-Shot-2019-11-30-at-22-27-15.png)
+
+ ## Origins of conceptual deficits
+
+__Accidently__ occuring deficits may result from limited rationality or complex/dynamic environments. If a deficit is in place __deliberately__, the principal-agent proble may be the reason, or we can speak of a moral hazard.
+
+ #### Limited Rationality
+
+The chain of rationality often excludes other teams or roles (such as management). This may lead to insufficient concepts (i.e, concepts that are not well understood or not well defined). Deficits include __wrong expectations, infeasible requirements, and nonimplementable specifications__. Such deficits can remain undiscovered until the beginning of the operations phase and beyond.
+
+Management often doesn't have the big picture in mind and only sees its actual desires relevant to its immediate surroundings. Sometimes, management learns a new business aspect while performing it.
+
+ #### Moral Hazard
+
+Moral hazard is a situation in which one party gets involved in a risky event knowing that it is protected against the risk and the other party will incur the cost.
+
+Power relations between teams or roles can lay the ground for a behavioral pattern that can foil the efforts.
+
+ #### Complex and dynamic environments
+
+Not all individual steps and decisions of frequently applied procedures are consciously executed, and not all reasons for those routines are clear to all persons.
+
+* __Management is not always conscious of all dependencies of its actions and wishes__. Not all relevant aspects of a feature requrest are conscious to the management. This problem often leads to incomplete concepts.
+
+* __Management is not always informed__. A solution evolves and a complete department may get its own conclussions on an issue without management's involvement, those ideas may be contrary to the ideas of the management.
+
+* __Management is not always organized and connected in the right way__. Such disconnection spreads the problems of individual issues.
+
+Awareness and commitment of management to DevOps are necessary.
+
+ #### Principal-Agent / Agency dilema
+
+Describes the challenges that may evolve under conditions of incomplete and asymmetric information. The situation arises if the principal (e.g, the company or boss of the department) hires an agent (e.g., external service provider) and wants him or her to pursue the principal's interests.
+
+Often, "_hidden action_" and "_hidden information_" arise ex post (e.g., while or after the agent performs his or her job).
+
+_Hidden actions_ means that the agent has opportunities where he can freely act while fullfilling the principal's task, whereas the principal cannot completely keep track of agent's activities. 
+
+_Hidden information_ exists if the principal can keep track of the agent's activities but cannot evaluate his quality because the principal lacks expert knowledge.
+
+Both situatiosn result in a problematic state in which the principal cannot assess the result to determine whether it arose because of the agent's qualified efforts or because it was caused by the environment.
+
+---
+# DevOps - Automatic Releasing
+Automating releasing __reduces the risk of releasing software, ensures repeatability, and above all, helps to gain fast feedback__. Automating error-prone, repetitive, and time-consuming activities is essential.
+
+ #### Releasing
+
+Releasing means integrating the work of the team and compiling, linking, packaging and deploying the software to environments (target systems).
+
+The essential parts of releasing are managing the infrastructure, installing the correct version in the infrastructure, and configuring the application according to that specific environment. 
+
+__Releasing is the process of making changes available to the end user__. A deployment can result in a release, but that's not mandatory. Rollout, deploying and releasing are often used as synonyms to describe activities of this transition phase. The content of a release is tested and deployed as a single unit
+
+To gain fast feedback and synchronize across departments continuously, scripts and tool chains support or completely perform repetitive tasks.
+
+ ## Prerequisites for automating releasing
+
+* Promote team commitement in collaborative working environments
+* Use highly integrated tool chains consiting of lightweight tools (e.g., Jenkins, Sonar, Maven) that can be choosen and orchestrated as needed
+* Put configuration items into version control (source, database scripts, middleware, infrastructure, etc)
+* Declarative formats to set up automationg and releasing process wherever possible
+* Declare explicitly and isolate dependencies of the application
+* Apply __CI__ that __continuosly synchronizes the work of colleagues__, and take special care that you adhere to the followiwing:
+    * Don't check in (commit) if build is broken
+    * Shape the process when you can check in code (test should run succesfully)
+    * Fix broken tests
+* Distinguish between version control systems (Git), where you hold your sources, component repositories (such as Artifactory), and package repositoris (YUM) where you hold your software binaries.
+* Build binaries once and deploy them to target systems by configuration (application is configured during deployment time or upon startup, not in a static fashion)
+* Smoke test deployments to ensure that the deployment went well
+* Keep enviornment similar between development and operations (keeping them equal is not practical because of costs and different nonfunctional requirements in specific environments)
+* Define a process (also for patching and merging back changes in production versions)
+* Cover repetitive and time-consuming tasks through automation, but remember the costs of and the "_paradox_" of automation
+* Ensure the delivered software is solely built by the build server and is neither built manually nor patched or built on developers' desktop to ensure reproducibility.
+
+---
+
+ ## Patterns with Appropiate Tools
+
+* Delivery Pipelines
+* Baselines
+* Share version numbers (Automatically create version numbers)
+* Task-based Development
+* Database Update scripts
+
+ ### Delivery Pipelines
+
+Also called build pipelines or staged builds, comprise a set of steps and their interdependencies for delivering software. A delivery pipeline __is a metaphor for the process of delivering software__. It indicates that software changes are inputs to the process (the pipeline) at the beginning and are automatically piped through the whole process to the end of the pipeline, which is the production system.
+
+For a more technical viewpoint, a pipeline is a __way of grouping build jobs and putting them into relation to one another__. In other words, pipelines are a __way of orchestrating your build process through a series of quality gates, with automated or manually approval processes at specific stages__. Thus, these pipelines streamline the delivery process of software toward production.
+
+* Compiling software
+* Running unit tests
+* Running audit or metrics
+* Packaging and linking the software
+* Deploying the application with all parts of the software version
+* Creating backups of the system
+* Configuring the application (during deployment or runtime)
+* Migrating and preparing data
+* Smoke testing application or deployment
+* Automatic acceptance testing
+* Manual testing (above all, exploratory testing) that emphasize the personal experience and responsabilities of the individual testers
+* Promoting the application approval that supports the release
+* Creating virtual machines, network, load balancers, monitoring agents, and other infrastructure elements
+* Monitoring the application in production
+
+![Example pipeline](https://i.ibb.co/LrSqb5S/Screen-Shot-2019-12-01-at-12-47-56.png)
+
+ ### Baselines
+
+A baseline is a __specification or product that has been formerly reviewed and agreed on, and serves as a basis for further development__. A baseline is often a tag in the version control system.
+
+Don't commit changes back to the baseline. Once created, a baseline does not change over time. Once a baseline is created, you can pick it up again any time you want to retrieve a labeled state reproducibly and apply further work on the baseline.
+
+ ### Shared version numbers
+
+It is essential to find shared names for versions across departments. Collaboratively sharing a version control system, will foster collaboration between development and operations.
+
+We can do many things with the revision number, including adding the number to the name of artifacts or adding a short text to build information.
+
+ ### Task based development
+
+We can align processes with tasks and shared tools.
+
+Work items (issues, defects, incidents) should be managed with a defect-tracking tool, such as JIRA. DevOps means that both development and operations use the same ticket system to track and synchronize their work.
+
+The __task is the unit of interaction of all participants__.
+Tasks are spread across artifact types, project phases, and tools. A task can be any one of the following:
+
+* A fine grained, measurable unit of work
+* A change
+* An incident in production
+* A slice from a broader scope, such as a use case
+
+ ### Database Update Scripts
+
+With DevOps, database elements should also be released automatically. It is a good idea to distinguish between database _expansion scripts_ and _contraction scripts_.
+
+Expansion scripts are database changes that can be applied without breaking the database's backward compatibility with the existing version of the software (e.g., adding new columns or tables).
+
+Contraction scripts migrate the database and break backward compatibility. This process conveniently decouples database migrations from application deployment.
+
+ #### Releasing database automatically
+
+One of the more advanced challenges in automating releasing databases is to link the database (the current set of structural elements) in its current version. By having database elements in version control already, you can create a defined baseline.
+
+* Put all database elements to version control
+* Create SQL scripts that have to be applied, grouped into single change sets
+* Create one file for each change set
+* Create baselines where you freeze all configuration items of your application, including database elements
+* 
+# DevOps - Infrastructure as Code
+> To make error is human. To propagate the error to all server in automatic way is DevOps
+
+The infrastructure on which software runs is still quite often a "_work of art_". Infrastructure comprises all of the environments of an organization together with supporting devices, such as firewalls and monitoring services.
+
+Infrastructure is set up and changed over time, before the software even goes into production. Often enough, it would not be an easy task to rebuild your infrastructure from scratch.
+
+__Infrastructure as code__ has become popular to emphasize the need to handle the set up of your infrastructure in the same way you would handle development of your code.
+
+Some of the most popular tools:
+
+* __Vagrant__: tool for managing virtualized development environments
+* __Puppet__: tool for managing infrastructure items, often called configurations
+
+ ### Starting with Infrastructure as Code
+
+Tools help developers and operations to work together and enable more transparency on the infrastructure level.
+
+Infrastructure should be:
+* Testable
+* Auditable
+* Transparent
+
+ #### Traditional Infrastructure Handling
+
+In the first phase, as the architecture is not yet fixed, developers will try components and eventually ending up in a first draft of the setup. At this point, there might not even be a shared environment in which software gets deployed continuosly.
+
+Each time developers try things on their local or test environments, they'll then report the change in infrastructure to operations, who then adjust their environments. There is no central, versionized version of the infrastructure that can be considered to be always runable.
+
+ ## Do it better
+
+Have executable specifications, utilizing virtualization to create and destroy their test environments on the fly, as needed.
+
+Gettings new developers on board would simply be a matter of having them check out the specification from version control repository, execute it, and use the same environment as their collegues.
+
+![Infrastructure as Code](https://i.ibb.co/QJFkcrv/Screen-Shot-2019-12-01-at-14-50-15.png)
+
+ #### Test environments with Vagrant
+
+Build virtual environments in an easy way, based on a textual specification in the so-called Vagrant file.
+
+Vagrant is based on Ruby and uses Oracle VirtualBox to run virtual machines.
+
+ #### Provisioning with Puppet
+
+Handling the set up of your infrastructure as code. Up until now, we only created some lightweight virtual machines. Ultimately, we want to create machines complete with software and configuration.
+
+Puppet is a __configuration management tool__ based on Ruby. It allows you to create so-called manifests, which include a description of the system in question.
+
+Puppet uses a domain-specific language to describe a system in form of resources. A resource can be nearly anything, from plain files to software packages, services, or even command executions. These resources can be grouped together in classes, modules or even node definitions.
+
+This is already quite useful for development teams and can also be used to set up and tear down QA environments as needed. Puppet's actual role is to manage every type of environment, be it development or production.
+# DevOps - Specification by example
+One of the fundamental principles of DevOps is that any build that successfully passes the gauntley of automated checks, can potentially be delivered into production.
+
+It is __not enough to have a set of automated tests__, if you intend to automatically deliver a product into production, every team member must also be convinced of the quality of these tests, in the sense of whether the tests truly capture what the customers desired in the product and whether the tests have informative expressiveness to help developers develop the solution.
+
+ ## Acceptance tests
+
+Developers collaborate as a team to capture customer desires in the form of executable tests, and once they pass, the team turns those into regression checks.
+
+One major benefit of acceptance tests is __transparency__. The product owner should be able to know precisely which features are being delivered in a particular release, including what work and what doesn't. A medium is needed to foster communication between all stakeholders, and that medium can be acceptance tests.
+
+ #### Acceptance tests as a communication vehicle
+
+Automated aceptance testing is as much about publishind and communicating the result of the tests as it is about executing the tests.
+
+[Thucydides](http://www.thucydides.info/#/) open source library designed to make writing and reporting automated acceptance and regression tests easier.
+
+ #### Defining Acceptance Criteria
+
+Specification by example refers to the use of relatively concrete examples to illustrate how a system should work, as opposed to more formally written specifications expressed in very general terms.
+
+ ### BDD - Behavior Driven Developement
+
+BDD takes the position that you can turn an idea for a requirement into implemented, tested, production-ready code simply and effectively, as long as the requirement is specific enough that everyone know what's going on.
+
+BDD uses a story as the basic unit of functionality, and therefore of delivery. The acceptance criteria are an intrinsic part of the story.
+>>>>>>> 6798954d47446f917b8a684f2ae3c159634a4962
 # Docker for Virtualization
  ## Containers are not VMs
 

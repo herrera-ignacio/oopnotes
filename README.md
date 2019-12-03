@@ -2279,6 +2279,17 @@ Mary Lynn Manns and Linda Rising provides patterns:
 * __Dedicated champion__: Introducing a new idea into an organization is too much work for a volunteer, make a case for having the work part of the job description
 * __Corporate angel__: To help align the innovation with the goals of the organization, get support from a high-level executive
 * __Evangelist__: To begin introduce a new idea into the organization, do everything you can to share your passion for it
+# DevOps - Kanban
+
+Kanban method does not prescribe a specific set of roles or process steps. Starts with the roles and processes you have and stimulate __continuous, incremental, and evolutionary changes__ to your system.
+
+The organization (or team) must agree that __continuous, incremental, and evolutionary__ change is the way to make system improvements and make them stick. Sweeping changes may seem more effective, but more often than not, they fail because of resistance and fear in the organization.
+
+The current organization likely has some elements that work acceptabl and are worth preserving.
+
+Kanban is __influenced by the Theory of Constraints (TOC)__. The base of TOC is the idiom that a chain is no stronger than its weakest link. The idiom is transported to management and software engineering. The weakest items in the overall chain can cause failure or adversely affect the outcome.
+
+In Kanban, stations receive a "_pull_" from the demand. Therefore, the supply is determined according to the actual demand, not according to some theoretical, forecasted, or even academic target demand.
 # DevOps - Area Matrix
 * _Area 1: Extend development to operations_: development and operations collaborate on anything that is related to delivering the project outcome to production.
 
@@ -2349,3 +2360,95 @@ Operations team is part of the development team. Both teams work closely togethe
 A common practice for this area shapes nonfunctional requirements in the development process. It's hardly possible or costs too much money to implement nonfunctional requirements ex post (i.e., after the software is designed, coded and sent to production).
 
 Consider the development opf the NASA space shuttle. Tomakyo writes, "_In the late 1970's, NASA relaized that more powerful computers were needed as the transition was made from development to operations_". This type of scaling software is pretty bad, especially if its necessity is detected too late.
+# Docker for Virtualization
+ ## Containers are not VMs
+
+Both are designed to provide an isolated enviornment in which to run an application, and that environment is represented as a binary artifact that can be moved between hosts.
+
+They __key distinction__ is the underlying architectures of containers and virtual machines. While containers and VMs have similar resource isolation and allocation benefits, they function differently because __containers virtualize the operating system instead of hardware__. This lightweight form of encapsulation has the effect of making containers both more portable and more efficient than VMs.
+
+
+ ### VMs
+
+VMs are fully self-contained and offer protection from unwanted guests. They also each possess their own infrastructure, plumbing, heating, electrical, etc... Selling, moving and scaling can be time-consuming, tedious and expensive.
+
+In VM, __the unit of abstraction is a monolithic VM__ that stores not only the application code and dependencies, but also the entire operating system, and often stateful data of the application. a VM takes everything that used to sit on a physical server and just packs it into a single binary so it can be moved around.
+
+
+ ### Docker containers
+
+Docker containers also offer protection from unwanted guests, but they are build around shared infrastructure. You can setup exactly what you need, and move to different requirements simply.
+
+Docker containers share the underlying resources f the Docker host. Furthermore, developers build a Docker image that includes exactly what they need to run their application, starting with the basics and adding in only what is needed. VMs are built in the opposite direction, they startwith a full operating system, and depending on the application, developers may or may not be able to strip out unwanted components.
+
+With Docker containers, the __abstraction is the application__, or in the move towards microservices, a single service that makes up an application. Applications are now able to be deconstructed into much smaller components which fundamentally changes the way they are intially developed, and ten managed in production. You are now free to completely customize the size and shape of your containers, and indivually monitor how each is doing.
+
+Application data doesn't live in the container, it lives in a Docker volumen that is shared between one or more containers as defined by the application architecture and can be backed by enterprise and cloud storage.
+
+ #### Patch management strategy
+
+Admins update their existing Docker image, stop their running containers, and start up new ones. Because a container can be spun up in a fraction of a second, these updates are done uch faster than they are with virtual machines. No need to reboot an entire OS.
+
+---
+
+ ## Containers and VMs Togethers
+
+VMs in all their forms are a great place for Docker hosts to run. The great thing about Docker is that it doesn't matter where you run containers.
+
+Docker contained-based services can interact wih VM-based services, or any other kind of server, for that matter.
+
+Another area where there can be synergy between VMs and Docker containers, is in the are of __capacity optimization__. A virtualization host, for instance, can host VMs that may, in turn house Docker Engines, but may also host any number of traditonal monolothic VMs. By mixing and matchin Docker hosts with 'traditional' VMs, sysadmins can be assured they are getting the maximum utilization out of their physical hardware.
+
+---
+
+ ## Phyisical or Virtual
+
+That choice is based solely on __what's right for your application and business goals__, phyisical, virtual, cloud or on-premises. Mix and match as your application and business needs dictate and change.
+
+Docker delivers on the promise of allowing you to deploy your application seamlessly, regardless of the underlying infrastructure. You can easily move your application from one infrastructure to another.
+
+* Latency
+* Capacity
+* Mixed Operating Systems
+* Disaster Recovery
+* Existing Investments and Automation Framework
+* Multitenacy
+* Resource Pools / Quotas
+* Automation/APIs
+* Licensing Costs
+
+ #### Latency
+
+Application with a low tolerance for latency are going to do better on physical. Financial services, like trading applications are a prime example.
+
+ #### Capacity
+
+VMs made their bones by optimizing system load. If your containerized applications don't consume all the capacity on a phyisical box, virtualization still offers a benefit. Plus, with VMs you can carve up your physical resources and dedicate them to groups of user, think of a sandbox environment for a developer team.
+
+ #### Mixed Operating Systems
+
+Physical servers will run a single instance of an operating system and services need to run on their original kernel architecture after they are containerized. If you wish to mix Windows and Linux containers on the same host, you'll need to use virtualization.
+
+ #### Disaster Recovery
+
+One of the great benefits of VMs are advanced capabilities around site recovery and high availability.
+
+ #### Existing Investments and Automation Frameworks
+
+Many organizations have already built a comprehensive set of tools around things like infrastructure provisioning.
+
+ #### Multitenacy
+
+Some customers have workloads that can't share kernels or resources with other workloads. VMs provide an extra layer of isolation compared to running cointaners on bare metal.
+
+ #### Resource Pools / Quotas
+
+Many virtualization solutions have a broad feature set to control and prioritize how virtual machines use shared resources. Docker provides the concept of resource constraints for a container, but if you are concerned about bad actos who might ignore these constraints VMs can add another boundary layer.
+
+ #### Automation / APIs
+
+Very few people in an organization typically have the ability to provision bare metal from an API. If automation is one of the goals, you'll want an API, and that will likely rule out bare metal.
+
+ #### Licensing Costs
+
+Running directly on bare metal can reduce costs as you won't need to purchase hypervisor licenses. And of course, you may not even need to pay anything for the OS that hosts your containers.

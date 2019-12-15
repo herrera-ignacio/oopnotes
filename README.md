@@ -2679,6 +2679,10 @@ Puppet is a __configuration management tool__ based on Ruby. It allows you to cr
 Puppet uses a domain-specific language to describe a system in form of resources. A resource can be nearly anything, from plain files to software packages, services, or even command executions. These resources can be grouped together in classes, modules or even node definitions.
 
 This is already quite useful for development teams and can also be used to set up and tear down QA environments as needed. Puppet's actual role is to manage every type of environment, be it development or production.
+# DevOps - Project
+ ## DevOps Flow
+
+![DevOps Flow](https://i.ibb.co/rs2hGYz/Screen-Shot-2019-12-14-at-18-50-56.png)
 # DevOps - Specification by example
 One of the fundamental principles of DevOps is that any build that successfully passes the gauntley of automated checks, can potentially be delivered into production.
 

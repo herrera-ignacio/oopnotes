@@ -1542,6 +1542,89 @@ ITIL also provides good foundation for organizations that don't have any sort of
 Admins must be cautions about how management interprets and implements ITIL, however. It is an industry standard, but that doesn't mean it will solve internal personnel or compliance issues. Its implementation guides can make process development easier, but they don't necessarily account for more innovate processes or tecnhologies.
 
 ITIL's implementation requires staff time, training and expertise, so organizations must ensure that they have appropiate resources (and certified employees) before going through an ITIL implemetation.
+# Backend - HTTP
+Native HTTP protocol ([RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) defines eight actions, also known as HTTP verbs
+
+* GET
+* POST
+* PUT
+* DELETE
+* HEAD
+* OPTIONS
+* TRACE
+* CONNECT
+# Backend - REST
+* Representational State Transfer
+    * Key Principles
+    * Goals
+* RESTful Routing
+    * Shortcomings
+
+ # Representational State Transfer
+
+Back in __1999__, Roy Fielding defined a set of principles built around the HTTP and URI standards that give birth to _REST_.
+
+ ### Key Principles
+
+1. Everything is a resource
+2. Each resource is identifiable by a __unique identifier__ (URI)
+3. Resources are manipulated via standard HTTP methods
+4. Resources can have multiple representations
+5. Communicate with resources in a stateless manner
+
+__Resource manipulations operations through HTTP requests should always be considered atomic__. All modifications of a resource should be carried out within an HTTP request in an isolated manner, after which the resource is left in a final state. This implicitly means that __partial resource updates are not supported__, you should always send the complete state of the resource.
+
+Once the service gets deployed on a production environment, it is likely that incoming requests are served by a load balancer, ensuring scalability and high availability. Once exposed via a load balancer, the idea of keeping your application state at server side gets compromised. You should keep it in a RESTful way, for example, keep part of the state within the URI or use HTTP headers to provide additional state-related data such as authentication.
+
+RESTful API's __statelessness__ isolates the caller against changes at the server side. Thus, the caller is not expected to communicate with the same server in consecutive requests. This allows to easily apply changes within the server infrastructure, such as adding or removing nodes.
+
+ ### REST Goals
+
+* __Separation of representation and resource__
+
+Multiple representations are available, it's up to the caller to specify desired media type and up to the server application to handle representation accordingly
+
+* __Visibility__
+
+Every aspect of it should be self-descriptive and follow natural HTTP language
+
+* __Reliability__
+
+Use HTTP safe (GET) and indempotent (GET, PUT, DELETE) in the REST context
+
+* __Scalability and Performance__
+
+You want to serve all your clients in an acceptable amount of time and keep application running, preventing Denial of Service (Dos) caused by a huge amount of incoming request. Stateless is crucial, as scaling your application would require to put a load balancer or bring another instance in your cloud environment.
+
+
+ ### RESTful Routing
+
+Given a collection of records on a server, there should be a uniform URL and HTTP request method used to utilize that collection of records.
+
+5 Most common usages and __conventions__ for collection:
+* Create new object: `POST /<name>`
+* Fetch all objects: `GET /<name>`
+* Fetch object: `GET /<name>/:id`
+* Update object `PUT /<name>/:id`
+* Delete object `DELETE /<name>/:id`
+
+
+
+---
+
+ #### Shortcomings of RESTful Routing
+
+Once we start working with highly related data, we start running on issues with doing tons of http requests, or very customized endpoints, that are very tightly coupled with very particular features of the frontend.
+
+![example1](https://i.ibb.co/9rf868c/Screen-Shot-2019-12-30-at-22-47-59.png)
+
+You start making tons of endpoints and requests to get a very specific set of the collection...
+
+![example2](https://i.ibb.co/mFzWXbv/Screen-Shot-2019-12-30-at-22-50-19.png)
+
+You end up with very custom endpoints, this becomes very difficult to mantain and ineficient, you may end up 'over serving' data.
+
+![example3](https://i.ibb.co/kmX2QrV/Screen-Shot-2019-12-30-at-22-54-14.png)
 # Devops
  #### Before DevOps
 
@@ -2691,10 +2774,6 @@ Puppet is a __configuration management tool__ based on Ruby. It allows you to cr
 Puppet uses a domain-specific language to describe a system in form of resources. A resource can be nearly anything, from plain files to software packages, services, or even command executions. These resources can be grouped together in classes, modules or even node definitions.
 
 This is already quite useful for development teams and can also be used to set up and tear down QA environments as needed. Puppet's actual role is to manage every type of environment, be it development or production.
-# DevOps - Project
- ## DevOps Flow
-
-![DevOps Flow](https://i.ibb.co/rs2hGYz/Screen-Shot-2019-12-14-at-18-50-56.png)
 # DevOps - Specification by example
 One of the fundamental principles of DevOps is that any build that successfully passes the gauntley of automated checks, can potentially be delivered into production.
 
@@ -2721,7 +2800,11 @@ Specification by example refers to the use of relatively concrete examples to il
 BDD takes the position that you can turn an idea for a requirement into implemented, tested, production-ready code simply and effectively, as long as the requirement is specific enough that everyone know what's going on.
 
 BDD uses a story as the basic unit of functionality, and therefore of delivery. The acceptance criteria are an intrinsic part of the story.
->>>>>>> 6798954d47446f917b8a684f2ae3c159634a4962
+
+# DevOps - Project
+ ## DevOps Flow
+
+![DevOps Flow](https://i.ibb.co/rs2hGYz/Screen-Shot-2019-12-14-at-18-50-56.png)
 # Docker for Virtualization
  ## Containers are not VMs
 

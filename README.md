@@ -1721,6 +1721,82 @@ You start making tons of endpoints and requests to get a very specific set of th
 You end up with very custom endpoints, this becomes very difficult to mantain and ineficient, you may end up 'over serving' data.
 
 ![example3](https://i.ibb.co/kmX2QrV/Screen-Shot-2019-12-30-at-22-54-14.png)
+# Backend - GraphQL
+GraphQL is an open-soruce query language for APIs and a runtime for fullfilling those queries with existing data. Developed internally by Facebook in 2012 before publicly released in 2015. In 2018 project was moved to the newly established GraphQL Foundation, hosted by the non-profit Linux Foundation.
+
+> Graph is a data structure which contains nodes and relations between them (edges).
+
+It allows client to define the structure of data required, therefore preventing exessively large amounts of data being returne, but with implications for how effective web caching of query results can be. The flexibility and richness of the query language also adds complexity thay may not be worthwile for simple APIs.
+
+Consists of:
+* Type system
+* Query language and execution semantics
+* Static validation
+* Type introspection
+
+Supports:
+* Reading
+* Writing (mutating)
+* Subscribing to changes to data (realtime - WebHooks)
+
+Major GraphQL clients:
+* Apollo
+* Relay
+
+ #### Describe your data
+
+```graphQL
+type Project {
+    name: String
+    tagline: String
+    contributors: [User]
+}
+```
+
+APIs organize in terms of types and fields, not endpoints. Access the full capabilities of your data from a single endpoint.
+
+GraphQL uses types to ensure Apps only ask for what's possible and provide clear and helpful errors.
+
+ #### Ask for what you want
+
+```graphQL
+{
+    project(name: "GraphQL") {
+        tagline
+    }
+}
+```
+
+Get exactly what you need, nothing more and nothing less. GraphQL queries always return predictable results. Apps control the data they get, not the server.
+
+ #### Get many resources in a single request
+
+GraphQL queries access not just properties of one resource but also smoothly follow references between them, while typical REST APIs require loading from multiple URLs.
+
+ #### Evolve API without versions
+
+Add new fields and types to GraphQL API without impacting existing queries. Aging fields can be deprecated and hidden from tools. You can give continuous access to new features and encourage clearner, more maintanable server code.
+
+---
+
+
+ ### Practical Example vs RESTful Routing
+
+![Routing example](https://i.ibb.co/zGHC1w3/Screen-Shot-2020-01-02-at-16-42-48.png)
+
+Example query to find user's friend's companies:
+
+```graphQL
+query {
+    user(id: '23') {
+        friends {
+            company {
+                name
+            }
+        }
+    }
+}
+```
 # Devops
  #### Before DevOps
 

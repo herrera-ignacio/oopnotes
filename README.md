@@ -1542,6 +1542,12 @@ ITIL also provides good foundation for organizations that don't have any sort of
 Admins must be cautions about how management interprets and implements ITIL, however. It is an industry standard, but that doesn't mean it will solve internal personnel or compliance issues. Its implementation guides can make process development easier, but they don't necessarily account for more innovate processes or tecnhologies.
 
 ITIL's implementation requires staff time, training and expertise, so organizations must ensure that they have appropiate resources (and certified employees) before going through an ITIL implemetation.
+# Backend - Software Architecture
+Refers to the fundamental structures of a software system. Each structure comprises software elements, relations among them, and properties of both elements and relations. It works as a __blueprint__ for the system.
+
+Software architecture is about making __fundamental structural choices that are costly to change once implemented__.
+
+Documenting software architecture facilitates communication between stakeholders, captures early decisiones about the high-level design, and allows reuse of design components between projects.
 # Backend - HTTP
 Native HTTP protocol ([RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) defines eight actions, also known as HTTP verbs
 
@@ -1555,16 +1561,86 @@ Native HTTP protocol ([RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) defines 
 * CONNECT
 # Backend - REST
 * Representational State Transfer
-    * Key Principles
+    * Architectural Constraints
+    * Braindump HTTP-based REST
     * Goals
-* RESTful Routing
+* RESTful Routing Convention
     * Shortcomings
 
  # Representational State Transfer
 
-Back in __1999__, Roy Fielding defined a set of principles built around the HTTP and URI standards that give birth to _REST_.
+> Back in __1999__, Roy Fielding defined a set of principles built around the HTTP and URI standards that give birth to _REST_, previously those principles were known as the HTTP object model and used in designing HTTP 1.1 and URI standards. 
 
- ### Key Principles
+REST is a __software architectural__ style that defines a set of constraints to be used for creating Web Services, those are called RESTful Web services.
+
+RESTful Web Services allow requesting systems to access and manipulate textual representations of _Web Resources_ by using a __uniform and predefined set of stateless operations__. Other kinds of Web services, such as SOAP Web sercices, expose their own arbitrary sets of operations.
+
+__Web Resources__ have a abstract definition that encompasses every entity that can be identified, addressed or handled, in any way whatsoever on the Web. In a RESTful Web Service, requests made to a resource's __URI__ will elicit a response with a payload formatted.  The response can confirm that some alteration has been made to the stored resource, and provide hypertext links to other related resources or collections.
+
+When HTTP is used, as is most common, operations available are HTTP verbs.
+
+ ### Architectural Constraints
+
+If a system violates any of the 6 required constraints, it cannot be considered RESTful
+
+* Client-server architecture
+* Statelessness
+* Cacheability
+* Layered System
+* Code on demand (optional)
+* Uniform interface
+    * Resource identification in requests
+    * Resource manipulation through representations
+    * Self-descriptive messages
+    * HATEOAS: Hypermedia as the engine of application state
+
+ #### Client-Server architecture
+
+__Separation of concerns__. Seprating the user interface concerns from the data storage concerns improves the portability of user interfaces across multiple platforms and scalability by simplifying server components.
+
+ #### Statelessness
+
+Communication is constrainted by no __no client context being stored on the server between requests__. Each request contains all information necessary to service the request, and session state is held in the client. This can be transferred by the server to another service such as a database to maintain a persistent state for a period and allow authentication.
+
+ #### Cacheability
+
+Responses must define themselves as cacheable or not to prevent clients from getting stale (old) or inappropiate data in response to further requests.
+
+ #### Layered System
+
+Client cannot ordinarily tell whether it is connected directly to the end server, or to an intermediary along the way. If a proxy or load blaancer is placed between the client and server, it won't affect their communications. This improves system scalability and security.
+
+ #### Code on Demand (optional)
+
+Servers can temporarily extend or customize the functionality of a client by transferring executable code, for example with client-side scripts.
+
+ #### Uniform Interface
+
+Decouples the architecture, which enables each part to evolve independently.
+
+* __ Resource identification in requests __
+
+Individual resources are identified in requests, for example using URIs. Resources are conceptually separate from the representations that are returned to the client. For example, server could send data from its database as HTML, XML or as JSON, none of which are the server's internal representation.
+
+* __ Resource manipulation through representations __
+
+When a client holds a representation of a resource, including any metadata attached, it has enough information to modify or delete the resource. 
+
+* __ Self-descriptive messages __
+
+Each message includes enough information to describe how to process the message.
+
+* __ HATEOAS __
+
+Having accessed an initial URI for a RESTful app, a client should then be able to use server-provided links dynamically to discover all the available actions and resources it needs.
+
+Server responds with hyperlinks to other actions that are currently available. There is no need for the client to be hard-coded with information regarding the structure or dynamics of the application.
+
+---
+
+ ### Braindump HTTP-based REST
+
+We assume HTTP is used as standard communication protocol, but you may use any other one.
 
 1. Everything is a resource
 2. Each resource is identifiable by a __unique identifier__ (URI)
@@ -1586,18 +1662,20 @@ Multiple representations are available, it's up to the caller to specify desired
 
 * __Visibility__
 
-Every aspect of it should be self-descriptive and follow natural HTTP language
+Communication between components by service agent should be self-descriptive and follow natural HTTP language. 
 
 * __Reliability__
 
-Use HTTP safe (GET) and indempotent (GET, PUT, DELETE) in the REST context
+Use HTTP safe (GET) and indempotent (GET, PUT, DELETE) in the REST context. Should have resistance to failure at the system leven in the presence of failures within components, connectors or data
 
 * __Scalability and Performance__
+
+Separation of concerns simplifies component implementation, reduces complexity of connector semantics, and increases scalability of pure server components.
 
 You want to serve all your clients in an acceptable amount of time and keep application running, preventing Denial of Service (Dos) caused by a huge amount of incoming request. Stateless is crucial, as scaling your application would require to put a load balancer or bring another instance in your cloud environment.
 
 
- ### RESTful Routing
+ ### RESTful Routing Convention
 
 Given a collection of records on a server, there should be a uniform URL and HTTP request method used to utilize that collection of records.
 

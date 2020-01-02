@@ -1548,6 +1548,24 @@ Refers to the fundamental structures of a software system. Each structure compri
 Software architecture is about making __fundamental structural choices that are costly to change once implemented__.
 
 Documenting software architecture facilitates communication between stakeholders, captures early decisiones about the high-level design, and allows reuse of design components between projects.
+
+ ### Architectural styles and patterns
+
+An __architectural pattern__ is a general, reusable solution to a commonly occurring problem in software architecture within a given context. Those are often documented as software design patterns.
+
+A software __architecture style__ is a specific method of construction that defines a family of systems in terms of a pattern of structural organization, a vocabulary of components and connectors, with constraints on how they can be combined. Architectural styles are _reusable packages_ of design decisions and constraints that are applied to an architecture to induce chosen desirable qualities.
+
+ #### Software Architecture and Agile Development
+
+There are concerns that software architecture leads to too much Big Design Up Front, especially among proponents of agile software development. Methods have been developed to balance the trade-offs of up-front design and agility, including the agile method __DSDM (Dynamic Systems Development Method)__ which mandates a "Foundation" phase during which "just enough" architectural foundations are laid.
+
+![DSDM Phases](https://upload.wikimedia.org/wikipedia/commons/c/c3/DSDM_Atern_Project_Phases.png)
+
+ #### Software Architecture Erosion/Decay
+
+Refers to the gap observed between planned and actual architecture of a software system as realized in its implementation, which do not fully achieve the architecture-as-planned or otherwise violate constraints or principles of that architecture.
+
+This gap between planned and actual architectures is sometimes understood in terms of the notion of __technical debt__.
 # Backend - HTTP
 Native HTTP protocol ([RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) defines eight actions, also known as HTTP verbs
 
